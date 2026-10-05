@@ -1,6 +1,0 @@
-__pycache__/
-*.pyc
-
-training_data.csv
-stock_data_500.csv
-stock_data_100.csv

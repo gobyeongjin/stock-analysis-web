@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+analysis/venv/
+
+# Local datasets
+stock_data_100.csv
+training_data.csv
+training_data_v2.csv
+analysis/stock_data_100.csv
+analysis/stock_data_500.csv
