@@ -1,4 +1,6 @@
 import pandas as pd
+import joblib
+import os
 
 from sklearn.metrics import (
     accuracy_score,
@@ -106,6 +108,18 @@ print("Random Forest 학습 중...")
 model.fit(X_train, y_train)
 
 print("학습 완료!")
+
+# ==========================================
+# 모델 저장
+# ==========================================
+
+os.makedirs("model", exist_ok=True)
+
+model_path = "model/random_forest.pkl"
+
+joblib.dump(model, model_path)
+
+print(f"모델 저장 완료: {model_path}")
 
 
 # ==========================================

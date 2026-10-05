@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>국내 주식 분석</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f6f8;
+            color: #222;
+        }
+
+        .container {
+            width: 900px;
+            max-width: 90%;
+            margin: 40px auto;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           검색 영역
+        ========================= */
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #888;
+        }
+
+        .search-box button {
+            padding: 14px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            opacity: 0.8;
+        }
+
+
+        /* =========================
+           검색 결과
+        ========================= */
+
+        .search-results {
+            position: absolute;
+            top: 52px;
+            left: 0;
+            right: 0;
+
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+
+            max-height: 300px;
+            overflow-y: auto;
+
+            display: none;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-item {
+            padding: 12px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+
+        .search-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-item:hover {
+            background: #f5f5f5;
+        }
+
+        .search-item-name {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .search-item-ticker {
+            margin-top: 4px;
+            color: #777;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           카드
+        ========================= */
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+
+            box-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+
+        /* =========================
+           기본 정보
+        ========================= */
+
+        .stock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stock-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           지표
+        ========================= */
+
+        .indicators {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .indicator {
+            background: #f7f7f7;
+            padding: 18px;
+            border-radius: 8px;
+        }
+
+        .indicator-title {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .indicator-value {
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           AI
+        ========================= */
+
+        .ai-result {
+            text-align: center;
+        }
+
+        .ai-probability {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .ai-status {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           AI 관심 종목
+        ========================= */
+
+        .ranking-description {
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        .ranking-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .ranking-button:hover {
+            opacity: 0.8;
+        }
+
+        .ranking-info {
+            margin-top: 15px;
+            padding: 12px;
+            background: #f7f7f7;
+            border-radius: 8px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .ranking-item {
+            padding: 15px 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ranking-item:last-child {
+            border-bottom: none;
+        }
+
+        .ranking-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ranking-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .ranking-ticker {
+            color: #777;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .ranking-score {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .ranking-grade {
+            color: #666;
+            font-size: 13px;
+            margin-top: 4px;
+            text-align: right;
+        }
+
+        .no-ranking {
+            padding: 20px 0;
+            color: #777;
+        }
+
+
+        /* =========================
+           차트
+        ========================= */
+
+        canvas {
+            width: 100%;
+            height: 350px;
+        }
+
+
+        /* =========================
+           메시지
+        ========================= */
+
+        #message {
+            margin: 15px 0;
+            color: #d33;
+        }
+
+
+        /* =========================
+           모바일
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .indicators {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stock-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                width: 100%;
+            }
+
+            .ranking-row {
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>📈 국내 주식 분석</h1>
+
+
+    <!-- =========================
+         검색
+    ========================= -->
+
+    <div class="search-box">
+
+        <div class="search-wrapper">
+
+            <input
+                id="stockInput"
+                type="text"
+                placeholder="종목명을 입력하세요 (예: 삼성전자)"
+                autocomplete="off"
+            >
+
+            <div
+                id="searchResults"
+                class="search-results"
+            ></div>
+
+        </div>
+
+
+        <button onclick="analyzeStock()">
+            분석
+        </button>
+
+    </div>
+
+
+    <div id="message"></div>
+
+
+    <!-- =========================
+         기본 정보
+    ========================= -->
+
+    <div class="card">
+
+        <div class="stock-header">
+
+            <div>
+
+                <div
+                    class="stock-name"
+                    id="stockName"
+                >
+                    -
+                </div>
+
+                <div id="ticker">
+                    -
+                </div>
+
+            </div>
+
+
+            <div
+                class="price"
+                id="currentPrice"
+            >
+                -
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         차트
+    ========================= -->
+
+    <div class="card">
+
+        <h2>주가 차트</h2>
+
+        <canvas id="stockChart"></canvas>
+
+    </div>
+
+
+    <!-- =========================
+         기술적 지표
+    ========================= -->
+
+    <div class="card">
+
+        <h2>기술적 지표</h2>
+
+        <div class="indicators">
+
+
+            <div class="indicator">
+
+                <div class="indicator-title">
+                    MA20
+                </div>
+
+                <div
+                    class="indicator-value"
+                    id="ma20"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="indicator">
+
+                <div class="indicator-title">
+                    MA60
+                </div>
+
+                <div
+                    class="indicator-value"
+                    id="ma60"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="indicator">
+
+                <div class="indicator-title">
+                    RSI
+                </div>
+
+                <div
+                    class="indicator-value"
+                    id="rsi"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="indicator">
+
+                <div class="indicator-title">
+                    거래량 비율
+                </div>
+
+                <div
+                    class="indicator-value"
+                    id="volumeRatio"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="indicator">
+
+                <div class="indicator-title">
+                    5일 수익률
+                </div>
+
+                <div
+                    class="indicator-value"
+                    id="return5d"
+                >
+                    -
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         AI 분석
+    ========================= -->
+
+    <div class="card ai-result">
+
+        <h2>🤖 AI 분석</h2>
+
+        <div>
+            AI 상승 신호 점수
+        </div>
+
+        <div
+            class="ai-probability"
+            id="aiProbability"
+        >
+            -
+        </div>
+
+        <div
+            class="ai-status"
+            id="aiStatus"
+        >
+            -
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         AI 관심 종목
+    ========================= -->
+
+    <div class="card">
+
+        <h2>🔥 오늘의 AI 관심 종목</h2>
+
+        <p class="ranking-description">
+            500개 종목 중 AI Score가 높은 종목입니다.
+        </p>
+
+        <button
+            class="ranking-button"
+            onclick="loadRanking()"
+        >
+            AI 종목 분석
+        </button>
+
+
+        <div class="ranking-info">
+
+            백테스트 기준:
+            <strong>AI Score 80% 이상</strong>
+            종목의 5일 내 +10% 도달률은
+            <strong>59.72%</strong>였습니다.
+            <br>
+            ※ 과거 테스트 데이터 기준이며 미래 수익을 보장하지 않습니다.
+
+        </div>
+
+
+        <div id="rankingList"></div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   기본 설정
+========================= */
+
+const API_BASE =
+    "http://127.0.0.1:8000";
+
+
+let STOCK_LIST = [];
+
+
+/* =========================
+   종목 목록 가져오기
+========================= */
+
+async function loadStockList() {
+
+    const response =
+        await fetch(
+            `${API_BASE}/api/stocks`
+        );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            "종목 목록을 가져오지 못했습니다."
+        );
+
+    }
+
+
+    STOCK_LIST =
+        await response.json();
+
+
+    console.log(
+        "불러온 종목 수:",
+        STOCK_LIST.length
+    );
+}
+
+
+/* =========================
+   검색 결과 표시
+========================= */
+
+function showSearchResults(keyword) {
+
+    const results =
+        document.getElementById(
+            "searchResults"
+        );
+
+
+    results.innerHTML = "";
+
+
+    if (!keyword) {
+
+        results.style.display = "none";
+
+        return;
+    }
+
+
+    const filteredStocks =
+        STOCK_LIST
+            .filter(stock =>
+                stock.name
+                    .toLowerCase()
+                    .includes(
+                        keyword.toLowerCase()
+                    )
+            )
+            .slice(0, 10);
+
+
+    if (filteredStocks.length === 0) {
+
+        results.style.display = "none";
+
+        return;
+    }
+
+
+    filteredStocks.forEach(stock => {
+
+        const item =
+            document.createElement("div");
+
+
+        item.className =
+            "search-item";
+
+
+        item.innerHTML = `
+            <div class="search-item-name">
+                ${stock.name}
+            </div>
+
+            <div class="search-item-ticker">
+                ${stock.ticker}
+            </div>
+        `;
+
+
+        item.addEventListener(
+            "click",
+            () => {
+
+                document.getElementById(
+                    "stockInput"
+                ).value = stock.name;
+
+
+                results.style.display =
+                    "none";
+
+            }
+        );
+
+
+        results.appendChild(item);
+
+    });
+
+
+    results.style.display = "block";
+}
+
+
+/* =========================
+   검색창 입력
+========================= */
+
+document
+    .getElementById("stockInput")
+    .addEventListener(
+        "input",
+        function () {
+
+            showSearchResults(
+                this.value.trim()
+            );
+
+        }
+    );
+
+
+/* =========================
+   검색창 클릭
+========================= */
+
+document
+    .getElementById("stockInput")
+    .addEventListener(
+        "focus",
+        function () {
+
+            if (this.value.trim()) {
+
+                showSearchResults(
+                    this.value.trim()
+                );
+
+            }
+
+        }
+    );
+
+
+/* =========================
+   바깥 클릭 시 검색 결과 닫기
+========================= */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        const wrapper =
+            document.querySelector(
+                ".search-wrapper"
+            );
+
+
+        if (!wrapper.contains(event.target)) {
+
+            document.getElementById(
+                "searchResults"
+            ).style.display = "none";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   종목 분석
+========================= */
+
+async function analyzeStock() {
+
+    const stockName =
+        document
+            .getElementById("stockInput")
+            .value
+            .trim();
+
+
+    const message =
+        document.getElementById(
+            "message"
+        );
+
+
+    const stockInfo =
+        STOCK_LIST.find(
+            stock =>
+                stock.name === stockName
+        );
+
+
+    if (!stockInfo) {
+
+        message.textContent =
+            "검색 결과에서 종목을 선택해주세요.";
+
+        return;
+    }
+
+
+    const ticker =
+        stockInfo.ticker;
+
+
+    message.textContent =
+        "데이터를 불러오는 중...";
+
+
+    try {
+
+
+        /* =========================
+           AI 분석 API
+        ========================= */
+
+        const stockResponse =
+            await fetch(
+                `${API_BASE}/api/stock/${ticker}`
+            );
+
+
+        if (!stockResponse.ok) {
+
+            throw new Error(
+                "AI 분석 데이터를 가져오지 못했습니다."
+            );
+
+        }
+
+
+        const stock =
+            await stockResponse.json();
+
+
+        /* =========================
+           기본 정보
+        ========================= */
+
+        document.getElementById(
+            "stockName"
+        ).textContent =
+            stockInfo.name;
+
+
+        document.getElementById(
+            "ticker"
+        ).textContent =
+            ticker;
+
+
+        document.getElementById(
+            "currentPrice"
+        ).textContent =
+            formatNumber(
+                stock.current_price
+            ) + "원";
+
+
+        /* =========================
+           기술적 지표
+        ========================= */
+
+        document.getElementById(
+            "ma20"
+        ).textContent =
+            formatNumber(
+                stock.ma20
+            ) + "원";
+
+
+        document.getElementById(
+            "ma60"
+        ).textContent =
+            formatNumber(
+                stock.ma60
+            ) + "원";
+
+
+        document.getElementById(
+            "rsi"
+        ).textContent =
+            stock.rsi.toFixed(2);
+
+
+        document.getElementById(
+            "volumeRatio"
+        ).textContent =
+            stock.volume_ratio.toFixed(2)
+            + "배";
+
+
+        document.getElementById(
+            "return5d"
+        ).textContent =
+            stock.return_5d.toFixed(2)
+            + "%";
+
+
+        /* =========================
+           AI 결과
+        ========================= */
+
+        const score =
+            stock.ai_probability * 100;
+
+
+        document.getElementById(
+            "aiProbability"
+        ).textContent =
+            score.toFixed(2)
+            + "%";
+
+
+        let status = "일반";
+
+        if (score >= 80) {
+
+            status =
+                "🔥 강한 관심";
+
+        } else if (score >= 70) {
+
+            status =
+                "높은 관심";
+
+        } else if (score >= 60) {
+
+            status =
+                "관심";
+
+        } else if (score >= 50) {
+
+            status =
+                "관찰";
+
+        }
+
+
+        document.getElementById(
+            "aiStatus"
+        ).textContent =
+            status;
+
+
+        /* =========================
+           차트 API
+        ========================= */
+
+        const chartResponse =
+            await fetch(
+                `${API_BASE}/api/stock/${ticker}/chart`
+            );
+
+
+        if (!chartResponse.ok) {
+
+            throw new Error(
+                "차트 데이터를 가져오지 못했습니다."
+            );
+
+        }
+
+
+        const chart =
+            await chartResponse.json();
+
+
+        /* =========================
+           차트 그리기
+        ========================= */
+
+        drawChart(
+            chart.data
+        );
+
+
+        message.textContent = "";
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        message.textContent =
+            "데이터를 불러오는 중 오류가 발생했습니다: "
+            + error.message;
+
+    }
+
+}
+
+
+/* =========================
+   AI 종목 랭킹
+========================= */
+
+async function loadRanking() {
+
+    const rankingList =
+        document.getElementById(
+            "rankingList"
+        );
+
+
+    rankingList.innerHTML =
+        "<p>500개 종목을 분석하는 중입니다...</p>";
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_BASE}/api/stocks/ranking`
+            );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "AI 종목 분석에 실패했습니다."
+            );
+
+        }
+
+
+        const result =
+            await response.json();
+
+
+        /*
+        AI Score 80% 이상 종목 우선
+        */
+
+        const strongStocks =
+            result.stocks.filter(
+                stock =>
+                    stock.ai_score >= 0.80
+            );
+
+
+        /*
+        80% 이상 종목이 있으면
+        해당 종목만 표시
+
+        없으면 상위 10개 표시
+        */
+
+        const displayStocks =
+            strongStocks.length > 0
+                ? strongStocks
+                : result.stocks.slice(0, 10);
+
+
+        rankingList.innerHTML = "";
+
+
+        if (displayStocks.length === 0) {
+
+            rankingList.innerHTML =
+                `
+                <div class="no-ranking">
+                    분석 가능한 종목이 없습니다.
+                </div>
+                `;
+
+            return;
+        }
+
+
+        displayStocks.forEach(
+            (stock, index) => {
+
+                const score =
+                    stock.ai_score * 100;
+
+
+                let grade =
+                    "일반";
+
+
+                if (score >= 80) {
+
+                    grade =
+                        "🔥 강한 관심";
+
+                } else if (score >= 70) {
+
+                    grade =
+                        "높은 관심";
+
+                } else if (score >= 60) {
+
+                    grade =
+                        "관심";
+
+                } else if (score >= 50) {
+
+                    grade =
+                        "관찰";
+
+                }
+
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                item.className =
+                    "ranking-item";
+
+
+                item.innerHTML = `
+
+                    <div class="ranking-row">
+
+                        <div>
+
+                            <div class="ranking-name">
+                                ${index + 1}.
+                                ${stock.name}
+                            </div>
+
+                            <div class="ranking-ticker">
+                                ${stock.ticker}
+                            </div>
+
+                        </div>
+
+
+                        <div>
+
+                            <div class="ranking-score">
+                                ${score.toFixed(2)}%
+                            </div>
+
+                            <div class="ranking-grade">
+                                ${grade}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                rankingList.appendChild(
+                    item
+                );
+
+            }
+        );
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        rankingList.innerHTML =
+            `
+            <p style="color:red">
+                ${error.message}
+            </p>
+            `;
+
+    }
+
+}
+
+
+/* =========================
+   숫자 표시
+========================= */
+
+function formatNumber(number) {
+
+    return Math
+        .round(number)
+        .toLocaleString("ko-KR");
+
+}
+
+
+/* =========================
+   Canvas 차트
+========================= */
+
+function drawChart(data) {
+
+    const canvas =
+        document.getElementById(
+            "stockChart"
+        );
+
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    canvas.width =
+        canvas.clientWidth;
+
+
+    canvas.height =
+        350;
+
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    if (data.length === 0) {
+
+        return;
+
+    }
+
+
+    const prices =
+        data.map(
+            item => item.close
+        );
+
+
+    const maxPrice =
+        Math.max(...prices);
+
+
+    const minPrice =
+        Math.min(...prices);
+
+
+    const padding =
+        30;
+
+
+    const width =
+        canvas.width -
+        padding * 2;
+
+
+    const height =
+        canvas.height -
+        padding * 2;
+
+
+    ctx.beginPath();
+
+
+    prices.forEach(
+        (price, index) => {
+
+            const x =
+                padding +
+                (
+                    index /
+                    (prices.length - 1)
+                ) *
+                width;
+
+
+            /*
+            가격이 모두 같은 경우
+            0으로 나누는 문제 방지
+            */
+
+            let y;
+
+            if (maxPrice === minPrice) {
+
+                y =
+                    canvas.height / 2;
+
+            } else {
+
+                y =
+                    padding +
+                    (
+                        1 -
+                        (
+                            price -
+                            minPrice
+                        ) /
+                        (
+                            maxPrice -
+                            minPrice
+                        )
+                    ) *
+                    height;
+
+            }
+
+
+            if (index === 0) {
+
+                ctx.moveTo(
+                    x,
+                    y
+                );
+
+            } else {
+
+                ctx.lineTo(
+                    x,
+                    y
+                );
+
+            }
+
+        }
+    );
+
+
+    ctx.strokeStyle =
+        "#333";
+
+
+    ctx.lineWidth =
+        2;
+
+
+    ctx.stroke();
+
+}
+
+
+/* =========================
+   초기 실행
+========================= */
+
+async function init() {
+
+    try {
+
+        await loadStockList();
+
+
+        /*
+        처음에는 삼성전자를
+        기본 선택
+        */
+
+        document.getElementById(
+            "stockInput"
+        ).value =
+            "삼성전자";
+
+
+        await analyzeStock();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+
+        document.getElementById(
+            "message"
+        ).textContent =
+            "종목 목록을 불러오지 못했습니다: "
+            + error.message;
+
+    }
+
+}
+
+
+init();
+
+
+</script>
+
+</body>
+
+</html>
