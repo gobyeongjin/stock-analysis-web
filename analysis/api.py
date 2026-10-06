@@ -42,8 +42,13 @@ app.add_middleware(
 
 @app.get("/api/stocks")
 def get_stocks():
+
     try:
-        data = pd.read_csv("stock_data_500.csv")
+
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        CSV_PATH = os.path.join(BASE_DIR, "stock_data_500.csv")
+
+        data = pd.read_csv(CSV_PATH)
 
         stocks = (
             data[["Stock_Name", "Ticker"]]
