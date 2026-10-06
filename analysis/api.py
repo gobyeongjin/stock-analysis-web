@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -17,7 +18,9 @@ app = FastAPI(
 )
 @app.get("/")
 def home():
-    return FileResponse("frontend/index.html")
+    return FileResponse(
+        os.path.join(os.path.dirname(__file__), "frontend", "index.html")
+    )
 
 
 # ==========================================
