@@ -1,15 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
 from predict import predict_stock
 
 import pandas as pd
-
-from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-
-from predict import predict_stock
-
 
 # ==========================================
 # FastAPI 앱 생성
@@ -20,6 +15,9 @@ app = FastAPI(
     description="주가 데이터 및 AI 분석 결과를 제공하는 API",
     version="1.0.0"
 )
+@app.get("/")
+def home():
+    return FileResponse("frontend/index.html")
 
 
 # ==========================================
@@ -39,7 +37,6 @@ app.add_middleware(
 # 기본 API
 # ==========================================
 
-@app.get("/")
 @app.get("/api/stocks")
 def get_stocks():
     try:
@@ -114,11 +111,6 @@ def get_stock_ranking():
             status_code=500,
             detail=str(e)
         )
-    
-def root():
-    return {
-        "message": "Stock Analysis API is running"
-    }
 
 
 # ==========================================
