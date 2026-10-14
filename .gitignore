@@ -12,3 +12,9 @@ training_data.csv
 training_data_v2.csv
 analysis/stock_data_100.csv
 analysis/stock_data_500.csv
+
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
