@@ -13,13 +13,13 @@ load_dotenv(BASE_DIR / ".env")
 
 APP_KEY = os.getenv("KIWOOM_APP_KEY")
 SECRET_KEY = os.getenv("KIWOOM_SECRET_KEY")
-BASE_URL = "https://api.kiwoom.com"
+BASE_URL = "https://mockapi.kiwoom.com"
 
 START_YEAR, START_MONTH = 2021, 10
 END_YEAR, END_MONTH = 2026, 10
 
 INPUT_CSV = BASE_DIR / "analysis" / "stock_data_500.csv"
-OUTPUT_CSV = BASE_DIR / "lending_multi.csv"
+OUTPUT_CSV = BASE_DIR / "lending_100.csv"
 
 def get_access_token():
     response = requests.post(
@@ -102,7 +102,7 @@ def main():
             except Exception as exc:
                 print(f"  {year}-{month:02d} 요청 실패: {exc}")
 
-            time.sleep(0.25)
+            time.sleep(1.5)
 
             if month == 12:
                 year += 1

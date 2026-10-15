@@ -1,0 +1,6 @@
+﻿Filter,Avg_Return_Pct,Avg_MDD_Pct,Positive_Folds,Total_Trades
+BASE_A,20.56,-29.86,4,615
+MA60_25,8.14,-26.28,4,606
+MA60_50,13.72,-28.36,4,609
+MA60_75,19.6,-29.31,4,617
+MA60_OFF,12.3,-23.92,4,479

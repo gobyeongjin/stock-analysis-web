@@ -8,7 +8,11 @@ from sklearn.metrics import average_precision_score
 
 BASE_DIR = Path(__file__).resolve().parent
 TRAIN_FILE = BASE_DIR / "training_data_v4_lending.csv"
-PRICE_FILE = BASE_DIR / "stock_data_500.csv"
+
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+PRICE_FILE = BASE_DIR / "analysis" / "stock_data_500.csv"
 
 INITIAL_CASH = 1_000_000.0
 MAX_POSITIONS = 5
@@ -528,7 +532,7 @@ from sklearn.metrics import average_precision_score
 
 BASE_DIR = Path(__file__).resolve().parent
 TRAIN_FILE = BASE_DIR / "training_data_v4_lending.csv"
-PRICE_FILE = BASE_DIR / "stock_data_500.csv"
+PRICE_FILE = BASE_DIR / "analysis" / "stock_data_500.csv"
 
 INITIAL_CASH = 1_000_000.0
 MAX_POSITIONS = 5
