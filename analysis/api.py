@@ -197,3 +197,9 @@ def get_stock_chart(ticker: str):
             status_code=500,
             detail=str(e)
         )
+
+from screener_api import router as screener_router
+app.include_router(screener_router)
+
+from screener_api import pages_router
+app.include_router(pages_router)
