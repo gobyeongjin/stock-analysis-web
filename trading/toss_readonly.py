@@ -63,3 +63,25 @@ class TossReadOnlyAPI:
             "/api/v1/holdings",
             account_seq=account_seq,
         )
+
+
+    def get_prices(self, symbols):
+        """국내 주식 현재가 조회. 주문 기능 없음."""
+        if isinstance(symbols, str):
+            symbols = [symbols]
+
+        if not self.token:
+            self.authenticate()
+
+        response = requests.get(
+            f"{self.BASE_URL}/api/v1/prices",
+            headers={
+                "Authorization": f"Bearer {self.token}"
+            },
+            params={
+                "symbols": ",".join(symbols)
+            },
+            timeout=15,
+        )
+        response.raise_for_status()
+        return response.json()

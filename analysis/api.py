@@ -203,3 +203,42 @@ app.include_router(screener_router)
 
 from screener_api import pages_router
 app.include_router(pages_router)
+
+# ==========================================
+# AI 추천 TOP 10 API
+# ==========================================
+
+import json
+from pathlib import Path
+
+@app.get("/api/ai/top10")
+def get_ai_top10():
+    path = Path(__file__).resolve().parent / "ai_top10.json"
+
+    if not path.exists():
+        raise HTTPException(
+            status_code=503,
+            detail="AI 추천 결과가 없습니다."
+        )
+
+    with path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    return {
+        "as_of": data["as_of"],
+        "model": data["model"],
+        "target": data["target"],
+        "count": len(data["top10"]),
+        "stocks": data["top10"],
+        "note": data["note"]
+    }
+
+@app.get("/ai-top10", include_in_schema=False)
+def ai_top10_page():
+    return FileResponse(
+        os.path.join(
+            os.path.dirname(__file__),
+            "frontend",
+            "ai_top10.html"
+        )
+    )
