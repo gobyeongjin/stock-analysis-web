@@ -242,3 +242,107 @@ def ai_top10_page():
             "ai_top10.html"
         )
     )
+
+
+
+# ==========================================
+# 18개 특징 AI 모델 - 개별 종목 검색
+# ==========================================
+
+@app.get("/api/ai/search")
+def search_ai_stock(q: str = ""):
+    import json
+    from pathlib import Path
+
+    path = Path(__file__).resolve().parent / "ai_top10.json"
+
+    if not path.exists():
+        raise HTTPException(
+            status_code=503,
+            detail="AI 분석 데이터가 없습니다. TOP 10을 먼저 생성해 주세요."
+        )
+
+    with path.open("r", encoding="utf-8") as f:
+        payload = json.load(f)
+
+    query = q.strip().lower()
+
+    if not query:
+        raise HTTPException(
+            status_code=400,
+            detail="종목명 또는 종목코드를 입력해 주세요."
+        )
+
+    stocks = payload.get("all_stocks", [])
+
+    # 정확히 일치하는 종목 우선
+    exact = [
+        s for s in stocks
+        if s["name"].lower() == query
+        or s["ticker"].lower() == query
+        or s["ticker"].split(".")[0].lower() == query
+    ]
+
+    # 일부만 입력해도 검색
+    partial = [
+        s for s in stocks
+        if query in s["name"].lower()
+        or query in s["ticker"].lower()
+    ]
+
+    matches = exact if exact else partial
+
+    if not matches:
+        raise HTTPException(
+            status_code=404,
+            detail="검색 결과가 없습니다. 분석 대상 또는 거래대금 조건을 확인해 주세요."
+        )
+
+    results = []
+
+    for stock in matches[:20]:
+        results.append({
+            "name": stock["name"],
+            "ticker": stock["ticker"],
+            "ai_score": round(
+                stock["ai_probability"] * 100, 2
+            ),
+            "current_price": stock["close"],
+            "rsi": stock["rsi"],
+            "return_5d_pct": stock["return_5d_pct"],
+            "volume_ratio": stock["volume_ratio"],
+        })
+
+    return {
+        "as_of": payload.get("as_of"),
+        "count": len(results),
+        "stocks": results,
+        "note": payload.get("note"),
+    }
+
+
+# Portfolio API
+from portfolio_api import router as portfolio_router
+app.include_router(portfolio_router)
+
+
+
+# ==========================================
+# My Portfolio 웹페이지
+# ==========================================
+
+@app.get("/portfolio", include_in_schema=False)
+def portfolio_page():
+    return FileResponse(
+        str(Path(__file__).resolve().parent / "frontend" / "portfolio.html")
+    )
+
+
+# Portfolio valuation API
+from portfolio_valuation import router as valuation_router
+app.include_router(valuation_router)
+
+
+# Portfolio live quotes
+from portfolio_live import router as live_router
+app.include_router(live_router)
