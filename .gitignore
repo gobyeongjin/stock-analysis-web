@@ -21,3 +21,4 @@ analysis/stock_data_500.csv
 # Large local training datasets
 analysis/training_data_v*.csv
 lending_100.csv
+/trading/account_snapshots/
