@@ -1,0 +1,4831 @@
+{
+  "as_of": "2026-11-02",
+  "model": "random_forest_strategy_b_500.pkl",
+  "target": "5거래일 이내 +10% 도달 여부",
+  "eligible_count": 472,
+  "top10": [
+    {
+      "ticker": "214370.KQ",
+      "name": "케어젠",
+      "close": 27650.0,
+      "ai_probability": 0.857653,
+      "rsi": 19.5,
+      "return_5d_pct": -17.46,
+      "volume_ratio": 6.89,
+      "avg_turnover_20d": 3176444322
+    },
+    {
+      "ticker": "052400.KQ",
+      "name": "코나아이",
+      "close": 20200.0,
+      "ai_probability": 0.820533,
+      "rsi": 20.56,
+      "return_5d_pct": -10.49,
+      "volume_ratio": 0.92,
+      "avg_turnover_20d": 1684912811
+    },
+    {
+      "ticker": "009830.KS",
+      "name": "한화솔루션",
+      "close": 23650.0,
+      "ai_probability": 0.818278,
+      "rsi": 28.44,
+      "return_5d_pct": -10.75,
+      "volume_ratio": 1.07,
+      "avg_turnover_20d": 92483720390
+    },
+    {
+      "ticker": "322000.KS",
+      "name": "HD현대에너지솔루션",
+      "close": 81700.0,
+      "ai_probability": 0.810514,
+      "rsi": 15.06,
+      "return_5d_pct": -15.16,
+      "volume_ratio": 1.02,
+      "avg_turnover_20d": 32361455550
+    },
+    {
+      "ticker": "310210.KQ",
+      "name": "보로노이",
+      "close": 104500.0,
+      "ai_probability": 0.809492,
+      "rsi": 40.09,
+      "return_5d_pct": -14.55,
+      "volume_ratio": 0.77,
+      "avg_turnover_20d": 8151237635
+    },
+    {
+      "ticker": "011070.KS",
+      "name": "LG이노텍",
+      "close": 327500.0,
+      "ai_probability": 0.805983,
+      "rsi": 15.08,
+      "return_5d_pct": -10.76,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 107489316025
+    },
+    {
+      "ticker": "053800.KQ",
+      "name": "안랩",
+      "close": 116200.0,
+      "ai_probability": 0.797953,
+      "rsi": 66.52,
+      "return_5d_pct": 44.89,
+      "volume_ratio": 1.52,
+      "avg_turnover_20d": 40473401970
+    },
+    {
+      "ticker": "119850.KQ",
+      "name": "지엔씨에너지",
+      "close": 33300.0,
+      "ai_probability": 0.794186,
+      "rsi": 34.88,
+      "return_5d_pct": -7.88,
+      "volume_ratio": 0.39,
+      "avg_turnover_20d": 19947531842
+    },
+    {
+      "ticker": "030530.KQ",
+      "name": "원익홀딩스",
+      "close": 32350.0,
+      "ai_probability": 0.790184,
+      "rsi": 70.34,
+      "return_5d_pct": 37.37,
+      "volume_ratio": 4.33,
+      "avg_turnover_20d": 54268760682
+    },
+    {
+      "ticker": "425420.KQ",
+      "name": "티에프이",
+      "close": 82600.0,
+      "ai_probability": 0.787982,
+      "rsi": 65.49,
+      "return_5d_pct": 34.31,
+      "volume_ratio": 0.72,
+      "avg_turnover_20d": 15488257905
+    }
+  ],
+  "all_stocks": [
+    {
+      "ticker": "214370.KQ",
+      "name": "케어젠",
+      "close": 27650.0,
+      "ai_probability": 0.857653,
+      "rsi": 19.5,
+      "return_5d_pct": -17.46,
+      "volume_ratio": 6.89,
+      "avg_turnover_20d": 3176444322
+    },
+    {
+      "ticker": "052400.KQ",
+      "name": "코나아이",
+      "close": 20200.0,
+      "ai_probability": 0.820533,
+      "rsi": 20.56,
+      "return_5d_pct": -10.49,
+      "volume_ratio": 0.92,
+      "avg_turnover_20d": 1684912811
+    },
+    {
+      "ticker": "009830.KS",
+      "name": "한화솔루션",
+      "close": 23650.0,
+      "ai_probability": 0.818278,
+      "rsi": 28.44,
+      "return_5d_pct": -10.75,
+      "volume_ratio": 1.07,
+      "avg_turnover_20d": 92483720390
+    },
+    {
+      "ticker": "322000.KS",
+      "name": "HD현대에너지솔루션",
+      "close": 81700.0,
+      "ai_probability": 0.810514,
+      "rsi": 15.06,
+      "return_5d_pct": -15.16,
+      "volume_ratio": 1.02,
+      "avg_turnover_20d": 32361455550
+    },
+    {
+      "ticker": "310210.KQ",
+      "name": "보로노이",
+      "close": 104500.0,
+      "ai_probability": 0.809492,
+      "rsi": 40.09,
+      "return_5d_pct": -14.55,
+      "volume_ratio": 0.77,
+      "avg_turnover_20d": 8151237635
+    },
+    {
+      "ticker": "011070.KS",
+      "name": "LG이노텍",
+      "close": 327500.0,
+      "ai_probability": 0.805983,
+      "rsi": 15.08,
+      "return_5d_pct": -10.76,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 107489316025
+    },
+    {
+      "ticker": "053800.KQ",
+      "name": "안랩",
+      "close": 116200.0,
+      "ai_probability": 0.797953,
+      "rsi": 66.52,
+      "return_5d_pct": 44.89,
+      "volume_ratio": 1.52,
+      "avg_turnover_20d": 40473401970
+    },
+    {
+      "ticker": "119850.KQ",
+      "name": "지엔씨에너지",
+      "close": 33300.0,
+      "ai_probability": 0.794186,
+      "rsi": 34.88,
+      "return_5d_pct": -7.88,
+      "volume_ratio": 0.39,
+      "avg_turnover_20d": 19947531842
+    },
+    {
+      "ticker": "030530.KQ",
+      "name": "원익홀딩스",
+      "close": 32350.0,
+      "ai_probability": 0.790184,
+      "rsi": 70.34,
+      "return_5d_pct": 37.37,
+      "volume_ratio": 4.33,
+      "avg_turnover_20d": 54268760682
+    },
+    {
+      "ticker": "425420.KQ",
+      "name": "티에프이",
+      "close": 82600.0,
+      "ai_probability": 0.787982,
+      "rsi": 65.49,
+      "return_5d_pct": 34.31,
+      "volume_ratio": 0.72,
+      "avg_turnover_20d": 15488257905
+    },
+    {
+      "ticker": "046890.KQ",
+      "name": "서울반도체",
+      "close": 11150.0,
+      "ai_probability": 0.784459,
+      "rsi": 63.22,
+      "return_5d_pct": 40.25,
+      "volume_ratio": 3.45,
+      "avg_turnover_20d": 6186556083
+    },
+    {
+      "ticker": "174900.KQ",
+      "name": "앱클론",
+      "close": 18330.0,
+      "ai_probability": 0.773914,
+      "rsi": 29.68,
+      "return_5d_pct": -14.15,
+      "volume_ratio": 0.36,
+      "avg_turnover_20d": 4503516462
+    },
+    {
+      "ticker": "092190.KQ",
+      "name": "서울바이오시스",
+      "close": 8730.0,
+      "ai_probability": 0.773712,
+      "rsi": 53.83,
+      "return_5d_pct": 36.19,
+      "volume_ratio": 2.65,
+      "avg_turnover_20d": 2603633543
+    },
+    {
+      "ticker": "047040.KS",
+      "name": "대우건설",
+      "close": 11690.0,
+      "ai_probability": 0.770409,
+      "rsi": 23.61,
+      "return_5d_pct": -17.79,
+      "volume_ratio": 1.36,
+      "avg_turnover_20d": 71368878730
+    },
+    {
+      "ticker": "078350.KQ",
+      "name": "한양디지텍",
+      "close": 34300.0,
+      "ai_probability": 0.763187,
+      "rsi": 45.38,
+      "return_5d_pct": 7.19,
+      "volume_ratio": 0.77,
+      "avg_turnover_20d": 17793914758
+    },
+    {
+      "ticker": "160190.KQ",
+      "name": "하이젠알앤엠",
+      "close": 16930.0,
+      "ai_probability": 0.762419,
+      "rsi": 16.31,
+      "return_5d_pct": -10.89,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 5989107826
+    },
+    {
+      "ticker": "092870.KQ",
+      "name": "엑시콘",
+      "close": 58400.0,
+      "ai_probability": 0.762296,
+      "rsi": 50.29,
+      "return_5d_pct": 22.82,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 27487532640
+    },
+    {
+      "ticker": "489790.KS",
+      "name": "한화비전",
+      "close": 51700.0,
+      "ai_probability": 0.746144,
+      "rsi": 62.35,
+      "return_5d_pct": 38.98,
+      "volume_ratio": 1.75,
+      "avg_turnover_20d": 18333974515
+    },
+    {
+      "ticker": "328130.KQ",
+      "name": "루닛",
+      "close": 15530.0,
+      "ai_probability": 0.742419,
+      "rsi": 71.15,
+      "return_5d_pct": 5.72,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 24305633418
+    },
+    {
+      "ticker": "441270.KQ",
+      "name": "파인엠텍",
+      "close": 8160.0,
+      "ai_probability": 0.739897,
+      "rsi": 46.0,
+      "return_5d_pct": -13.19,
+      "volume_ratio": 0.46,
+      "avg_turnover_20d": 13573214242
+    },
+    {
+      "ticker": "047920.KQ",
+      "name": "HLB제약",
+      "close": 10960.0,
+      "ai_probability": 0.737179,
+      "rsi": 40.54,
+      "return_5d_pct": 12.64,
+      "volume_ratio": 1.28,
+      "avg_turnover_20d": 16307434277
+    },
+    {
+      "ticker": "278470.KS",
+      "name": "에이피알",
+      "close": 263500.0,
+      "ai_probability": 0.736061,
+      "rsi": 43.65,
+      "return_5d_pct": -6.56,
+      "volume_ratio": 1.12,
+      "avg_turnover_20d": 120260176250
+    },
+    {
+      "ticker": "327260.KQ",
+      "name": "RF머트리얼즈",
+      "close": 32350.0,
+      "ai_probability": 0.735659,
+      "rsi": 22.59,
+      "return_5d_pct": -11.37,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 51109477140
+    },
+    {
+      "ticker": "468530.KQ",
+      "name": "프로티나",
+      "close": 47900.0,
+      "ai_probability": 0.734416,
+      "rsi": 54.02,
+      "return_5d_pct": 2.79,
+      "volume_ratio": 1.14,
+      "avg_turnover_20d": 8377808390
+    },
+    {
+      "ticker": "020150.KS",
+      "name": "롯데에너지머티리얼즈",
+      "close": 42350.0,
+      "ai_probability": 0.730986,
+      "rsi": 38.18,
+      "return_5d_pct": -8.63,
+      "volume_ratio": 0.57,
+      "avg_turnover_20d": 28174918380
+    },
+    {
+      "ticker": "093320.KQ",
+      "name": "케이아이엔엑스",
+      "close": 176100.0,
+      "ai_probability": 0.730067,
+      "rsi": 75.33,
+      "return_5d_pct": 40.65,
+      "volume_ratio": 2.21,
+      "avg_turnover_20d": 3398831090
+    },
+    {
+      "ticker": "178320.KQ",
+      "name": "서진시스템",
+      "close": 28750.0,
+      "ai_probability": 0.726115,
+      "rsi": 27.75,
+      "return_5d_pct": -8.29,
+      "volume_ratio": 0.61,
+      "avg_turnover_20d": 45702160012
+    },
+    {
+      "ticker": "089890.KQ",
+      "name": "코세스",
+      "close": 33600.0,
+      "ai_probability": 0.722519,
+      "rsi": 52.62,
+      "return_5d_pct": 2.75,
+      "volume_ratio": 1.26,
+      "avg_turnover_20d": 13659537542
+    },
+    {
+      "ticker": "486990.KQ",
+      "name": "노타",
+      "close": 13320.0,
+      "ai_probability": 0.721358,
+      "rsi": 30.24,
+      "return_5d_pct": -6.85,
+      "volume_ratio": 0.63,
+      "avg_turnover_20d": 2921205255
+    },
+    {
+      "ticker": "229640.KS",
+      "name": "LS에코에너지",
+      "close": 48900.0,
+      "ai_probability": 0.717842,
+      "rsi": 34.66,
+      "return_5d_pct": -9.78,
+      "volume_ratio": 0.28,
+      "avg_turnover_20d": 20043973625
+    },
+    {
+      "ticker": "052710.KQ",
+      "name": "아모텍",
+      "close": 17310.0,
+      "ai_probability": 0.717803,
+      "rsi": 39.58,
+      "return_5d_pct": 18.48,
+      "volume_ratio": 1.27,
+      "avg_turnover_20d": 10864133089
+    },
+    {
+      "ticker": "456160.KQ",
+      "name": "지투지바이오",
+      "close": 36200.0,
+      "ai_probability": 0.71674,
+      "rsi": 53.99,
+      "return_5d_pct": -19.91,
+      "volume_ratio": 0.65,
+      "avg_turnover_20d": 19193099228
+    },
+    {
+      "ticker": "003160.KS",
+      "name": "디아이",
+      "close": 41000.0,
+      "ai_probability": 0.715323,
+      "rsi": 47.61,
+      "return_5d_pct": 13.57,
+      "volume_ratio": 1.34,
+      "avg_turnover_20d": 37049223325
+    },
+    {
+      "ticker": "445680.KQ",
+      "name": "큐리옥스바이오시스템즈",
+      "close": 53100.0,
+      "ai_probability": 0.714954,
+      "rsi": 51.02,
+      "return_5d_pct": -9.54,
+      "volume_ratio": 0.78,
+      "avg_turnover_20d": 13074846230
+    },
+    {
+      "ticker": "491000.KQ",
+      "name": "리브스메드",
+      "close": 43300.0,
+      "ai_probability": 0.714167,
+      "rsi": 64.4,
+      "return_5d_pct": 18.47,
+      "volume_ratio": 1.07,
+      "avg_turnover_20d": 12379727650
+    },
+    {
+      "ticker": "420770.KQ",
+      "name": "기가비스",
+      "close": 90300.0,
+      "ai_probability": 0.71363,
+      "rsi": 26.1,
+      "return_5d_pct": -6.81,
+      "volume_ratio": 0.69,
+      "avg_turnover_20d": 17223589545
+    },
+    {
+      "ticker": "006110.KS",
+      "name": "삼아알미늄",
+      "close": 57400.0,
+      "ai_probability": 0.712077,
+      "rsi": 40.89,
+      "return_5d_pct": 0.53,
+      "volume_ratio": 4.64,
+      "avg_turnover_20d": 24831170300
+    },
+    {
+      "ticker": "200470.KQ",
+      "name": "에이팩트",
+      "close": 9530.0,
+      "ai_probability": 0.708496,
+      "rsi": 41.75,
+      "return_5d_pct": 1.71,
+      "volume_ratio": 0.88,
+      "avg_turnover_20d": 16599504338
+    },
+    {
+      "ticker": "290650.KQ",
+      "name": "엘앤씨바이오",
+      "close": 25350.0,
+      "ai_probability": 0.705651,
+      "rsi": 26.72,
+      "return_5d_pct": 1.81,
+      "volume_ratio": 0.47,
+      "avg_turnover_20d": 22811538262
+    },
+    {
+      "ticker": "007810.KS",
+      "name": "코리아써키트",
+      "close": 72600.0,
+      "ai_probability": 0.70552,
+      "rsi": 44.03,
+      "return_5d_pct": 9.34,
+      "volume_ratio": 0.77,
+      "avg_turnover_20d": 54549049460
+    },
+    {
+      "ticker": "077360.KQ",
+      "name": "덕산하이메탈",
+      "close": 9500.0,
+      "ai_probability": 0.705495,
+      "rsi": 24.23,
+      "return_5d_pct": -6.68,
+      "volume_ratio": 0.74,
+      "avg_turnover_20d": 8993426881
+    },
+    {
+      "ticker": "159010.KQ",
+      "name": "아스플로",
+      "close": 32500.0,
+      "ai_probability": 0.705312,
+      "rsi": 53.13,
+      "return_5d_pct": 12.26,
+      "volume_ratio": 1.16,
+      "avg_turnover_20d": 5267727242
+    },
+    {
+      "ticker": "115180.KQ",
+      "name": "큐리언트",
+      "close": 16810.0,
+      "ai_probability": 0.704371,
+      "rsi": 42.3,
+      "return_5d_pct": -11.85,
+      "volume_ratio": 0.87,
+      "avg_turnover_20d": 3027335866
+    },
+    {
+      "ticker": "098120.KQ",
+      "name": "마이크로컨텍솔",
+      "close": 54900.0,
+      "ai_probability": 0.704196,
+      "rsi": 51.65,
+      "return_5d_pct": 37.08,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 11512518095
+    },
+    {
+      "ticker": "144960.KQ",
+      "name": "뉴파워프라즈마",
+      "close": 13990.0,
+      "ai_probability": 0.702147,
+      "rsi": 50.77,
+      "return_5d_pct": 5.82,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 26200520319
+    },
+    {
+      "ticker": "126340.KQ",
+      "name": "비나텍",
+      "close": 94000.0,
+      "ai_probability": 0.700268,
+      "rsi": 57.73,
+      "return_5d_pct": -8.91,
+      "volume_ratio": 0.46,
+      "avg_turnover_20d": 21884748975
+    },
+    {
+      "ticker": "069540.KQ",
+      "name": "빛과전자",
+      "close": 4000.0,
+      "ai_probability": 0.699811,
+      "rsi": 46.33,
+      "return_5d_pct": 23.65,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 69278886573
+    },
+    {
+      "ticker": "043260.KQ",
+      "name": "성호전자",
+      "close": 26850.0,
+      "ai_probability": 0.699478,
+      "rsi": 38.49,
+      "return_5d_pct": 1.32,
+      "volume_ratio": 0.47,
+      "avg_turnover_20d": 83306719745
+    },
+    {
+      "ticker": "131290.KQ",
+      "name": "티에스이",
+      "close": 223500.0,
+      "ai_probability": 0.698679,
+      "rsi": 28.97,
+      "return_5d_pct": -7.26,
+      "volume_ratio": 0.56,
+      "avg_turnover_20d": 35090404075
+    },
+    {
+      "ticker": "031980.KQ",
+      "name": "피에스케이홀딩스",
+      "close": 183000.0,
+      "ai_probability": 0.696327,
+      "rsi": 39.22,
+      "return_5d_pct": 16.04,
+      "volume_ratio": 0.79,
+      "avg_turnover_20d": 43505903495
+    },
+    {
+      "ticker": "064290.KQ",
+      "name": "인텍플러스",
+      "close": 54400.0,
+      "ai_probability": 0.696321,
+      "rsi": 42.54,
+      "return_5d_pct": 4.82,
+      "volume_ratio": 1.31,
+      "avg_turnover_20d": 22437795275
+    },
+    {
+      "ticker": "000500.KS",
+      "name": "가온전선",
+      "close": 242000.0,
+      "ai_probability": 0.693624,
+      "rsi": 38.17,
+      "return_5d_pct": 6.61,
+      "volume_ratio": 0.67,
+      "avg_turnover_20d": 44284996850
+    },
+    {
+      "ticker": "358570.KQ",
+      "name": "지아이이노베이션",
+      "close": 6810.0,
+      "ai_probability": 0.689422,
+      "rsi": 38.32,
+      "return_5d_pct": -11.1,
+      "volume_ratio": 0.86,
+      "avg_turnover_20d": 1989548072
+    },
+    {
+      "ticker": "253590.KQ",
+      "name": "네오셈",
+      "close": 16830.0,
+      "ai_probability": 0.683334,
+      "rsi": 54.23,
+      "return_5d_pct": 11.31,
+      "volume_ratio": 0.76,
+      "avg_turnover_20d": 26973960834
+    },
+    {
+      "ticker": "138080.KQ",
+      "name": "오이솔루션",
+      "close": 25550.0,
+      "ai_probability": 0.682025,
+      "rsi": 41.75,
+      "return_5d_pct": 6.46,
+      "volume_ratio": 0.56,
+      "avg_turnover_20d": 8131234815
+    },
+    {
+      "ticker": "437730.KQ",
+      "name": "삼현",
+      "close": 42200.0,
+      "ai_probability": 0.680756,
+      "rsi": 48.42,
+      "return_5d_pct": -11.25,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 15846846652
+    },
+    {
+      "ticker": "121600.KQ",
+      "name": "나노신소재",
+      "close": 67800.0,
+      "ai_probability": 0.679379,
+      "rsi": 57.14,
+      "return_5d_pct": 22.6,
+      "volume_ratio": 2.48,
+      "avg_turnover_20d": 6715226525
+    },
+    {
+      "ticker": "079550.KS",
+      "name": "LIG디펜스앤에어로스페이스",
+      "close": 424500.0,
+      "ai_probability": 0.67777,
+      "rsi": 26.06,
+      "return_5d_pct": -1.05,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 84635297125
+    },
+    {
+      "ticker": "001430.KS",
+      "name": "세아베스틸지주",
+      "close": 30050.0,
+      "ai_probability": 0.674998,
+      "rsi": 14.59,
+      "return_5d_pct": -5.21,
+      "volume_ratio": 0.94,
+      "avg_turnover_20d": 5378957082
+    },
+    {
+      "ticker": "011790.KS",
+      "name": "SKC",
+      "close": 74600.0,
+      "ai_probability": 0.674788,
+      "rsi": 28.69,
+      "return_5d_pct": -5.69,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 25427638400
+    },
+    {
+      "ticker": "012450.KS",
+      "name": "한화에어로스페이스",
+      "close": 740000.0,
+      "ai_probability": 0.6739,
+      "rsi": 38.35,
+      "return_5d_pct": -2.63,
+      "volume_ratio": 1.31,
+      "avg_turnover_20d": 157424542800
+    },
+    {
+      "ticker": "281820.KS",
+      "name": "케이씨텍",
+      "close": 87200.0,
+      "ai_probability": 0.672965,
+      "rsi": 32.96,
+      "return_5d_pct": 0.93,
+      "volume_ratio": 0.38,
+      "avg_turnover_20d": 30087395555
+    },
+    {
+      "ticker": "067630.KQ",
+      "name": "HLB생명과학",
+      "close": 3525.0,
+      "ai_probability": 0.672748,
+      "rsi": 34.39,
+      "return_5d_pct": 5.7,
+      "volume_ratio": 0.53,
+      "avg_turnover_20d": 2772845357
+    },
+    {
+      "ticker": "219130.KQ",
+      "name": "타이거일렉",
+      "close": 97500.0,
+      "ai_probability": 0.672501,
+      "rsi": 53.37,
+      "return_5d_pct": 13.37,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 6933359750
+    },
+    {
+      "ticker": "458870.KQ",
+      "name": "씨어스",
+      "close": 22600.0,
+      "ai_probability": 0.671754,
+      "rsi": 44.29,
+      "return_5d_pct": -18.85,
+      "volume_ratio": 0.98,
+      "avg_turnover_20d": 8403414900
+    },
+    {
+      "ticker": "080580.KQ",
+      "name": "오킨스전자",
+      "close": 24300.0,
+      "ai_probability": 0.670493,
+      "rsi": 40.9,
+      "return_5d_pct": 5.19,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 18428767460
+    },
+    {
+      "ticker": "232140.KQ",
+      "name": "와이씨",
+      "close": 12800.0,
+      "ai_probability": 0.669865,
+      "rsi": 31.48,
+      "return_5d_pct": 5.7,
+      "volume_ratio": 0.5,
+      "avg_turnover_20d": 26103342862
+    },
+    {
+      "ticker": "417200.KQ",
+      "name": "LS머트리얼즈",
+      "close": 11330.0,
+      "ai_probability": 0.669618,
+      "rsi": 30.0,
+      "return_5d_pct": -5.11,
+      "volume_ratio": 0.27,
+      "avg_turnover_20d": 35271210654
+    },
+    {
+      "ticker": "236200.KQ",
+      "name": "슈프리마",
+      "close": 51400.0,
+      "ai_probability": 0.668901,
+      "rsi": 42.45,
+      "return_5d_pct": -2.84,
+      "volume_ratio": 3.06,
+      "avg_turnover_20d": 2481038480
+    },
+    {
+      "ticker": "170920.KQ",
+      "name": "엘티씨",
+      "close": 40500.0,
+      "ai_probability": 0.668107,
+      "rsi": 54.91,
+      "return_5d_pct": 26.17,
+      "volume_ratio": 0.75,
+      "avg_turnover_20d": 8282516020
+    },
+    {
+      "ticker": "059090.KQ",
+      "name": "미코",
+      "close": 23200.0,
+      "ai_probability": 0.668076,
+      "rsi": 46.65,
+      "return_5d_pct": 14.85,
+      "volume_ratio": 0.88,
+      "avg_turnover_20d": 11748612342
+    },
+    {
+      "ticker": "383310.KQ",
+      "name": "에코프로에이치엔",
+      "close": 26250.0,
+      "ai_probability": 0.667176,
+      "rsi": 58.03,
+      "return_5d_pct": 17.45,
+      "volume_ratio": 1.65,
+      "avg_turnover_20d": 4194466830
+    },
+    {
+      "ticker": "028050.KS",
+      "name": "삼성E&A",
+      "close": 63200.0,
+      "ai_probability": 0.662375,
+      "rsi": 78.65,
+      "return_5d_pct": 5.69,
+      "volume_ratio": 0.57,
+      "avg_turnover_20d": 181607005695
+    },
+    {
+      "ticker": "079370.KQ",
+      "name": "제우스",
+      "close": 11470.0,
+      "ai_probability": 0.659909,
+      "rsi": 42.06,
+      "return_5d_pct": -3.61,
+      "volume_ratio": 0.42,
+      "avg_turnover_20d": 6368640807
+    },
+    {
+      "ticker": "204320.KS",
+      "name": "HL만도",
+      "close": 35000.0,
+      "ai_probability": 0.659038,
+      "rsi": 30.31,
+      "return_5d_pct": -4.63,
+      "volume_ratio": 1.83,
+      "avg_turnover_20d": 11968713812
+    },
+    {
+      "ticker": "000150.KS",
+      "name": "두산",
+      "close": 906000.0,
+      "ai_probability": 0.658892,
+      "rsi": 32.51,
+      "return_5d_pct": 0.55,
+      "volume_ratio": 0.51,
+      "avg_turnover_20d": 114066934850
+    },
+    {
+      "ticker": "082740.KS",
+      "name": "한화엔진",
+      "close": 32100.0,
+      "ai_probability": 0.658544,
+      "rsi": 38.06,
+      "return_5d_pct": 3.38,
+      "volume_ratio": 1.95,
+      "avg_turnover_20d": 27364543048
+    },
+    {
+      "ticker": "107640.KQ",
+      "name": "한중엔시에스",
+      "close": 49450.0,
+      "ai_probability": 0.658177,
+      "rsi": 57.75,
+      "return_5d_pct": 19.3,
+      "volume_ratio": 0.48,
+      "avg_turnover_20d": 8789253335
+    },
+    {
+      "ticker": "290550.KQ",
+      "name": "디케이티",
+      "close": 25050.0,
+      "ai_probability": 0.657638,
+      "rsi": 58.92,
+      "return_5d_pct": 1.83,
+      "volume_ratio": 0.53,
+      "avg_turnover_20d": 9050058190
+    },
+    {
+      "ticker": "356860.KQ",
+      "name": "티엘비",
+      "close": 38900.0,
+      "ai_probability": 0.657382,
+      "rsi": 30.7,
+      "return_5d_pct": 10.83,
+      "volume_ratio": 0.68,
+      "avg_turnover_20d": 26176795048
+    },
+    {
+      "ticker": "128940.KS",
+      "name": "한미약품",
+      "close": 422500.0,
+      "ai_probability": 0.657247,
+      "rsi": 42.36,
+      "return_5d_pct": 19.86,
+      "volume_ratio": 0.96,
+      "avg_turnover_20d": 53091476100
+    },
+    {
+      "ticker": "252990.KQ",
+      "name": "샘씨엔에스",
+      "close": 15950.0,
+      "ai_probability": 0.65652,
+      "rsi": 43.56,
+      "return_5d_pct": 4.11,
+      "volume_ratio": 0.49,
+      "avg_turnover_20d": 16887601136
+    },
+    {
+      "ticker": "214450.KQ",
+      "name": "파마리서치",
+      "close": 222500.0,
+      "ai_probability": 0.656188,
+      "rsi": 27.95,
+      "return_5d_pct": -3.05,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 28129497250
+    },
+    {
+      "ticker": "131970.KQ",
+      "name": "두산테스나",
+      "close": 90200.0,
+      "ai_probability": 0.655604,
+      "rsi": 24.15,
+      "return_5d_pct": -5.45,
+      "volume_ratio": 0.3,
+      "avg_turnover_20d": 56889437565
+    },
+    {
+      "ticker": "044490.KQ",
+      "name": "태웅",
+      "close": 23550.0,
+      "ai_probability": 0.654817,
+      "rsi": 25.3,
+      "return_5d_pct": -1.26,
+      "volume_ratio": 0.95,
+      "avg_turnover_20d": 3185749092
+    },
+    {
+      "ticker": "010170.KQ",
+      "name": "대한광통신",
+      "close": 13770.0,
+      "ai_probability": 0.654722,
+      "rsi": 44.98,
+      "return_5d_pct": 2.91,
+      "volume_ratio": 0.52,
+      "avg_turnover_20d": 119278610964
+    },
+    {
+      "ticker": "033640.KQ",
+      "name": "네패스",
+      "close": 23450.0,
+      "ai_probability": 0.654568,
+      "rsi": 34.87,
+      "return_5d_pct": 6.59,
+      "volume_ratio": 0.51,
+      "avg_turnover_20d": 6606200725
+    },
+    {
+      "ticker": "036540.KQ",
+      "name": "SFA반도체",
+      "close": 8060.0,
+      "ai_probability": 0.654469,
+      "rsi": 25.89,
+      "return_5d_pct": -0.86,
+      "volume_ratio": 0.37,
+      "avg_turnover_20d": 41586046604
+    },
+    {
+      "ticker": "187660.KQ",
+      "name": "페니트리움바이오",
+      "close": 5950.0,
+      "ai_probability": 0.654391,
+      "rsi": 52.88,
+      "return_5d_pct": 7.21,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 4022810030
+    },
+    {
+      "ticker": "034020.KS",
+      "name": "두산에너빌리티",
+      "close": 55700.0,
+      "ai_probability": 0.654266,
+      "rsi": 25.91,
+      "return_5d_pct": -3.3,
+      "volume_ratio": 1.09,
+      "avg_turnover_20d": 170744512175
+    },
+    {
+      "ticker": "095340.KQ",
+      "name": "ISC",
+      "close": 164700.0,
+      "ai_probability": 0.654157,
+      "rsi": 42.25,
+      "return_5d_pct": 17.14,
+      "volume_ratio": 0.92,
+      "avg_turnover_20d": 31894510470
+    },
+    {
+      "ticker": "477850.KQ",
+      "name": "마키나락스",
+      "close": 14700.0,
+      "ai_probability": 0.653252,
+      "rsi": 22.11,
+      "return_5d_pct": -1.74,
+      "volume_ratio": 0.44,
+      "avg_turnover_20d": 4583245991
+    },
+    {
+      "ticker": "010060.KS",
+      "name": "OCI홀딩스",
+      "close": 185000.0,
+      "ai_probability": 0.652708,
+      "rsi": 37.99,
+      "return_5d_pct": 1.26,
+      "volume_ratio": 1.58,
+      "avg_turnover_20d": 46983013350
+    },
+    {
+      "ticker": "356680.KQ",
+      "name": "엑스게이트",
+      "close": 15660.0,
+      "ai_probability": 0.652682,
+      "rsi": 39.96,
+      "return_5d_pct": 5.53,
+      "volume_ratio": 0.42,
+      "avg_turnover_20d": 40649440667
+    },
+    {
+      "ticker": "298040.KS",
+      "name": "효성중공업",
+      "close": 2050000.0,
+      "ai_probability": 0.649266,
+      "rsi": 45.74,
+      "return_5d_pct": 10.63,
+      "volume_ratio": 1.63,
+      "avg_turnover_20d": 130099934000
+    },
+    {
+      "ticker": "323280.KQ",
+      "name": "태성",
+      "close": 50900.0,
+      "ai_probability": 0.64925,
+      "rsi": 34.58,
+      "return_5d_pct": 7.16,
+      "volume_ratio": 0.51,
+      "avg_turnover_20d": 18529032405
+    },
+    {
+      "ticker": "402340.KS",
+      "name": "SK스퀘어",
+      "close": 950000.0,
+      "ai_probability": 0.64689,
+      "rsi": 58.56,
+      "return_5d_pct": 23.54,
+      "volume_ratio": 0.78,
+      "avg_turnover_20d": 626891282650
+    },
+    {
+      "ticker": "122640.KQ",
+      "name": "예스티",
+      "close": 24700.0,
+      "ai_probability": 0.646008,
+      "rsi": 36.87,
+      "return_5d_pct": -3.89,
+      "volume_ratio": 0.5,
+      "avg_turnover_20d": 10083996855
+    },
+    {
+      "ticker": "087010.KQ",
+      "name": "펩트론",
+      "close": 94800.0,
+      "ai_probability": 0.645289,
+      "rsi": 62.32,
+      "return_5d_pct": -3.56,
+      "volume_ratio": 0.36,
+      "avg_turnover_20d": 30286636475
+    },
+    {
+      "ticker": "403870.KQ",
+      "name": "HPSP",
+      "close": 42950.0,
+      "ai_probability": 0.644843,
+      "rsi": 22.61,
+      "return_5d_pct": -4.34,
+      "volume_ratio": 0.48,
+      "avg_turnover_20d": 103091038495
+    },
+    {
+      "ticker": "064350.KS",
+      "name": "현대로템",
+      "close": 78800.0,
+      "ai_probability": 0.643765,
+      "rsi": 30.6,
+      "return_5d_pct": -0.38,
+      "volume_ratio": 0.73,
+      "avg_turnover_20d": 46267007110
+    },
+    {
+      "ticker": "376900.KQ",
+      "name": "로킷헬스케어",
+      "close": 16970.0,
+      "ai_probability": 0.642466,
+      "rsi": 33.32,
+      "return_5d_pct": 5.01,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 5637369186
+    },
+    {
+      "ticker": "204270.KQ",
+      "name": "제이앤티씨",
+      "close": 17090.0,
+      "ai_probability": 0.641738,
+      "rsi": 31.35,
+      "return_5d_pct": -4.26,
+      "volume_ratio": 0.24,
+      "avg_turnover_20d": 24354938923
+    },
+    {
+      "ticker": "348370.KQ",
+      "name": "엔켐",
+      "close": 16900.0,
+      "ai_probability": 0.641614,
+      "rsi": 33.14,
+      "return_5d_pct": -2.82,
+      "volume_ratio": 0.4,
+      "avg_turnover_20d": 3729522976
+    },
+    {
+      "ticker": "033160.KQ",
+      "name": "엠케이전자",
+      "close": 12990.0,
+      "ai_probability": 0.641519,
+      "rsi": 29.25,
+      "return_5d_pct": -1.29,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 19048665679
+    },
+    {
+      "ticker": "440110.KQ",
+      "name": "파두",
+      "close": 45400.0,
+      "ai_probability": 0.641183,
+      "rsi": 17.5,
+      "return_5d_pct": 1.34,
+      "volume_ratio": 0.79,
+      "avg_turnover_20d": 34602389450
+    },
+    {
+      "ticker": "353200.KS",
+      "name": "대덕전자",
+      "close": 116500.0,
+      "ai_probability": 0.640612,
+      "rsi": 29.73,
+      "return_5d_pct": -2.67,
+      "volume_ratio": 1.16,
+      "avg_turnover_20d": 155928376800
+    },
+    {
+      "ticker": "222800.KQ",
+      "name": "심텍",
+      "close": 120400.0,
+      "ai_probability": 0.638929,
+      "rsi": 34.11,
+      "return_5d_pct": 12.21,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 113754290785
+    },
+    {
+      "ticker": "490470.KQ",
+      "name": "세미파이브",
+      "close": 12560.0,
+      "ai_probability": 0.638172,
+      "rsi": 19.18,
+      "return_5d_pct": -3.38,
+      "volume_ratio": 0.24,
+      "avg_turnover_20d": 16419294138
+    },
+    {
+      "ticker": "127120.KQ",
+      "name": "제이에스링크",
+      "close": 18450.0,
+      "ai_probability": 0.636849,
+      "rsi": 22.13,
+      "return_5d_pct": 7.52,
+      "volume_ratio": 0.33,
+      "avg_turnover_20d": 4176902820
+    },
+    {
+      "ticker": "295310.KQ",
+      "name": "에이치브이엠",
+      "close": 59000.0,
+      "ai_probability": 0.636714,
+      "rsi": 43.95,
+      "return_5d_pct": 3.51,
+      "volume_ratio": 0.36,
+      "avg_turnover_20d": 11492910185
+    },
+    {
+      "ticker": "039490.KS",
+      "name": "키움증권",
+      "close": 205500.0,
+      "ai_probability": 0.635248,
+      "rsi": 39.57,
+      "return_5d_pct": -2.38,
+      "volume_ratio": 1.66,
+      "avg_turnover_20d": 20122454800
+    },
+    {
+      "ticker": "024850.KQ",
+      "name": "HLB이노베이션",
+      "close": 14760.0,
+      "ai_probability": 0.634579,
+      "rsi": 29.67,
+      "return_5d_pct": -0.67,
+      "volume_ratio": 0.38,
+      "avg_turnover_20d": 3696493964
+    },
+    {
+      "ticker": "267260.KS",
+      "name": "HD현대일렉트릭",
+      "close": 446500.0,
+      "ai_probability": 0.633916,
+      "rsi": 28.94,
+      "return_5d_pct": -0.11,
+      "volume_ratio": 1.29,
+      "avg_turnover_20d": 89167556100
+    },
+    {
+      "ticker": "036930.KQ",
+      "name": "주성엔지니어링",
+      "close": 168000.0,
+      "ai_probability": 0.633041,
+      "rsi": 20.92,
+      "return_5d_pct": 0.24,
+      "volume_ratio": 0.47,
+      "avg_turnover_20d": 389435353325
+    },
+    {
+      "ticker": "062040.KS",
+      "name": "산일전기",
+      "close": 156800.0,
+      "ai_probability": 0.631899,
+      "rsi": 26.84,
+      "return_5d_pct": -1.75,
+      "volume_ratio": 0.84,
+      "avg_turnover_20d": 52121012305
+    },
+    {
+      "ticker": "042660.KS",
+      "name": "한화오션",
+      "close": 54900.0,
+      "ai_probability": 0.631128,
+      "rsi": 28.82,
+      "return_5d_pct": 3.58,
+      "volume_ratio": 2.26,
+      "avg_turnover_20d": 65303387560
+    },
+    {
+      "ticker": "085620.KS",
+      "name": "미래에셋생명",
+      "close": 19950.0,
+      "ai_probability": 0.629691,
+      "rsi": 59.55,
+      "return_5d_pct": 16.8,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 2530532373
+    },
+    {
+      "ticker": "200710.KQ",
+      "name": "에이디테크놀로지",
+      "close": 17850.0,
+      "ai_probability": 0.629007,
+      "rsi": 22.48,
+      "return_5d_pct": 2.29,
+      "volume_ratio": 0.44,
+      "avg_turnover_20d": 2729210676
+    },
+    {
+      "ticker": "124500.KQ",
+      "name": "아이티센글로벌",
+      "close": 20300.0,
+      "ai_probability": 0.628802,
+      "rsi": 34.36,
+      "return_5d_pct": -0.73,
+      "volume_ratio": 0.65,
+      "avg_turnover_20d": 3675545082
+    },
+    {
+      "ticker": "000250.KQ",
+      "name": "삼천당제약",
+      "close": 183900.0,
+      "ai_probability": 0.628761,
+      "rsi": 33.25,
+      "return_5d_pct": -2.65,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 33474808760
+    },
+    {
+      "ticker": "014620.KQ",
+      "name": "성광벤드",
+      "close": 30000.0,
+      "ai_probability": 0.628678,
+      "rsi": 60.16,
+      "return_5d_pct": 17.65,
+      "volume_ratio": 2.7,
+      "avg_turnover_20d": 3522254132
+    },
+    {
+      "ticker": "125490.KQ",
+      "name": "한라캐스트",
+      "close": 10420.0,
+      "ai_probability": 0.628565,
+      "rsi": 45.27,
+      "return_5d_pct": 6.76,
+      "volume_ratio": 0.52,
+      "avg_turnover_20d": 14177025231
+    },
+    {
+      "ticker": "397030.KQ",
+      "name": "에이프릴바이오",
+      "close": 11860.0,
+      "ai_probability": 0.627825,
+      "rsi": 38.58,
+      "return_5d_pct": -4.35,
+      "volume_ratio": 0.3,
+      "avg_turnover_20d": 3756467811
+    },
+    {
+      "ticker": "272210.KS",
+      "name": "한화시스템",
+      "close": 65400.0,
+      "ai_probability": 0.62776,
+      "rsi": 37.88,
+      "return_5d_pct": 2.67,
+      "volume_ratio": 0.72,
+      "avg_turnover_20d": 74366022395
+    },
+    {
+      "ticker": "108490.KQ",
+      "name": "로보티즈",
+      "close": 255500.0,
+      "ai_probability": 0.626399,
+      "rsi": 51.74,
+      "return_5d_pct": 3.65,
+      "volume_ratio": 0.53,
+      "avg_turnover_20d": 62226918175
+    },
+    {
+      "ticker": "009155.KS",
+      "name": "삼성전기우",
+      "close": 415000.0,
+      "ai_probability": 0.625465,
+      "rsi": 41.89,
+      "return_5d_pct": 7.65,
+      "volume_ratio": 1.0,
+      "avg_turnover_20d": 8040847225
+    },
+    {
+      "ticker": "071970.KS",
+      "name": "HD현대마린엔진",
+      "close": 41500.0,
+      "ai_probability": 0.625438,
+      "rsi": 51.89,
+      "return_5d_pct": 18.74,
+      "volume_ratio": 1.79,
+      "avg_turnover_20d": 12265025358
+    },
+    {
+      "ticker": "001440.KS",
+      "name": "대한전선",
+      "close": 20550.0,
+      "ai_probability": 0.623878,
+      "rsi": 31.42,
+      "return_5d_pct": 0.49,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 47768349058
+    },
+    {
+      "ticker": "036810.KQ",
+      "name": "에프에스티",
+      "close": 25600.0,
+      "ai_probability": 0.623867,
+      "rsi": 31.27,
+      "return_5d_pct": 4.7,
+      "volume_ratio": 0.44,
+      "avg_turnover_20d": 3756486328
+    },
+    {
+      "ticker": "007660.KS",
+      "name": "이수페타시스",
+      "close": 88000.0,
+      "ai_probability": 0.623745,
+      "rsi": 29.02,
+      "return_5d_pct": 5.39,
+      "volume_ratio": 0.71,
+      "avg_turnover_20d": 82383449775
+    },
+    {
+      "ticker": "089010.KQ",
+      "name": "켐트로닉스",
+      "close": 20800.0,
+      "ai_probability": 0.623298,
+      "rsi": 31.77,
+      "return_5d_pct": -0.95,
+      "volume_ratio": 0.21,
+      "avg_turnover_20d": 3460119825
+    },
+    {
+      "ticker": "348340.KQ",
+      "name": "뉴로메카",
+      "close": 16300.0,
+      "ai_probability": 0.62194,
+      "rsi": 40.06,
+      "return_5d_pct": -4.51,
+      "volume_ratio": 0.51,
+      "avg_turnover_20d": 5512125917
+    },
+    {
+      "ticker": "294870.KS",
+      "name": "IPARK현대산업개발",
+      "close": 25200.0,
+      "ai_probability": 0.621904,
+      "rsi": 70.0,
+      "return_5d_pct": 13.0,
+      "volume_ratio": 1.63,
+      "avg_turnover_20d": 3061236048
+    },
+    {
+      "ticker": "257720.KQ",
+      "name": "실리콘투",
+      "close": 28200.0,
+      "ai_probability": 0.621803,
+      "rsi": 30.32,
+      "return_5d_pct": -3.42,
+      "volume_ratio": 0.84,
+      "avg_turnover_20d": 22699081898
+    },
+    {
+      "ticker": "058470.KQ",
+      "name": "리노공업",
+      "close": 57000.0,
+      "ai_probability": 0.620307,
+      "rsi": 22.17,
+      "return_5d_pct": -3.39,
+      "volume_ratio": 0.4,
+      "avg_turnover_20d": 71034286710
+    },
+    {
+      "ticker": "064760.KQ",
+      "name": "티씨케이",
+      "close": 192400.0,
+      "ai_probability": 0.618947,
+      "rsi": 26.34,
+      "return_5d_pct": -3.46,
+      "volume_ratio": 1.09,
+      "avg_turnover_20d": 17488660630
+    },
+    {
+      "ticker": "033790.KQ",
+      "name": "피노",
+      "close": 7660.0,
+      "ai_probability": 0.618634,
+      "rsi": 30.99,
+      "return_5d_pct": 6.69,
+      "volume_ratio": 0.27,
+      "avg_turnover_20d": 20539703216
+    },
+    {
+      "ticker": "307950.KS",
+      "name": "현대오토에버",
+      "close": 310500.0,
+      "ai_probability": 0.618259,
+      "rsi": 44.08,
+      "return_5d_pct": -0.64,
+      "volume_ratio": 0.93,
+      "avg_turnover_20d": 19365296375
+    },
+    {
+      "ticker": "039440.KQ",
+      "name": "에스티아이",
+      "close": 25150.0,
+      "ai_probability": 0.618166,
+      "rsi": 45.83,
+      "return_5d_pct": 6.57,
+      "volume_ratio": 0.38,
+      "avg_turnover_20d": 7801032745
+    },
+    {
+      "ticker": "336260.KS",
+      "name": "두산퓨얼셀",
+      "close": 30300.0,
+      "ai_probability": 0.618096,
+      "rsi": 28.09,
+      "return_5d_pct": 1.17,
+      "volume_ratio": 0.47,
+      "avg_turnover_20d": 19638286712
+    },
+    {
+      "ticker": "066970.KS",
+      "name": "엘앤에프",
+      "close": 84800.0,
+      "ai_probability": 0.61782,
+      "rsi": 32.42,
+      "return_5d_pct": 1.92,
+      "volume_ratio": 0.52,
+      "avg_turnover_20d": 48826167660
+    },
+    {
+      "ticker": "476830.KQ",
+      "name": "알지노믹스",
+      "close": 21650.0,
+      "ai_probability": 0.617603,
+      "rsi": 46.85,
+      "return_5d_pct": -5.04,
+      "volume_ratio": 0.35,
+      "avg_turnover_20d": 7183993995
+    },
+    {
+      "ticker": "112610.KS",
+      "name": "씨에스윈드",
+      "close": 41100.0,
+      "ai_probability": 0.617115,
+      "rsi": 26.15,
+      "return_5d_pct": 1.36,
+      "volume_ratio": 1.06,
+      "avg_turnover_20d": 20819753985
+    },
+    {
+      "ticker": "298380.KQ",
+      "name": "에이비엘바이오",
+      "close": 39750.0,
+      "ai_probability": 0.615995,
+      "rsi": 42.17,
+      "return_5d_pct": -2.57,
+      "volume_ratio": 0.75,
+      "avg_turnover_20d": 12888148590
+    },
+    {
+      "ticker": "000155.KS",
+      "name": "두산우",
+      "close": 317000.0,
+      "ai_probability": 0.614764,
+      "rsi": 33.79,
+      "return_5d_pct": 2.59,
+      "volume_ratio": 0.41,
+      "avg_turnover_20d": 3325211875
+    },
+    {
+      "ticker": "213420.KQ",
+      "name": "덕산네오룩스",
+      "close": 22950.0,
+      "ai_probability": 0.614479,
+      "rsi": 24.87,
+      "return_5d_pct": -7.27,
+      "volume_ratio": 0.93,
+      "avg_turnover_20d": 2883500322
+    },
+    {
+      "ticker": "218410.KQ",
+      "name": "RFHIC",
+      "close": 52000.0,
+      "ai_probability": 0.614233,
+      "rsi": 47.24,
+      "return_5d_pct": 10.29,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 23387592358
+    },
+    {
+      "ticker": "103590.KS",
+      "name": "일진전기",
+      "close": 56900.0,
+      "ai_probability": 0.613814,
+      "rsi": 28.68,
+      "return_5d_pct": 3.83,
+      "volume_ratio": 0.57,
+      "avg_turnover_20d": 27624188145
+    },
+    {
+      "ticker": "000660.KS",
+      "name": "SK하이닉스",
+      "close": 1472000.0,
+      "ai_probability": 0.613485,
+      "rsi": 51.7,
+      "return_5d_pct": 15.45,
+      "volume_ratio": 0.72,
+      "avg_turnover_20d": 5099603129650
+    },
+    {
+      "ticker": "141080.KQ",
+      "name": "리가켐바이오",
+      "close": 61700.0,
+      "ai_probability": 0.613319,
+      "rsi": 43.17,
+      "return_5d_pct": -4.93,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 14250146685
+    },
+    {
+      "ticker": "052690.KS",
+      "name": "한전기술",
+      "close": 89400.0,
+      "ai_probability": 0.612813,
+      "rsi": 28.22,
+      "return_5d_pct": -1.97,
+      "volume_ratio": 0.52,
+      "avg_turnover_20d": 22681716410
+    },
+    {
+      "ticker": "329180.KS",
+      "name": "HD현대중공업",
+      "close": 288000.0,
+      "ai_probability": 0.612794,
+      "rsi": 18.22,
+      "return_5d_pct": -0.52,
+      "volume_ratio": 1.3,
+      "avg_turnover_20d": 117191787050
+    },
+    {
+      "ticker": "009150.KS",
+      "name": "삼성전기",
+      "close": 1193000.0,
+      "ai_probability": 0.6119,
+      "rsi": 36.84,
+      "return_5d_pct": 6.71,
+      "volume_ratio": 0.8,
+      "avg_turnover_20d": 964043046550
+    },
+    {
+      "ticker": "039030.KQ",
+      "name": "이오테크닉스",
+      "close": 391500.0,
+      "ai_probability": 0.608998,
+      "rsi": 29.94,
+      "return_5d_pct": 3.3,
+      "volume_ratio": 0.46,
+      "avg_turnover_20d": 44810276125
+    },
+    {
+      "ticker": "240810.KQ",
+      "name": "원익IPS",
+      "close": 91000.0,
+      "ai_probability": 0.608906,
+      "rsi": 25.5,
+      "return_5d_pct": 1.79,
+      "volume_ratio": 0.45,
+      "avg_turnover_20d": 103948045925
+    },
+    {
+      "ticker": "180640.KS",
+      "name": "한진칼",
+      "close": 134800.0,
+      "ai_probability": 0.607738,
+      "rsi": 54.82,
+      "return_5d_pct": 12.8,
+      "volume_ratio": 6.03,
+      "avg_turnover_20d": 10958371205
+    },
+    {
+      "ticker": "365340.KQ",
+      "name": "성일하이텍",
+      "close": 27800.0,
+      "ai_probability": 0.607695,
+      "rsi": 27.83,
+      "return_5d_pct": -0.89,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 1108466230
+    },
+    {
+      "ticker": "048410.KQ",
+      "name": "현대바이오",
+      "close": 5530.0,
+      "ai_probability": 0.607424,
+      "rsi": 35.87,
+      "return_5d_pct": -6.9,
+      "volume_ratio": 0.95,
+      "avg_turnover_20d": 5863341514
+    },
+    {
+      "ticker": "347700.KQ",
+      "name": "스피어",
+      "close": 20150.0,
+      "ai_probability": 0.60631,
+      "rsi": 43.48,
+      "return_5d_pct": 7.81,
+      "volume_ratio": 0.39,
+      "avg_turnover_20d": 24552660110
+    },
+    {
+      "ticker": "032820.KQ",
+      "name": "우리기술",
+      "close": 9060.0,
+      "ai_probability": 0.6063,
+      "rsi": 31.73,
+      "return_5d_pct": -0.11,
+      "volume_ratio": 0.71,
+      "avg_turnover_20d": 19157375932
+    },
+    {
+      "ticker": "010120.KS",
+      "name": "LS ELECTRIC",
+      "close": 160600.0,
+      "ai_probability": 0.606079,
+      "rsi": 40.68,
+      "return_5d_pct": 5.04,
+      "volume_ratio": 1.13,
+      "avg_turnover_20d": 104054062050
+    },
+    {
+      "ticker": "161580.KQ",
+      "name": "필옵틱스",
+      "close": 28400.0,
+      "ai_probability": 0.605921,
+      "rsi": 25.0,
+      "return_5d_pct": 2.16,
+      "volume_ratio": 0.48,
+      "avg_turnover_20d": 8100623510
+    },
+    {
+      "ticker": "277810.KQ",
+      "name": "레인보우로보틱스",
+      "close": 362500.0,
+      "ai_probability": 0.60568,
+      "rsi": 44.53,
+      "return_5d_pct": 4.32,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 26613069350
+    },
+    {
+      "ticker": "064400.KS",
+      "name": "LG씨엔에스",
+      "close": 78000.0,
+      "ai_probability": 0.60483,
+      "rsi": 68.31,
+      "return_5d_pct": 6.12,
+      "volume_ratio": 1.42,
+      "avg_turnover_20d": 57851216125
+    },
+    {
+      "ticker": "023160.KQ",
+      "name": "태광",
+      "close": 29550.0,
+      "ai_probability": 0.604131,
+      "rsi": 61.89,
+      "return_5d_pct": 20.12,
+      "volume_ratio": 2.74,
+      "avg_turnover_20d": 4263275785
+    },
+    {
+      "ticker": "247540.KQ",
+      "name": "에코프로비엠",
+      "close": 92100.0,
+      "ai_probability": 0.603494,
+      "rsi": 35.2,
+      "return_5d_pct": 2.79,
+      "volume_ratio": 0.5,
+      "avg_turnover_20d": 51483954710
+    },
+    {
+      "ticker": "417840.KQ",
+      "name": "저스템",
+      "close": 12600.0,
+      "ai_probability": 0.603452,
+      "rsi": 19.76,
+      "return_5d_pct": -0.94,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 18695176242
+    },
+    {
+      "ticker": "028300.KQ",
+      "name": "HLB",
+      "close": 41700.0,
+      "ai_probability": 0.603177,
+      "rsi": 41.9,
+      "return_5d_pct": 6.24,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 37726637242
+    },
+    {
+      "ticker": "352820.KS",
+      "name": "하이브",
+      "close": 155000.0,
+      "ai_probability": 0.602863,
+      "rsi": 42.47,
+      "return_5d_pct": -10.97,
+      "volume_ratio": 1.16,
+      "avg_turnover_20d": 47422721945
+    },
+    {
+      "ticker": "267270.KS",
+      "name": "HD건설기계",
+      "close": 80600.0,
+      "ai_probability": 0.601935,
+      "rsi": 23.99,
+      "return_5d_pct": -0.49,
+      "volume_ratio": 1.1,
+      "avg_turnover_20d": 30900031305
+    },
+    {
+      "ticker": "001820.KS",
+      "name": "삼화콘덴서",
+      "close": 104100.0,
+      "ai_probability": 0.601446,
+      "rsi": 17.91,
+      "return_5d_pct": -2.44,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 52279268485
+    },
+    {
+      "ticker": "089970.KQ",
+      "name": "브이엠",
+      "close": 41700.0,
+      "ai_probability": 0.60095,
+      "rsi": 25.32,
+      "return_5d_pct": 7.47,
+      "volume_ratio": 0.36,
+      "avg_turnover_20d": 34755770225
+    },
+    {
+      "ticker": "000270.KS",
+      "name": "기아",
+      "close": 95700.0,
+      "ai_probability": 0.599555,
+      "rsi": 34.25,
+      "return_5d_pct": -8.94,
+      "volume_ratio": 1.83,
+      "avg_turnover_20d": 94118417685
+    },
+    {
+      "ticker": "078600.KQ",
+      "name": "대주전자재료",
+      "close": 92300.0,
+      "ai_probability": 0.599526,
+      "rsi": 39.35,
+      "return_5d_pct": 0.54,
+      "volume_ratio": 0.31,
+      "avg_turnover_20d": 33836674825
+    },
+    {
+      "ticker": "086280.KS",
+      "name": "현대글로비스",
+      "close": 204500.0,
+      "ai_probability": 0.599234,
+      "rsi": 65.34,
+      "return_5d_pct": 16.06,
+      "volume_ratio": 2.48,
+      "avg_turnover_20d": 27481327260
+    },
+    {
+      "ticker": "042700.KS",
+      "name": "한미반도체",
+      "close": 191700.0,
+      "ai_probability": 0.598311,
+      "rsi": 36.3,
+      "return_5d_pct": 4.18,
+      "volume_ratio": 0.98,
+      "avg_turnover_20d": 146127122965
+    },
+    {
+      "ticker": "006340.KS",
+      "name": "대원전선",
+      "close": 9700.0,
+      "ai_probability": 0.598185,
+      "rsi": 33.6,
+      "return_5d_pct": -1.52,
+      "volume_ratio": 0.69,
+      "avg_turnover_20d": 14407912982
+    },
+    {
+      "ticker": "114810.KQ",
+      "name": "한솔아이원스",
+      "close": 10410.0,
+      "ai_probability": 0.59787,
+      "rsi": 26.46,
+      "return_5d_pct": 2.06,
+      "volume_ratio": 0.79,
+      "avg_turnover_20d": 2841029124
+    },
+    {
+      "ticker": "083650.KQ",
+      "name": "비에이치아이",
+      "close": 43150.0,
+      "ai_probability": 0.597744,
+      "rsi": 36.12,
+      "return_5d_pct": 1.29,
+      "volume_ratio": 0.7,
+      "avg_turnover_20d": 11603158008
+    },
+    {
+      "ticker": "077970.KS",
+      "name": "STX엔진",
+      "close": 16270.0,
+      "ai_probability": 0.59661,
+      "rsi": 31.08,
+      "return_5d_pct": 2.78,
+      "volume_ratio": 1.46,
+      "avg_turnover_20d": 3314500417
+    },
+    {
+      "ticker": "457190.KS",
+      "name": "이수스페셜티케미컬",
+      "close": 73500.0,
+      "ai_probability": 0.595346,
+      "rsi": 40.21,
+      "return_5d_pct": 4.4,
+      "volume_ratio": 0.34,
+      "avg_turnover_20d": 31381326770
+    },
+    {
+      "ticker": "348210.KQ",
+      "name": "넥스틴",
+      "close": 25400.0,
+      "ai_probability": 0.594879,
+      "rsi": 16.47,
+      "return_5d_pct": -2.31,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 2381205240
+    },
+    {
+      "ticker": "195870.KS",
+      "name": "해성디에스",
+      "close": 46050.0,
+      "ai_probability": 0.594159,
+      "rsi": 32.8,
+      "return_5d_pct": 10.83,
+      "volume_ratio": 0.81,
+      "avg_turnover_20d": 7957197780
+    },
+    {
+      "ticker": "093370.KS",
+      "name": "후성",
+      "close": 9980.0,
+      "ai_probability": 0.593929,
+      "rsi": 18.02,
+      "return_5d_pct": 0.4,
+      "volume_ratio": 0.49,
+      "avg_turnover_20d": 27331704934
+    },
+    {
+      "ticker": "140410.KQ",
+      "name": "메지온",
+      "close": 51400.0,
+      "ai_probability": 0.593078,
+      "rsi": 17.79,
+      "return_5d_pct": -6.55,
+      "volume_ratio": 0.96,
+      "avg_turnover_20d": 6140076550
+    },
+    {
+      "ticker": "207940.KS",
+      "name": "삼성바이오로직스",
+      "close": 1422000.0,
+      "ai_probability": 0.592354,
+      "rsi": 63.88,
+      "return_5d_pct": -2.07,
+      "volume_ratio": 0.51,
+      "avg_turnover_20d": 109758099500
+    },
+    {
+      "ticker": "293490.KQ",
+      "name": "카카오게임즈",
+      "close": 11600.0,
+      "ai_probability": 0.591338,
+      "rsi": 66.92,
+      "return_5d_pct": 3.57,
+      "volume_ratio": 0.52,
+      "avg_turnover_20d": 7237324162
+    },
+    {
+      "ticker": "101490.KQ",
+      "name": "에스앤에스텍",
+      "close": 38350.0,
+      "ai_probability": 0.591331,
+      "rsi": 31.46,
+      "return_5d_pct": 4.35,
+      "volume_ratio": 0.34,
+      "avg_turnover_20d": 10807080962
+    },
+    {
+      "ticker": "084370.KQ",
+      "name": "유진테크",
+      "close": 105200.0,
+      "ai_probability": 0.591265,
+      "rsi": 22.49,
+      "return_5d_pct": 5.09,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 28758053130
+    },
+    {
+      "ticker": "399720.KQ",
+      "name": "가온칩스",
+      "close": 33700.0,
+      "ai_probability": 0.591229,
+      "rsi": 30.91,
+      "return_5d_pct": 1.97,
+      "volume_ratio": 0.37,
+      "avg_turnover_20d": 2842011320
+    },
+    {
+      "ticker": "104830.KQ",
+      "name": "원익머트리얼즈",
+      "close": 36250.0,
+      "ai_probability": 0.590511,
+      "rsi": 36.63,
+      "return_5d_pct": 9.85,
+      "volume_ratio": 0.72,
+      "avg_turnover_20d": 3052506170
+    },
+    {
+      "ticker": "100790.KQ",
+      "name": "미래에셋벤처투자",
+      "close": 13130.0,
+      "ai_probability": 0.590272,
+      "rsi": 32.06,
+      "return_5d_pct": 0.23,
+      "volume_ratio": 0.42,
+      "avg_turnover_20d": 4949302690
+    },
+    {
+      "ticker": "090360.KQ",
+      "name": "로보스타",
+      "close": 58400.0,
+      "ai_probability": 0.59002,
+      "rsi": 37.55,
+      "return_5d_pct": -0.51,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 4127745225
+    },
+    {
+      "ticker": "067310.KQ",
+      "name": "하나마이크론",
+      "close": 34750.0,
+      "ai_probability": 0.589864,
+      "rsi": 25.91,
+      "return_5d_pct": 3.12,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 61155685320
+    },
+    {
+      "ticker": "347850.KQ",
+      "name": "디앤디파마텍",
+      "close": 41200.0,
+      "ai_probability": 0.58868,
+      "rsi": 59.57,
+      "return_5d_pct": 1.35,
+      "volume_ratio": 0.69,
+      "avg_turnover_20d": 22244705232
+    },
+    {
+      "ticker": "483650.KS",
+      "name": "달바글로벌",
+      "close": 147600.0,
+      "ai_probability": 0.587508,
+      "rsi": 43.26,
+      "return_5d_pct": -1.14,
+      "volume_ratio": 0.53,
+      "avg_turnover_20d": 16967662490
+    },
+    {
+      "ticker": "332570.KQ",
+      "name": "PS일렉트로닉스",
+      "close": 6510.0,
+      "ai_probability": 0.585655,
+      "rsi": 37.65,
+      "return_5d_pct": 2.84,
+      "volume_ratio": 0.96,
+      "avg_turnover_20d": 7646494845
+    },
+    {
+      "ticker": "183300.KQ",
+      "name": "코미코",
+      "close": 23000.0,
+      "ai_probability": 0.584835,
+      "rsi": 28.76,
+      "return_5d_pct": 0.66,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 9959906088
+    },
+    {
+      "ticker": "000720.KS",
+      "name": "현대건설",
+      "close": 89700.0,
+      "ai_probability": 0.583388,
+      "rsi": 39.51,
+      "return_5d_pct": -1.1,
+      "volume_ratio": 0.93,
+      "avg_turnover_20d": 60243008430
+    },
+    {
+      "ticker": "241710.KQ",
+      "name": "코스메카코리아",
+      "close": 96900.0,
+      "ai_probability": 0.582986,
+      "rsi": 38.75,
+      "return_5d_pct": -5.19,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 10187683205
+    },
+    {
+      "ticker": "475960.KQ",
+      "name": "토모큐브",
+      "close": 29600.0,
+      "ai_probability": 0.58168,
+      "rsi": 43.37,
+      "return_5d_pct": -5.58,
+      "volume_ratio": 0.49,
+      "avg_turnover_20d": 1226366092
+    },
+    {
+      "ticker": "000990.KS",
+      "name": "DB하이텍",
+      "close": 94500.0,
+      "ai_probability": 0.581448,
+      "rsi": 26.54,
+      "return_5d_pct": 1.5,
+      "volume_ratio": 0.87,
+      "avg_turnover_20d": 48300553735
+    },
+    {
+      "ticker": "056080.KQ",
+      "name": "유진로봇",
+      "close": 9470.0,
+      "ai_probability": 0.580676,
+      "rsi": 42.82,
+      "return_5d_pct": -3.27,
+      "volume_ratio": 0.41,
+      "avg_turnover_20d": 4065061978
+    },
+    {
+      "ticker": "475150.KS",
+      "name": "SK이터닉스",
+      "close": 37750.0,
+      "ai_probability": 0.57775,
+      "rsi": 28.37,
+      "return_5d_pct": -1.44,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 27462550758
+    },
+    {
+      "ticker": "450080.KS",
+      "name": "에코프로머티",
+      "close": 29050.0,
+      "ai_probability": 0.577636,
+      "rsi": 38.07,
+      "return_5d_pct": 2.11,
+      "volume_ratio": 0.42,
+      "avg_turnover_20d": 13398207685
+    },
+    {
+      "ticker": "034730.KS",
+      "name": "SK",
+      "close": 522000.0,
+      "ai_probability": 0.577564,
+      "rsi": 53.44,
+      "return_5d_pct": 12.14,
+      "volume_ratio": 0.45,
+      "avg_turnover_20d": 129761173275
+    },
+    {
+      "ticker": "226950.KQ",
+      "name": "올릭스",
+      "close": 93500.0,
+      "ai_probability": 0.577151,
+      "rsi": 52.17,
+      "return_5d_pct": -2.71,
+      "volume_ratio": 0.82,
+      "avg_turnover_20d": 22521987825
+    },
+    {
+      "ticker": "042000.KQ",
+      "name": "카페24",
+      "close": 16500.0,
+      "ai_probability": 0.57665,
+      "rsi": 43.99,
+      "return_5d_pct": -6.04,
+      "volume_ratio": 0.2,
+      "avg_turnover_20d": 6556658596
+    },
+    {
+      "ticker": "006360.KS",
+      "name": "GS건설",
+      "close": 28600.0,
+      "ai_probability": 0.575913,
+      "rsi": 47.5,
+      "return_5d_pct": 1.6,
+      "volume_ratio": 1.14,
+      "avg_turnover_20d": 25788910265
+    },
+    {
+      "ticker": "003570.KS",
+      "name": "SNT다이내믹스",
+      "close": 24850.0,
+      "ai_probability": 0.575622,
+      "rsi": 37.43,
+      "return_5d_pct": -5.69,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 2550232118
+    },
+    {
+      "ticker": "189300.KQ",
+      "name": "인텔리안테크",
+      "close": 52100.0,
+      "ai_probability": 0.575225,
+      "rsi": 36.21,
+      "return_5d_pct": 1.56,
+      "volume_ratio": 0.73,
+      "avg_turnover_20d": 4798894340
+    },
+    {
+      "ticker": "466100.KQ",
+      "name": "클로봇",
+      "close": 18520.0,
+      "ai_probability": 0.574897,
+      "rsi": 39.31,
+      "return_5d_pct": -2.22,
+      "volume_ratio": 0.44,
+      "avg_turnover_20d": 4066118449
+    },
+    {
+      "ticker": "388210.KQ",
+      "name": "씨엠티엑스",
+      "close": 59300.0,
+      "ai_probability": 0.573692,
+      "rsi": 23.39,
+      "return_5d_pct": 2.07,
+      "volume_ratio": 1.69,
+      "avg_turnover_20d": 6171296915
+    },
+    {
+      "ticker": "027360.KQ",
+      "name": "아주IB투자",
+      "close": 2645.0,
+      "ai_probability": 0.573168,
+      "rsi": 28.94,
+      "return_5d_pct": 0.57,
+      "volume_ratio": 0.32,
+      "avg_turnover_20d": 5308348408
+    },
+    {
+      "ticker": "330860.KQ",
+      "name": "네패스아크",
+      "close": 23600.0,
+      "ai_probability": 0.572762,
+      "rsi": 30.65,
+      "return_5d_pct": 7.27,
+      "volume_ratio": 0.42,
+      "avg_turnover_20d": 6733695110
+    },
+    {
+      "ticker": "439260.KS",
+      "name": "대한조선",
+      "close": 36400.0,
+      "ai_probability": 0.572518,
+      "rsi": 35.9,
+      "return_5d_pct": 0.28,
+      "volume_ratio": 1.05,
+      "avg_turnover_20d": 1803335108
+    },
+    {
+      "ticker": "319660.KQ",
+      "name": "피에스케이",
+      "close": 113200.0,
+      "ai_probability": 0.572449,
+      "rsi": 31.36,
+      "return_5d_pct": 3.85,
+      "volume_ratio": 0.63,
+      "avg_turnover_20d": 44047326430
+    },
+    {
+      "ticker": "066575.KS",
+      "name": "LG전자우",
+      "close": 56700.0,
+      "ai_probability": 0.571653,
+      "rsi": 31.73,
+      "return_5d_pct": -2.24,
+      "volume_ratio": 0.7,
+      "avg_turnover_20d": 4385267305
+    },
+    {
+      "ticker": "080220.KQ",
+      "name": "제주반도체",
+      "close": 65800.0,
+      "ai_probability": 0.57162,
+      "rsi": 40.38,
+      "return_5d_pct": 7.34,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 94283466730
+    },
+    {
+      "ticker": "036830.KQ",
+      "name": "솔브레인홀딩스",
+      "close": 38200.0,
+      "ai_probability": 0.571452,
+      "rsi": 28.1,
+      "return_5d_pct": 6.26,
+      "volume_ratio": 0.41,
+      "avg_turnover_20d": 3623713075
+    },
+    {
+      "ticker": "475830.KQ",
+      "name": "오름테라퓨틱",
+      "close": 15410.0,
+      "ai_probability": 0.570859,
+      "rsi": 39.56,
+      "return_5d_pct": -4.35,
+      "volume_ratio": 0.4,
+      "avg_turnover_20d": 3839788650
+    },
+    {
+      "ticker": "101730.KQ",
+      "name": "위메이드맥스",
+      "close": 3720.0,
+      "ai_probability": 0.57069,
+      "rsi": 26.45,
+      "return_5d_pct": -3.0,
+      "volume_ratio": 0.19,
+      "avg_turnover_20d": 2156644764
+    },
+    {
+      "ticker": "460930.KQ",
+      "name": "현대힘스",
+      "close": 10770.0,
+      "ai_probability": 0.570216,
+      "rsi": 39.18,
+      "return_5d_pct": 7.27,
+      "volume_ratio": 8.57,
+      "avg_turnover_20d": 1399275546
+    },
+    {
+      "ticker": "003490.KS",
+      "name": "대한항공",
+      "close": 28600.0,
+      "ai_probability": 0.569738,
+      "rsi": 42.28,
+      "return_5d_pct": 13.94,
+      "volume_ratio": 1.53,
+      "avg_turnover_20d": 65452391532
+    },
+    {
+      "ticker": "004170.KS",
+      "name": "신세계",
+      "close": 262000.0,
+      "ai_probability": 0.569543,
+      "rsi": 38.78,
+      "return_5d_pct": 6.94,
+      "volume_ratio": 0.96,
+      "avg_turnover_20d": 18938790800
+    },
+    {
+      "ticker": "004020.KS",
+      "name": "현대제철",
+      "close": 28850.0,
+      "ai_probability": 0.567783,
+      "rsi": 55.3,
+      "return_5d_pct": 9.7,
+      "volume_ratio": 2.34,
+      "avg_turnover_20d": 12835943552
+    },
+    {
+      "ticker": "950160.KQ",
+      "name": "코오롱티슈진",
+      "close": 13900.0,
+      "ai_probability": 0.567244,
+      "rsi": 47.39,
+      "return_5d_pct": -5.57,
+      "volume_ratio": 0.41,
+      "avg_turnover_20d": 6139930833
+    },
+    {
+      "ticker": "094170.KQ",
+      "name": "동운아나텍",
+      "close": 19040.0,
+      "ai_probability": 0.56724,
+      "rsi": 35.55,
+      "return_5d_pct": -1.09,
+      "volume_ratio": 0.53,
+      "avg_turnover_20d": 2398849936
+    },
+    {
+      "ticker": "018290.KQ",
+      "name": "브이티",
+      "close": 10210.0,
+      "ai_probability": 0.566869,
+      "rsi": 25.43,
+      "return_5d_pct": -5.02,
+      "volume_ratio": 0.4,
+      "avg_turnover_20d": 1899407314
+    },
+    {
+      "ticker": "028670.KS",
+      "name": "팬오션",
+      "close": 5870.0,
+      "ai_probability": 0.566757,
+      "rsi": 37.59,
+      "return_5d_pct": -2.17,
+      "volume_ratio": 0.65,
+      "avg_turnover_20d": 36030029854
+    },
+    {
+      "ticker": "010950.KS",
+      "name": "S-Oil",
+      "close": 130000.0,
+      "ai_probability": 0.566237,
+      "rsi": 29.34,
+      "return_5d_pct": 1.8,
+      "volume_ratio": 1.33,
+      "avg_turnover_20d": 58001969910
+    },
+    {
+      "ticker": "066570.KS",
+      "name": "LG전자",
+      "close": 153700.0,
+      "ai_probability": 0.566211,
+      "rsi": 24.31,
+      "return_5d_pct": -1.47,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 145998172305
+    },
+    {
+      "ticker": "006120.KS",
+      "name": "SK디스커버리",
+      "close": 61800.0,
+      "ai_probability": 0.566105,
+      "rsi": 36.36,
+      "return_5d_pct": 8.23,
+      "volume_ratio": 1.09,
+      "avg_turnover_20d": 2510110125
+    },
+    {
+      "ticker": "079940.KQ",
+      "name": "가비아",
+      "close": 49650.0,
+      "ai_probability": 0.566096,
+      "rsi": 82.68,
+      "return_5d_pct": 25.86,
+      "volume_ratio": 0.71,
+      "avg_turnover_20d": 1259950670
+    },
+    {
+      "ticker": "375500.KS",
+      "name": "DL이앤씨",
+      "close": 55400.0,
+      "ai_probability": 0.565521,
+      "rsi": 31.82,
+      "return_5d_pct": -1.95,
+      "volume_ratio": 0.84,
+      "avg_turnover_20d": 15609179815
+    },
+    {
+      "ticker": "003670.KS",
+      "name": "포스코퓨처엠",
+      "close": 168900.0,
+      "ai_probability": 0.565243,
+      "rsi": 46.18,
+      "return_5d_pct": 7.92,
+      "volume_ratio": 1.07,
+      "avg_turnover_20d": 71257088550
+    },
+    {
+      "ticker": "389470.KQ",
+      "name": "인벤티지랩",
+      "close": 22750.0,
+      "ai_probability": 0.565042,
+      "rsi": 48.0,
+      "return_5d_pct": -0.44,
+      "volume_ratio": 0.5,
+      "avg_turnover_20d": 2566472380
+    },
+    {
+      "ticker": "006400.KS",
+      "name": "삼성SDI",
+      "close": 538000.0,
+      "ai_probability": 0.56456,
+      "rsi": 46.64,
+      "return_5d_pct": 11.27,
+      "volume_ratio": 0.71,
+      "avg_turnover_20d": 344644522650
+    },
+    {
+      "ticker": "214430.KQ",
+      "name": "아이쓰리시스템",
+      "close": 60800.0,
+      "ai_probability": 0.56313,
+      "rsi": 24.26,
+      "return_5d_pct": -5.3,
+      "volume_ratio": 0.42,
+      "avg_turnover_20d": 2227289470
+    },
+    {
+      "ticker": "368770.KQ",
+      "name": "파이버프로",
+      "close": 9980.0,
+      "ai_probability": 0.562817,
+      "rsi": 30.32,
+      "return_5d_pct": 0.0,
+      "volume_ratio": 0.68,
+      "avg_turnover_20d": 2185312985
+    },
+    {
+      "ticker": "237690.KQ",
+      "name": "에스티팜",
+      "close": 72500.0,
+      "ai_probability": 0.562496,
+      "rsi": 30.88,
+      "return_5d_pct": -18.08,
+      "volume_ratio": 0.72,
+      "avg_turnover_20d": 9320953825
+    },
+    {
+      "ticker": "053610.KQ",
+      "name": "프로텍",
+      "close": 62100.0,
+      "ai_probability": 0.561777,
+      "rsi": 31.84,
+      "return_5d_pct": 8.57,
+      "volume_ratio": 0.48,
+      "avg_turnover_20d": 2917412595
+    },
+    {
+      "ticker": "009420.KS",
+      "name": "한올바이오파마",
+      "close": 37550.0,
+      "ai_probability": 0.561142,
+      "rsi": 25.28,
+      "return_5d_pct": -2.59,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 7810203558
+    },
+    {
+      "ticker": "454910.KS",
+      "name": "두산로보틱스",
+      "close": 56100.0,
+      "ai_probability": 0.560204,
+      "rsi": 38.15,
+      "return_5d_pct": -0.36,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 18334618265
+    },
+    {
+      "ticker": "089030.KQ",
+      "name": "테크윙",
+      "close": 36850.0,
+      "ai_probability": 0.559689,
+      "rsi": 22.49,
+      "return_5d_pct": 0.68,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 29619485438
+    },
+    {
+      "ticker": "032830.KS",
+      "name": "삼성생명",
+      "close": 272000.0,
+      "ai_probability": 0.559418,
+      "rsi": 57.41,
+      "return_5d_pct": 10.34,
+      "volume_ratio": 0.61,
+      "avg_turnover_20d": 74223069225
+    },
+    {
+      "ticker": "476060.KQ",
+      "name": "온코닉테라퓨틱스",
+      "close": 12390.0,
+      "ai_probability": 0.558419,
+      "rsi": 38.85,
+      "return_5d_pct": 0.32,
+      "volume_ratio": 0.75,
+      "avg_turnover_20d": 1927733358
+    },
+    {
+      "ticker": "083450.KQ",
+      "name": "GST",
+      "close": 43800.0,
+      "ai_probability": 0.557918,
+      "rsi": 32.72,
+      "return_5d_pct": 8.01,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 6564066872
+    },
+    {
+      "ticker": "028260.KS",
+      "name": "삼성물산",
+      "close": 316500.0,
+      "ai_probability": 0.557415,
+      "rsi": 56.18,
+      "return_5d_pct": 8.39,
+      "volume_ratio": 0.63,
+      "avg_turnover_20d": 110316405800
+    },
+    {
+      "ticker": "060370.KQ",
+      "name": "LS마린솔루션",
+      "close": 26000.0,
+      "ai_probability": 0.557402,
+      "rsi": 37.32,
+      "return_5d_pct": -8.61,
+      "volume_ratio": 0.25,
+      "avg_turnover_20d": 5739789102
+    },
+    {
+      "ticker": "005290.KQ",
+      "name": "동진쎄미켐",
+      "close": 39150.0,
+      "ai_probability": 0.557037,
+      "rsi": 31.49,
+      "return_5d_pct": 5.1,
+      "volume_ratio": 0.74,
+      "avg_turnover_20d": 16375188930
+    },
+    {
+      "ticker": "000880.KS",
+      "name": "한화",
+      "close": 92700.0,
+      "ai_probability": 0.556875,
+      "rsi": 32.82,
+      "return_5d_pct": 1.64,
+      "volume_ratio": 1.31,
+      "avg_turnover_20d": 10364865660
+    },
+    {
+      "ticker": "006260.KS",
+      "name": "LS",
+      "close": 215000.0,
+      "ai_probability": 0.55682,
+      "rsi": 36.89,
+      "return_5d_pct": 2.63,
+      "volume_ratio": 0.7,
+      "avg_turnover_20d": 37169300950
+    },
+    {
+      "ticker": "098460.KQ",
+      "name": "고영",
+      "close": 29400.0,
+      "ai_probability": 0.555812,
+      "rsi": 29.97,
+      "return_5d_pct": 5.0,
+      "volume_ratio": 0.44,
+      "avg_turnover_20d": 48753951895
+    },
+    {
+      "ticker": "357780.KQ",
+      "name": "솔브레인",
+      "close": 301000.0,
+      "ai_probability": 0.554073,
+      "rsi": 21.7,
+      "return_5d_pct": 4.33,
+      "volume_ratio": 0.52,
+      "avg_turnover_20d": 11447531700
+    },
+    {
+      "ticker": "074600.KQ",
+      "name": "원익QnC",
+      "close": 26900.0,
+      "ai_probability": 0.55396,
+      "rsi": 35.6,
+      "return_5d_pct": 10.02,
+      "volume_ratio": 0.86,
+      "avg_turnover_20d": 5573405892
+    },
+    {
+      "ticker": "067160.KQ",
+      "name": "SOOP",
+      "close": 32900.0,
+      "ai_probability": 0.553701,
+      "rsi": 31.54,
+      "return_5d_pct": -13.87,
+      "volume_ratio": 3.34,
+      "avg_turnover_20d": 1820705748
+    },
+    {
+      "ticker": "095610.KQ",
+      "name": "테스",
+      "close": 110700.0,
+      "ai_probability": 0.551465,
+      "rsi": 24.08,
+      "return_5d_pct": 5.23,
+      "volume_ratio": 0.38,
+      "avg_turnover_20d": 35591670305
+    },
+    {
+      "ticker": "009540.KS",
+      "name": "HD한국조선해양",
+      "close": 249000.0,
+      "ai_probability": 0.550926,
+      "rsi": 34.41,
+      "return_5d_pct": 2.47,
+      "volume_ratio": 1.31,
+      "avg_turnover_20d": 57662033325
+    },
+    {
+      "ticker": "047810.KS",
+      "name": "한국항공우주",
+      "close": 99100.0,
+      "ai_probability": 0.550488,
+      "rsi": 35.08,
+      "return_5d_pct": 1.33,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 37492139965
+    },
+    {
+      "ticker": "120110.KS",
+      "name": "코오롱인더",
+      "close": 40350.0,
+      "ai_probability": 0.550114,
+      "rsi": 15.65,
+      "return_5d_pct": 1.38,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 9710296268
+    },
+    {
+      "ticker": "443060.KS",
+      "name": "HD현대마린솔루션",
+      "close": 168300.0,
+      "ai_probability": 0.549562,
+      "rsi": 18.11,
+      "return_5d_pct": -0.77,
+      "volume_ratio": 0.65,
+      "avg_turnover_20d": 20938913705
+    },
+    {
+      "ticker": "033500.KQ",
+      "name": "동성화인텍",
+      "close": 12620.0,
+      "ai_probability": 0.548612,
+      "rsi": 33.88,
+      "return_5d_pct": 0.72,
+      "volume_ratio": 0.79,
+      "avg_turnover_20d": 1523961858
+    },
+    {
+      "ticker": "166090.KQ",
+      "name": "하나머티리얼즈",
+      "close": 48750.0,
+      "ai_probability": 0.548513,
+      "rsi": 27.47,
+      "return_5d_pct": -0.81,
+      "volume_ratio": 0.51,
+      "avg_turnover_20d": 8590894738
+    },
+    {
+      "ticker": "139480.KS",
+      "name": "이마트",
+      "close": 74000.0,
+      "ai_probability": 0.547626,
+      "rsi": 52.77,
+      "return_5d_pct": 11.11,
+      "volume_ratio": 1.48,
+      "avg_turnover_20d": 8267142555
+    },
+    {
+      "ticker": "319400.KQ",
+      "name": "현대무벡스",
+      "close": 17060.0,
+      "ai_probability": 0.546443,
+      "rsi": 38.12,
+      "return_5d_pct": -1.95,
+      "volume_ratio": 0.52,
+      "avg_turnover_20d": 12306660508
+    },
+    {
+      "ticker": "196170.KQ",
+      "name": "알테오젠",
+      "close": 213000.0,
+      "ai_probability": 0.545475,
+      "rsi": 43.2,
+      "return_5d_pct": -2.52,
+      "volume_ratio": 0.65,
+      "avg_turnover_20d": 68440597450
+    },
+    {
+      "ticker": "005380.KS",
+      "name": "현대차",
+      "close": 287000.0,
+      "ai_probability": 0.544883,
+      "rsi": 37.5,
+      "return_5d_pct": -0.35,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 175754694850
+    },
+    {
+      "ticker": "031330.KQ",
+      "name": "에스에이엠티",
+      "close": 7610.0,
+      "ai_probability": 0.541892,
+      "rsi": 45.64,
+      "return_5d_pct": 15.65,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 3579467480
+    },
+    {
+      "ticker": "161890.KS",
+      "name": "한국콜마",
+      "close": 115500.0,
+      "ai_probability": 0.540957,
+      "rsi": 37.16,
+      "return_5d_pct": -1.62,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 31832297905
+    },
+    {
+      "ticker": "140860.KQ",
+      "name": "파크시스템스",
+      "close": 232500.0,
+      "ai_probability": 0.540852,
+      "rsi": 21.99,
+      "return_5d_pct": 4.26,
+      "volume_ratio": 1.31,
+      "avg_turnover_20d": 8358815900
+    },
+    {
+      "ticker": "006800.KS",
+      "name": "미래에셋증권",
+      "close": 25200.0,
+      "ai_probability": 0.540756,
+      "rsi": 40.98,
+      "return_5d_pct": 5.0,
+      "volume_ratio": 0.98,
+      "avg_turnover_20d": 28488519760
+    },
+    {
+      "ticker": "000100.KS",
+      "name": "유한양행",
+      "close": 76200.0,
+      "ai_probability": 0.540638,
+      "rsi": 55.59,
+      "return_5d_pct": -6.73,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 24151538125
+    },
+    {
+      "ticker": "033100.KQ",
+      "name": "제룡전기",
+      "close": 38750.0,
+      "ai_probability": 0.539424,
+      "rsi": 36.86,
+      "return_5d_pct": 4.59,
+      "volume_ratio": 0.9,
+      "avg_turnover_20d": 3557034448
+    },
+    {
+      "ticker": "099320.KQ",
+      "name": "쎄트렉아이",
+      "close": 56600.0,
+      "ai_probability": 0.538774,
+      "rsi": 42.75,
+      "return_5d_pct": 10.55,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 4623517185
+    },
+    {
+      "ticker": "096770.KS",
+      "name": "SK이노베이션",
+      "close": 131400.0,
+      "ai_probability": 0.538379,
+      "rsi": 34.84,
+      "return_5d_pct": -4.09,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 122928569760
+    },
+    {
+      "ticker": "086520.KQ",
+      "name": "에코프로",
+      "close": 73800.0,
+      "ai_probability": 0.536157,
+      "rsi": 38.74,
+      "return_5d_pct": 5.88,
+      "volume_ratio": 0.5,
+      "avg_turnover_20d": 69475529035
+    },
+    {
+      "ticker": "008930.KS",
+      "name": "한미사이언스",
+      "close": 43500.0,
+      "ai_probability": 0.535593,
+      "rsi": 32.64,
+      "return_5d_pct": 2.96,
+      "volume_ratio": 0.53,
+      "avg_turnover_20d": 15333565455
+    },
+    {
+      "ticker": "058610.KQ",
+      "name": "에스피지",
+      "close": 85400.0,
+      "ai_probability": 0.53501,
+      "rsi": 50.24,
+      "return_5d_pct": 8.65,
+      "volume_ratio": 0.51,
+      "avg_turnover_20d": 19005760965
+    },
+    {
+      "ticker": "010140.KS",
+      "name": "삼성중공업",
+      "close": 17120.0,
+      "ai_probability": 0.533889,
+      "rsi": 40.91,
+      "return_5d_pct": 5.03,
+      "volume_ratio": 1.69,
+      "avg_turnover_20d": 64438056451
+    },
+    {
+      "ticker": "005070.KS",
+      "name": "코스모신소재",
+      "close": 38500.0,
+      "ai_probability": 0.533838,
+      "rsi": 39.28,
+      "return_5d_pct": 3.63,
+      "volume_ratio": 0.45,
+      "avg_turnover_20d": 5620313932
+    },
+    {
+      "ticker": "005930.KS",
+      "name": "삼성전자",
+      "close": 229000.0,
+      "ai_probability": 0.532676,
+      "rsi": 48.6,
+      "return_5d_pct": 7.51,
+      "volume_ratio": 0.81,
+      "avg_turnover_20d": 4148855171662
+    },
+    {
+      "ticker": "214150.KQ",
+      "name": "클래시스",
+      "close": 26500.0,
+      "ai_probability": 0.532099,
+      "rsi": 43.02,
+      "return_5d_pct": -2.57,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 5379543638
+    },
+    {
+      "ticker": "005935.KS",
+      "name": "삼성전자우",
+      "close": 177000.0,
+      "ai_probability": 0.529369,
+      "rsi": 51.54,
+      "return_5d_pct": 7.8,
+      "volume_ratio": 0.83,
+      "avg_turnover_20d": 670113940165
+    },
+    {
+      "ticker": "361610.KS",
+      "name": "SK아이이테크놀로지",
+      "close": 15000.0,
+      "ai_probability": 0.529133,
+      "rsi": 33.23,
+      "return_5d_pct": -4.52,
+      "volume_ratio": 0.43,
+      "avg_turnover_20d": 4964198847
+    },
+    {
+      "ticker": "181710.KS",
+      "name": "NHN",
+      "close": 47900.0,
+      "ai_probability": 0.52875,
+      "rsi": 41.94,
+      "return_5d_pct": -2.44,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 5792495815
+    },
+    {
+      "ticker": "004800.KS",
+      "name": "효성",
+      "close": 125700.0,
+      "ai_probability": 0.528192,
+      "rsi": 45.15,
+      "return_5d_pct": 9.21,
+      "volume_ratio": 0.96,
+      "avg_turnover_20d": 2750797300
+    },
+    {
+      "ticker": "007340.KS",
+      "name": "DN오토모티브",
+      "close": 40650.0,
+      "ai_probability": 0.526578,
+      "rsi": 53.2,
+      "return_5d_pct": 3.04,
+      "volume_ratio": 0.37,
+      "avg_turnover_20d": 8215822508
+    },
+    {
+      "ticker": "267250.KS",
+      "name": "HD현대",
+      "close": 145700.0,
+      "ai_probability": 0.526208,
+      "rsi": 32.95,
+      "return_5d_pct": 10.21,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 33338854375
+    },
+    {
+      "ticker": "041190.KQ",
+      "name": "우리기술투자",
+      "close": 4695.0,
+      "ai_probability": 0.525509,
+      "rsi": 25.81,
+      "return_5d_pct": 2.74,
+      "volume_ratio": 0.3,
+      "avg_turnover_20d": 7787162882
+    },
+    {
+      "ticker": "281740.KQ",
+      "name": "레이크머티리얼즈",
+      "close": 11160.0,
+      "ai_probability": 0.523576,
+      "rsi": 43.26,
+      "return_5d_pct": 4.49,
+      "volume_ratio": 0.38,
+      "avg_turnover_20d": 8178484085
+    },
+    {
+      "ticker": "082270.KQ",
+      "name": "젬백스",
+      "close": 8680.0,
+      "ai_probability": 0.522917,
+      "rsi": 30.34,
+      "return_5d_pct": -4.72,
+      "volume_ratio": 1.09,
+      "avg_turnover_20d": 1233102679
+    },
+    {
+      "ticker": "056190.KQ",
+      "name": "SFA",
+      "close": 25750.0,
+      "ai_probability": 0.521589,
+      "rsi": 25.0,
+      "return_5d_pct": 4.89,
+      "volume_ratio": 0.46,
+      "avg_turnover_20d": 3823738648
+    },
+    {
+      "ticker": "272290.KQ",
+      "name": "이녹스첨단소재",
+      "close": 17230.0,
+      "ai_probability": 0.521537,
+      "rsi": 29.4,
+      "return_5d_pct": -0.4,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 2040475095
+    },
+    {
+      "ticker": "041960.KQ",
+      "name": "코미팜",
+      "close": 8930.0,
+      "ai_probability": 0.521276,
+      "rsi": 21.52,
+      "return_5d_pct": 7.85,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 3326164538
+    },
+    {
+      "ticker": "298020.KS",
+      "name": "효성티앤씨",
+      "close": 279000.0,
+      "ai_probability": 0.520502,
+      "rsi": 56.11,
+      "return_5d_pct": 12.73,
+      "volume_ratio": 1.18,
+      "avg_turnover_20d": 3857662825
+    },
+    {
+      "ticker": "041830.KQ",
+      "name": "인바디",
+      "close": 46350.0,
+      "ai_probability": 0.519838,
+      "rsi": 38.6,
+      "return_5d_pct": 1.53,
+      "volume_ratio": 1.04,
+      "avg_turnover_20d": 2643622305
+    },
+    {
+      "ticker": "137400.KQ",
+      "name": "피엔티",
+      "close": 26350.0,
+      "ai_probability": 0.519256,
+      "rsi": 33.02,
+      "return_5d_pct": 0.19,
+      "volume_ratio": 0.65,
+      "avg_turnover_20d": 3745629568
+    },
+    {
+      "ticker": "017960.KS",
+      "name": "한국카본",
+      "close": 15970.0,
+      "ai_probability": 0.51915,
+      "rsi": 30.56,
+      "return_5d_pct": 2.83,
+      "volume_ratio": 1.27,
+      "avg_turnover_20d": 3685430500
+    },
+    {
+      "ticker": "023530.KS",
+      "name": "롯데쇼핑",
+      "close": 89500.0,
+      "ai_probability": 0.519047,
+      "rsi": 45.4,
+      "return_5d_pct": 9.95,
+      "volume_ratio": 0.79,
+      "avg_turnover_20d": 13021714135
+    },
+    {
+      "ticker": "103140.KS",
+      "name": "풍산",
+      "close": 59000.0,
+      "ai_probability": 0.518044,
+      "rsi": 36.46,
+      "return_5d_pct": 3.15,
+      "volume_ratio": 0.44,
+      "avg_turnover_20d": 7676147185
+    },
+    {
+      "ticker": "222080.KQ",
+      "name": "SFA넥셀",
+      "close": 7300.0,
+      "ai_probability": 0.514243,
+      "rsi": 35.86,
+      "return_5d_pct": 2.53,
+      "volume_ratio": 0.49,
+      "avg_turnover_20d": 5654878296
+    },
+    {
+      "ticker": "035760.KQ",
+      "name": "CJ ENM",
+      "close": 43500.0,
+      "ai_probability": 0.512144,
+      "rsi": 79.63,
+      "return_5d_pct": 6.62,
+      "volume_ratio": 0.76,
+      "avg_turnover_20d": 2910749110
+    },
+    {
+      "ticker": "038500.KQ",
+      "name": "삼표시멘트",
+      "close": 5580.0,
+      "ai_probability": 0.511856,
+      "rsi": 29.43,
+      "return_5d_pct": 2.95,
+      "volume_ratio": 0.09,
+      "avg_turnover_20d": 29546807810
+    },
+    {
+      "ticker": "018880.KS",
+      "name": "한온시스템",
+      "close": 3540.0,
+      "ai_probability": 0.511792,
+      "rsi": 39.44,
+      "return_5d_pct": -1.8,
+      "volume_ratio": 0.46,
+      "avg_turnover_20d": 26075619775
+    },
+    {
+      "ticker": "014680.KS",
+      "name": "한솔케미칼",
+      "close": 212500.0,
+      "ai_probability": 0.511302,
+      "rsi": 21.51,
+      "return_5d_pct": 4.17,
+      "volume_ratio": 0.49,
+      "avg_turnover_20d": 10345859700
+    },
+    {
+      "ticker": "192820.KS",
+      "name": "코스맥스",
+      "close": 255000.0,
+      "ai_probability": 0.511275,
+      "rsi": 30.2,
+      "return_5d_pct": -4.85,
+      "volume_ratio": 0.45,
+      "avg_turnover_20d": 30203695300
+    },
+    {
+      "ticker": "090710.KQ",
+      "name": "휴림로봇",
+      "close": 5080.0,
+      "ai_probability": 0.510717,
+      "rsi": 40.91,
+      "return_5d_pct": 1.2,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 5386170323
+    },
+    {
+      "ticker": "102710.KQ",
+      "name": "이엔에프테크놀로지",
+      "close": 42100.0,
+      "ai_probability": 0.510106,
+      "rsi": 35.63,
+      "return_5d_pct": 7.67,
+      "volume_ratio": 0.37,
+      "avg_turnover_20d": 3528162985
+    },
+    {
+      "ticker": "050890.KQ",
+      "name": "쏠리드",
+      "close": 8250.0,
+      "ai_probability": 0.509014,
+      "rsi": 38.38,
+      "return_5d_pct": 1.98,
+      "volume_ratio": 0.47,
+      "avg_turnover_20d": 9512196764
+    },
+    {
+      "ticker": "278280.KQ",
+      "name": "천보",
+      "close": 30850.0,
+      "ai_probability": 0.507153,
+      "rsi": 32.34,
+      "return_5d_pct": -1.91,
+      "volume_ratio": 0.36,
+      "avg_turnover_20d": 1066884778
+    },
+    {
+      "ticker": "097230.KS",
+      "name": "HJ중공업",
+      "close": 12190.0,
+      "ai_probability": 0.506798,
+      "rsi": 37.47,
+      "return_5d_pct": 1.75,
+      "volume_ratio": 0.9,
+      "avg_turnover_20d": 3188954463
+    },
+    {
+      "ticker": "032500.KQ",
+      "name": "케이엠더블유",
+      "close": 17930.0,
+      "ai_probability": 0.50543,
+      "rsi": 46.53,
+      "return_5d_pct": 0.06,
+      "volume_ratio": 0.43,
+      "avg_turnover_20d": 3284111462
+    },
+    {
+      "ticker": "373220.KS",
+      "name": "LG에너지솔루션",
+      "close": 356000.0,
+      "ai_probability": 0.504737,
+      "rsi": 34.3,
+      "return_5d_pct": -5.07,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 187354188275
+    },
+    {
+      "ticker": "082920.KQ",
+      "name": "비츠로셀",
+      "close": 24550.0,
+      "ai_probability": 0.504087,
+      "rsi": 51.02,
+      "return_5d_pct": 7.68,
+      "volume_ratio": 0.7,
+      "avg_turnover_20d": 7010702850
+    },
+    {
+      "ticker": "019210.KQ",
+      "name": "와이지-원",
+      "close": 10620.0,
+      "ai_probability": 0.503857,
+      "rsi": 41.35,
+      "return_5d_pct": 3.11,
+      "volume_ratio": 0.7,
+      "avg_turnover_20d": 4406868850
+    },
+    {
+      "ticker": "009520.KQ",
+      "name": "포스코엠텍",
+      "close": 10800.0,
+      "ai_probability": 0.502516,
+      "rsi": 38.05,
+      "return_5d_pct": 1.5,
+      "volume_ratio": 0.74,
+      "avg_turnover_20d": 1451077466
+    },
+    {
+      "ticker": "012750.KS",
+      "name": "에스원",
+      "close": 96000.0,
+      "ai_probability": 0.496045,
+      "rsi": 68.29,
+      "return_5d_pct": 2.89,
+      "volume_ratio": 1.47,
+      "avg_turnover_20d": 11602860540
+    },
+    {
+      "ticker": "078930.KS",
+      "name": "GS",
+      "close": 82900.0,
+      "ai_probability": 0.494699,
+      "rsi": 26.42,
+      "return_5d_pct": 5.34,
+      "volume_ratio": 0.4,
+      "avg_turnover_20d": 35203580045
+    },
+    {
+      "ticker": "005385.KS",
+      "name": "현대차우",
+      "close": 152200.0,
+      "ai_probability": 0.494488,
+      "rsi": 42.48,
+      "return_5d_pct": -0.98,
+      "volume_ratio": 2.05,
+      "avg_turnover_20d": 11244350245
+    },
+    {
+      "ticker": "010130.KS",
+      "name": "고려아연",
+      "close": 876000.0,
+      "ai_probability": 0.492342,
+      "rsi": 29.11,
+      "return_5d_pct": 3.67,
+      "volume_ratio": 0.71,
+      "avg_turnover_20d": 14103775650
+    },
+    {
+      "ticker": "171090.KQ",
+      "name": "선익시스템",
+      "close": 78000.0,
+      "ai_probability": 0.491484,
+      "rsi": 47.56,
+      "return_5d_pct": -5.57,
+      "volume_ratio": 0.7,
+      "avg_turnover_20d": 7560825330
+    },
+    {
+      "ticker": "018670.KS",
+      "name": "SK가스",
+      "close": 261000.0,
+      "ai_probability": 0.490905,
+      "rsi": 43.08,
+      "return_5d_pct": 3.98,
+      "volume_ratio": 0.73,
+      "avg_turnover_20d": 4015496250
+    },
+    {
+      "ticker": "096530.KQ",
+      "name": "씨젠",
+      "close": 32550.0,
+      "ai_probability": 0.490128,
+      "rsi": 27.81,
+      "return_5d_pct": -2.98,
+      "volume_ratio": 0.73,
+      "avg_turnover_20d": 10489665525
+    },
+    {
+      "ticker": "051910.KS",
+      "name": "LG화학",
+      "close": 240500.0,
+      "ai_probability": 0.48395,
+      "rsi": 41.15,
+      "return_5d_pct": 6.89,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 64829189800
+    },
+    {
+      "ticker": "069960.KS",
+      "name": "현대백화점",
+      "close": 78600.0,
+      "ai_probability": 0.483401,
+      "rsi": 44.56,
+      "return_5d_pct": 7.52,
+      "volume_ratio": 0.89,
+      "avg_turnover_20d": 8608349510
+    },
+    {
+      "ticker": "251970.KQ",
+      "name": "펌텍코리아",
+      "close": 64400.0,
+      "ai_probability": 0.481636,
+      "rsi": 37.28,
+      "return_5d_pct": -6.12,
+      "volume_ratio": 0.32,
+      "avg_turnover_20d": 8190116085
+    },
+    {
+      "ticker": "045100.KQ",
+      "name": "한양이엔지",
+      "close": 27100.0,
+      "ai_probability": 0.47934,
+      "rsi": 33.04,
+      "return_5d_pct": 2.07,
+      "volume_ratio": 0.34,
+      "avg_turnover_20d": 1861676268
+    },
+    {
+      "ticker": "003380.KQ",
+      "name": "하림지주",
+      "close": 11900.0,
+      "ai_probability": 0.478939,
+      "rsi": 55.16,
+      "return_5d_pct": 8.48,
+      "volume_ratio": 1.16,
+      "avg_turnover_20d": 5674737986
+    },
+    {
+      "ticker": "018260.KS",
+      "name": "삼성에스디에스",
+      "close": 208500.0,
+      "ai_probability": 0.476732,
+      "rsi": 57.34,
+      "return_5d_pct": -2.11,
+      "volume_ratio": 0.67,
+      "avg_turnover_20d": 41013076455
+    },
+    {
+      "ticker": "002380.KS",
+      "name": "KCC",
+      "close": 404000.0,
+      "ai_probability": 0.474937,
+      "rsi": 39.53,
+      "return_5d_pct": 9.78,
+      "volume_ratio": 1.15,
+      "avg_turnover_20d": 8043623775
+    },
+    {
+      "ticker": "036570.KS",
+      "name": "NC",
+      "close": 198500.0,
+      "ai_probability": 0.474403,
+      "rsi": 42.42,
+      "return_5d_pct": -1.49,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 24570566905
+    },
+    {
+      "ticker": "086450.KQ",
+      "name": "동국제약",
+      "close": 23650.0,
+      "ai_probability": 0.46883,
+      "rsi": 52.78,
+      "return_5d_pct": 1.07,
+      "volume_ratio": 0.49,
+      "avg_turnover_20d": 15806481315
+    },
+    {
+      "ticker": "039200.KQ",
+      "name": "오스코텍",
+      "close": 35400.0,
+      "ai_probability": 0.464542,
+      "rsi": 50.26,
+      "return_5d_pct": -1.67,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 4645587042
+    },
+    {
+      "ticker": "088350.KS",
+      "name": "한화생명",
+      "close": 4145.0,
+      "ai_probability": 0.464197,
+      "rsi": 20.69,
+      "return_5d_pct": 3.62,
+      "volume_ratio": 1.0,
+      "avg_turnover_20d": 11327781003
+    },
+    {
+      "ticker": "032350.KS",
+      "name": "롯데관광개발",
+      "close": 10800.0,
+      "ai_probability": 0.462275,
+      "rsi": 52.49,
+      "return_5d_pct": 6.93,
+      "volume_ratio": 1.51,
+      "avg_turnover_20d": 3800686014
+    },
+    {
+      "ticker": "282330.KS",
+      "name": "BGF리테일",
+      "close": 137100.0,
+      "ai_probability": 0.462021,
+      "rsi": 59.26,
+      "return_5d_pct": 7.36,
+      "volume_ratio": 0.97,
+      "avg_turnover_20d": 5787473925
+    },
+    {
+      "ticker": "005387.KS",
+      "name": "현대차2우B",
+      "close": 153000.0,
+      "ai_probability": 0.46106,
+      "rsi": 42.58,
+      "return_5d_pct": -0.33,
+      "volume_ratio": 0.89,
+      "avg_turnover_20d": 22471590905
+    },
+    {
+      "ticker": "035900.KQ",
+      "name": "JYP Ent.",
+      "close": 37950.0,
+      "ai_probability": 0.461021,
+      "rsi": 51.5,
+      "return_5d_pct": 5.42,
+      "volume_ratio": 1.21,
+      "avg_turnover_20d": 16308627735
+    },
+    {
+      "ticker": "041510.KQ",
+      "name": "에스엠",
+      "close": 77600.0,
+      "ai_probability": 0.460649,
+      "rsi": 48.92,
+      "return_5d_pct": -4.08,
+      "volume_ratio": 0.37,
+      "avg_turnover_20d": 8192951715
+    },
+    {
+      "ticker": "025980.KQ",
+      "name": "아난티",
+      "close": 4175.0,
+      "ai_probability": 0.460523,
+      "rsi": 37.82,
+      "return_5d_pct": 3.21,
+      "volume_ratio": 0.56,
+      "avg_turnover_20d": 4927664366
+    },
+    {
+      "ticker": "204620.KQ",
+      "name": "글로벌텍스프리",
+      "close": 5670.0,
+      "ai_probability": 0.459829,
+      "rsi": 41.32,
+      "return_5d_pct": 6.78,
+      "volume_ratio": 0.32,
+      "avg_turnover_20d": 4642145362
+    },
+    {
+      "ticker": "101160.KQ",
+      "name": "월덱스",
+      "close": 25000.0,
+      "ai_probability": 0.45904,
+      "rsi": 27.15,
+      "return_5d_pct": 3.31,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 1604819440
+    },
+    {
+      "ticker": "085660.KQ",
+      "name": "차바이오텍",
+      "close": 6800.0,
+      "ai_probability": 0.457697,
+      "rsi": 25.54,
+      "return_5d_pct": -4.23,
+      "volume_ratio": 0.61,
+      "avg_turnover_20d": 1447184843
+    },
+    {
+      "ticker": "336570.KQ",
+      "name": "원텍",
+      "close": 3830.0,
+      "ai_probability": 0.456299,
+      "rsi": 23.13,
+      "return_5d_pct": 2.82,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 2381756522
+    },
+    {
+      "ticker": "006730.KQ",
+      "name": "서부T&D",
+      "close": 11380.0,
+      "ai_probability": 0.455671,
+      "rsi": 44.32,
+      "return_5d_pct": 0.35,
+      "volume_ratio": 0.31,
+      "avg_turnover_20d": 6263989102
+    },
+    {
+      "ticker": "090430.KS",
+      "name": "아모레퍼시픽",
+      "close": 132200.0,
+      "ai_probability": 0.450338,
+      "rsi": 52.68,
+      "return_5d_pct": 5.17,
+      "volume_ratio": 1.06,
+      "avg_turnover_20d": 22460883285
+    },
+    {
+      "ticker": "285130.KS",
+      "name": "SK케미칼",
+      "close": 42100.0,
+      "ai_probability": 0.449047,
+      "rsi": 28.07,
+      "return_5d_pct": 9.49,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 2362934298
+    },
+    {
+      "ticker": "002790.KS",
+      "name": "아모레퍼시픽홀딩스",
+      "close": 26550.0,
+      "ai_probability": 0.447853,
+      "rsi": 62.4,
+      "return_5d_pct": 10.86,
+      "volume_ratio": 1.49,
+      "avg_turnover_20d": 2553369970
+    },
+    {
+      "ticker": "012330.KS",
+      "name": "현대모비스",
+      "close": 350000.0,
+      "ai_probability": 0.44641,
+      "rsi": 50.46,
+      "return_5d_pct": 7.36,
+      "volume_ratio": 0.79,
+      "avg_turnover_20d": 88431217200
+    },
+    {
+      "ticker": "011170.KS",
+      "name": "롯데케미칼",
+      "close": 47250.0,
+      "ai_probability": 0.445874,
+      "rsi": 26.24,
+      "return_5d_pct": 1.39,
+      "volume_ratio": 0.81,
+      "avg_turnover_20d": 5547641415
+    },
+    {
+      "ticker": "047050.KS",
+      "name": "포스코인터내셔널",
+      "close": 51400.0,
+      "ai_probability": 0.444733,
+      "rsi": 35.06,
+      "return_5d_pct": 3.73,
+      "volume_ratio": 0.93,
+      "avg_turnover_20d": 20066268130
+    },
+    {
+      "ticker": "073240.KS",
+      "name": "금호타이어",
+      "close": 5280.0,
+      "ai_probability": 0.444342,
+      "rsi": 18.93,
+      "return_5d_pct": 3.53,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 7389575844
+    },
+    {
+      "ticker": "122870.KQ",
+      "name": "와이지엔터테인먼트",
+      "close": 39100.0,
+      "ai_probability": 0.442955,
+      "rsi": 50.0,
+      "return_5d_pct": -1.14,
+      "volume_ratio": 0.88,
+      "avg_turnover_20d": 3481299590
+    },
+    {
+      "ticker": "022100.KS",
+      "name": "포스코DX",
+      "close": 19460.0,
+      "ai_probability": 0.442307,
+      "rsi": 46.24,
+      "return_5d_pct": 4.57,
+      "volume_ratio": 0.98,
+      "avg_turnover_20d": 4238783169
+    },
+    {
+      "ticker": "004490.KS",
+      "name": "세방전지",
+      "close": 54500.0,
+      "ai_probability": 0.441491,
+      "rsi": 37.6,
+      "return_5d_pct": -4.05,
+      "volume_ratio": 0.69,
+      "avg_turnover_20d": 4017125085
+    },
+    {
+      "ticker": "340570.KQ",
+      "name": "티앤엘",
+      "close": 24150.0,
+      "ai_probability": 0.440006,
+      "rsi": 33.8,
+      "return_5d_pct": 0.63,
+      "volume_ratio": 0.31,
+      "avg_turnover_20d": 1330778882
+    },
+    {
+      "ticker": "003230.KS",
+      "name": "삼양식품",
+      "close": 1177000.0,
+      "ai_probability": 0.437909,
+      "rsi": 50.51,
+      "return_5d_pct": 5.47,
+      "volume_ratio": 0.94,
+      "avg_turnover_20d": 44982043750
+    },
+    {
+      "ticker": "376300.KQ",
+      "name": "디어유",
+      "close": 18790.0,
+      "ai_probability": 0.435401,
+      "rsi": 51.54,
+      "return_5d_pct": -6.52,
+      "volume_ratio": 0.65,
+      "avg_turnover_20d": 1949803769
+    },
+    {
+      "ticker": "005440.KS",
+      "name": "현대지에프홀딩스",
+      "close": 11530.0,
+      "ai_probability": 0.43531,
+      "rsi": 35.8,
+      "return_5d_pct": 6.56,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 3871419519
+    },
+    {
+      "ticker": "011200.KS",
+      "name": "HMM",
+      "close": 23700.0,
+      "ai_probability": 0.434614,
+      "rsi": 65.14,
+      "return_5d_pct": 5.1,
+      "volume_ratio": 0.69,
+      "avg_turnover_20d": 38363569830
+    },
+    {
+      "ticker": "032640.KS",
+      "name": "LG유플러스",
+      "close": 14540.0,
+      "ai_probability": 0.434567,
+      "rsi": 47.25,
+      "return_5d_pct": 3.64,
+      "volume_ratio": 0.98,
+      "avg_turnover_20d": 11906099437
+    },
+    {
+      "ticker": "377300.KS",
+      "name": "카카오페이",
+      "close": 33750.0,
+      "ai_probability": 0.434386,
+      "rsi": 32.39,
+      "return_5d_pct": 2.74,
+      "volume_ratio": 0.46,
+      "avg_turnover_20d": 4765767942
+    },
+    {
+      "ticker": "051915.KS",
+      "name": "LG화학우",
+      "close": 106600.0,
+      "ai_probability": 0.434214,
+      "rsi": 40.72,
+      "return_5d_pct": 2.9,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 3053956175
+    },
+    {
+      "ticker": "388720.KQ",
+      "name": "유일로보틱스",
+      "close": 58700.0,
+      "ai_probability": 0.433531,
+      "rsi": 41.25,
+      "return_5d_pct": 2.62,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 1311472635
+    },
+    {
+      "ticker": "138930.KS",
+      "name": "BNK금융지주",
+      "close": 13090.0,
+      "ai_probability": 0.433086,
+      "rsi": 33.12,
+      "return_5d_pct": 11.12,
+      "volume_ratio": 0.74,
+      "avg_turnover_20d": 15504067266
+    },
+    {
+      "ticker": "065350.KQ",
+      "name": "신성델타테크",
+      "close": 29000.0,
+      "ai_probability": 0.432203,
+      "rsi": 39.0,
+      "return_5d_pct": -4.13,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 2371944798
+    },
+    {
+      "ticker": "071050.KS",
+      "name": "한국금융지주",
+      "close": 151100.0,
+      "ai_probability": 0.431342,
+      "rsi": 41.89,
+      "return_5d_pct": 4.14,
+      "volume_ratio": 0.61,
+      "avg_turnover_20d": 29424224815
+    },
+    {
+      "ticker": "000370.KS",
+      "name": "한화손해보험",
+      "close": 6250.0,
+      "ai_probability": 0.426499,
+      "rsi": 34.3,
+      "return_5d_pct": 3.48,
+      "volume_ratio": 0.28,
+      "avg_turnover_20d": 2194624756
+    },
+    {
+      "ticker": "016360.KS",
+      "name": "삼성증권",
+      "close": 80900.0,
+      "ai_probability": 0.425201,
+      "rsi": 50.83,
+      "return_5d_pct": 6.03,
+      "volume_ratio": 0.79,
+      "avg_turnover_20d": 22912160955
+    },
+    {
+      "ticker": "025320.KQ",
+      "name": "시노펙스",
+      "close": 3310.0,
+      "ai_probability": 0.421282,
+      "rsi": 30.17,
+      "return_5d_pct": -1.05,
+      "volume_ratio": 0.68,
+      "avg_turnover_20d": 1192699838
+    },
+    {
+      "ticker": "253450.KQ",
+      "name": "스튜디오드래곤",
+      "close": 22800.0,
+      "ai_probability": 0.419519,
+      "rsi": 67.74,
+      "return_5d_pct": -0.22,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 1387375835
+    },
+    {
+      "ticker": "060250.KQ",
+      "name": "NHN KCP",
+      "close": 12000.0,
+      "ai_probability": 0.418526,
+      "rsi": 42.0,
+      "return_5d_pct": -1.15,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 1831875314
+    },
+    {
+      "ticker": "007390.KQ",
+      "name": "네이처셀",
+      "close": 22050.0,
+      "ai_probability": 0.418457,
+      "rsi": 42.54,
+      "return_5d_pct": 1.15,
+      "volume_ratio": 0.68,
+      "avg_turnover_20d": 4502939782
+    },
+    {
+      "ticker": "005940.KS",
+      "name": "NH투자증권",
+      "close": 24200.0,
+      "ai_probability": 0.417298,
+      "rsi": 48.44,
+      "return_5d_pct": 7.32,
+      "volume_ratio": 0.84,
+      "avg_turnover_20d": 11593850172
+    },
+    {
+      "ticker": "000210.KS",
+      "name": "DL",
+      "close": 41350.0,
+      "ai_probability": 0.417123,
+      "rsi": 31.08,
+      "return_5d_pct": 2.35,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 1724587732
+    },
+    {
+      "ticker": "017670.KS",
+      "name": "SK텔레콤",
+      "close": 75900.0,
+      "ai_probability": 0.410558,
+      "rsi": 40.28,
+      "return_5d_pct": 5.27,
+      "volume_ratio": 0.96,
+      "avg_turnover_20d": 53599848670
+    },
+    {
+      "ticker": "001740.KS",
+      "name": "SK네트웍스",
+      "close": 5810.0,
+      "ai_probability": 0.409779,
+      "rsi": 48.9,
+      "return_5d_pct": 4.31,
+      "volume_ratio": 0.53,
+      "avg_turnover_20d": 4522570240
+    },
+    {
+      "ticker": "012630.KS",
+      "name": "HDC",
+      "close": 21500.0,
+      "ai_probability": 0.407671,
+      "rsi": 45.79,
+      "return_5d_pct": 5.65,
+      "volume_ratio": 0.37,
+      "avg_turnover_20d": 1175698770
+    },
+    {
+      "ticker": "034220.KS",
+      "name": "LG디스플레이",
+      "close": 7450.0,
+      "ai_probability": 0.402242,
+      "rsi": 47.12,
+      "return_5d_pct": 1.78,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 19661288726
+    },
+    {
+      "ticker": "195940.KQ",
+      "name": "HK이노엔",
+      "close": 34450.0,
+      "ai_probability": 0.400081,
+      "rsi": 34.34,
+      "return_5d_pct": 4.24,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 3561216972
+    },
+    {
+      "ticker": "003530.KS",
+      "name": "한화투자증권",
+      "close": 4095.0,
+      "ai_probability": 0.398716,
+      "rsi": 46.89,
+      "return_5d_pct": 6.78,
+      "volume_ratio": 0.47,
+      "avg_turnover_20d": 3263235891
+    },
+    {
+      "ticker": "383220.KS",
+      "name": "F&F",
+      "close": 63000.0,
+      "ai_probability": 0.397016,
+      "rsi": 25.36,
+      "return_5d_pct": 4.65,
+      "volume_ratio": 0.67,
+      "avg_turnover_20d": 4781654625
+    },
+    {
+      "ticker": "030520.KQ",
+      "name": "한컴",
+      "close": 15580.0,
+      "ai_probability": 0.394848,
+      "rsi": 34.7,
+      "return_5d_pct": -0.06,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 2228464518
+    },
+    {
+      "ticker": "004000.KS",
+      "name": "롯데정밀화학",
+      "close": 35200.0,
+      "ai_probability": 0.393569,
+      "rsi": 20.83,
+      "return_5d_pct": 0.86,
+      "volume_ratio": 1.1,
+      "avg_turnover_20d": 1930418082
+    },
+    {
+      "ticker": "023590.KS",
+      "name": "다우기술",
+      "close": 31850.0,
+      "ai_probability": 0.39196,
+      "rsi": 30.0,
+      "return_5d_pct": 0.0,
+      "volume_ratio": 1.12,
+      "avg_turnover_20d": 1468465340
+    },
+    {
+      "ticker": "302440.KS",
+      "name": "SK바이오사이언스",
+      "close": 33250.0,
+      "ai_probability": 0.391714,
+      "rsi": 33.33,
+      "return_5d_pct": 3.91,
+      "volume_ratio": 0.61,
+      "avg_turnover_20d": 2550366525
+    },
+    {
+      "ticker": "001450.KS",
+      "name": "현대해상",
+      "close": 43200.0,
+      "ai_probability": 0.390906,
+      "rsi": 31.69,
+      "return_5d_pct": 3.47,
+      "volume_ratio": 1.1,
+      "avg_turnover_20d": 13615516282
+    },
+    {
+      "ticker": "111770.KS",
+      "name": "영원무역",
+      "close": 69000.0,
+      "ai_probability": 0.390903,
+      "rsi": 34.27,
+      "return_5d_pct": 2.37,
+      "volume_ratio": 0.77,
+      "avg_turnover_20d": 5890890565
+    },
+    {
+      "ticker": "078340.KQ",
+      "name": "컴투스",
+      "close": 31500.0,
+      "ai_probability": 0.38954,
+      "rsi": 27.59,
+      "return_5d_pct": -0.16,
+      "volume_ratio": 0.47,
+      "avg_turnover_20d": 1758407278
+    },
+    {
+      "ticker": "000240.KS",
+      "name": "한국앤컴퍼니",
+      "close": 23400.0,
+      "ai_probability": 0.388314,
+      "rsi": 25.19,
+      "return_5d_pct": 2.18,
+      "volume_ratio": 0.63,
+      "avg_turnover_20d": 1760668085
+    },
+    {
+      "ticker": "001040.KS",
+      "name": "CJ",
+      "close": 114800.0,
+      "ai_probability": 0.387987,
+      "rsi": 31.84,
+      "return_5d_pct": -0.52,
+      "volume_ratio": 0.84,
+      "avg_turnover_20d": 12069834800
+    },
+    {
+      "ticker": "000810.KS",
+      "name": "삼성화재",
+      "close": 651000.0,
+      "ai_probability": 0.386682,
+      "rsi": 62.11,
+      "return_5d_pct": 9.41,
+      "volume_ratio": 0.77,
+      "avg_turnover_20d": 56050246200
+    },
+    {
+      "ticker": "005850.KS",
+      "name": "에스엘",
+      "close": 48650.0,
+      "ai_probability": 0.383328,
+      "rsi": 54.76,
+      "return_5d_pct": -0.21,
+      "volume_ratio": 0.64,
+      "avg_turnover_20d": 3513093075
+    },
+    {
+      "ticker": "007070.KS",
+      "name": "GS리테일",
+      "close": 22550.0,
+      "ai_probability": 0.382726,
+      "rsi": 64.21,
+      "return_5d_pct": 8.94,
+      "volume_ratio": 1.48,
+      "avg_turnover_20d": 2700010948
+    },
+    {
+      "ticker": "005490.KS",
+      "name": "POSCO홀딩스",
+      "close": 283000.0,
+      "ai_probability": 0.382618,
+      "rsi": 43.55,
+      "return_5d_pct": 5.01,
+      "volume_ratio": 1.11,
+      "avg_turnover_20d": 69507244350
+    },
+    {
+      "ticker": "005300.KS",
+      "name": "롯데칠성",
+      "close": 102800.0,
+      "ai_probability": 0.379885,
+      "rsi": 68.16,
+      "return_5d_pct": 9.71,
+      "volume_ratio": 2.19,
+      "avg_turnover_20d": 1462408455
+    },
+    {
+      "ticker": "009970.KS",
+      "name": "영원무역홀딩스",
+      "close": 169300.0,
+      "ai_probability": 0.379391,
+      "rsi": 37.25,
+      "return_5d_pct": 5.22,
+      "volume_ratio": 0.42,
+      "avg_turnover_20d": 1874585525
+    },
+    {
+      "ticker": "055550.KS",
+      "name": "신한지주",
+      "close": 86800.0,
+      "ai_probability": 0.379042,
+      "rsi": 19.43,
+      "return_5d_pct": 1.52,
+      "volume_ratio": 0.89,
+      "avg_turnover_20d": 100877245895
+    },
+    {
+      "ticker": "225570.KQ",
+      "name": "넥슨게임즈",
+      "close": 9380.0,
+      "ai_probability": 0.377803,
+      "rsi": 32.98,
+      "return_5d_pct": -0.64,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 1271951006
+    },
+    {
+      "ticker": "263750.KQ",
+      "name": "펄어비스",
+      "close": 32600.0,
+      "ai_probability": 0.377414,
+      "rsi": 52.5,
+      "return_5d_pct": -5.09,
+      "volume_ratio": 2.17,
+      "avg_turnover_20d": 6707015568
+    },
+    {
+      "ticker": "145020.KQ",
+      "name": "휴젤",
+      "close": 183000.0,
+      "ai_probability": 0.377304,
+      "rsi": 63.23,
+      "return_5d_pct": 3.74,
+      "volume_ratio": 0.69,
+      "avg_turnover_20d": 8087850540
+    },
+    {
+      "ticker": "003550.KS",
+      "name": "LG",
+      "close": 98300.0,
+      "ai_probability": 0.373899,
+      "rsi": 28.96,
+      "return_5d_pct": -0.51,
+      "volume_ratio": 1.04,
+      "avg_turnover_20d": 23835666805
+    },
+    {
+      "ticker": "068270.KS",
+      "name": "셀트리온",
+      "close": 192000.0,
+      "ai_probability": 0.364268,
+      "rsi": 69.34,
+      "return_5d_pct": 1.05,
+      "volume_ratio": 0.67,
+      "avg_turnover_20d": 93879302115
+    },
+    {
+      "ticker": "071055.KS",
+      "name": "한국금융지주우",
+      "close": 127600.0,
+      "ai_probability": 0.35939,
+      "rsi": 43.28,
+      "return_5d_pct": 4.68,
+      "volume_ratio": 0.61,
+      "avg_turnover_20d": 2120626160
+    },
+    {
+      "ticker": "092730.KQ",
+      "name": "네오팜",
+      "close": 22400.0,
+      "ai_probability": 0.359234,
+      "rsi": 49.18,
+      "return_5d_pct": 1.36,
+      "volume_ratio": 0.51,
+      "avg_turnover_20d": 1131579690
+    },
+    {
+      "ticker": "161390.KS",
+      "name": "한국타이어앤테크놀로지",
+      "close": 57600.0,
+      "ai_probability": 0.358434,
+      "rsi": 33.04,
+      "return_5d_pct": -1.03,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 17243212955
+    },
+    {
+      "ticker": "068760.KQ",
+      "name": "셀트리온제약",
+      "close": 37050.0,
+      "ai_probability": 0.352303,
+      "rsi": 47.16,
+      "return_5d_pct": 1.51,
+      "volume_ratio": 0.41,
+      "avg_turnover_20d": 2194593820
+    },
+    {
+      "ticker": "011210.KS",
+      "name": "현대위아",
+      "close": 50200.0,
+      "ai_probability": 0.351959,
+      "rsi": 55.07,
+      "return_5d_pct": 1.62,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 3414980112
+    },
+    {
+      "ticker": "316140.KS",
+      "name": "우리금융지주",
+      "close": 30400.0,
+      "ai_probability": 0.351811,
+      "rsi": 38.73,
+      "return_5d_pct": 3.93,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 65715210060
+    },
+    {
+      "ticker": "185750.KS",
+      "name": "종근당",
+      "close": 59800.0,
+      "ai_probability": 0.350226,
+      "rsi": 30.07,
+      "return_5d_pct": -3.39,
+      "volume_ratio": 1.98,
+      "avg_turnover_20d": 1202757690
+    },
+    {
+      "ticker": "138040.KS",
+      "name": "메리츠금융지주",
+      "close": 129500.0,
+      "ai_probability": 0.348528,
+      "rsi": 44.28,
+      "return_5d_pct": 3.43,
+      "volume_ratio": 0.99,
+      "avg_turnover_20d": 26838374005
+    },
+    {
+      "ticker": "326030.KS",
+      "name": "SK바이오팜",
+      "close": 77500.0,
+      "ai_probability": 0.348018,
+      "rsi": 69.54,
+      "return_5d_pct": 2.24,
+      "volume_ratio": 0.61,
+      "avg_turnover_20d": 8687621120
+    },
+    {
+      "ticker": "241560.KS",
+      "name": "두산밥캣",
+      "close": 48950.0,
+      "ai_probability": 0.347582,
+      "rsi": 32.24,
+      "return_5d_pct": 0.82,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 7082192078
+    },
+    {
+      "ticker": "175330.KS",
+      "name": "JB금융지주",
+      "close": 25400.0,
+      "ai_probability": 0.345884,
+      "rsi": 31.58,
+      "return_5d_pct": 5.18,
+      "volume_ratio": 0.82,
+      "avg_turnover_20d": 10761145125
+    },
+    {
+      "ticker": "259960.KS",
+      "name": "크래프톤",
+      "close": 181700.0,
+      "ai_probability": 0.345051,
+      "rsi": 37.39,
+      "return_5d_pct": -0.98,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 14947923295
+    },
+    {
+      "ticker": "009450.KS",
+      "name": "경동나비엔",
+      "close": 59400.0,
+      "ai_probability": 0.342287,
+      "rsi": 39.51,
+      "return_5d_pct": 3.3,
+      "volume_ratio": 0.5,
+      "avg_turnover_20d": 2281854480
+    },
+    {
+      "ticker": "003240.KS",
+      "name": "태광산업",
+      "close": 849000.0,
+      "ai_probability": 0.33991,
+      "rsi": 34.95,
+      "return_5d_pct": 4.04,
+      "volume_ratio": 1.4,
+      "avg_turnover_20d": 1178138150
+    },
+    {
+      "ticker": "005830.KS",
+      "name": "DB손해보험",
+      "close": 175600.0,
+      "ai_probability": 0.337212,
+      "rsi": 30.91,
+      "return_5d_pct": -2.28,
+      "volume_ratio": 0.92,
+      "avg_turnover_20d": 37698066195
+    },
+    {
+      "ticker": "051900.KS",
+      "name": "LG생활건강",
+      "close": 263000.0,
+      "ai_probability": 0.335673,
+      "rsi": 48.86,
+      "return_5d_pct": 2.14,
+      "volume_ratio": 0.87,
+      "avg_turnover_20d": 12013839150
+    },
+    {
+      "ticker": "139130.KS",
+      "name": "iM금융지주",
+      "close": 15490.0,
+      "ai_probability": 0.335363,
+      "rsi": 26.7,
+      "return_5d_pct": 2.65,
+      "volume_ratio": 0.82,
+      "avg_turnover_20d": 9030710598
+    },
+    {
+      "ticker": "035720.KS",
+      "name": "카카오",
+      "close": 29700.0,
+      "ai_probability": 0.335021,
+      "rsi": 35.96,
+      "return_5d_pct": 0.51,
+      "volume_ratio": 0.61,
+      "avg_turnover_20d": 42288194315
+    },
+    {
+      "ticker": "097950.KS",
+      "name": "CJ제일제당",
+      "close": 177000.0,
+      "ai_probability": 0.332838,
+      "rsi": 41.9,
+      "return_5d_pct": 4.18,
+      "volume_ratio": 0.94,
+      "avg_turnover_20d": 9030361485
+    },
+    {
+      "ticker": "004990.KS",
+      "name": "롯데지주",
+      "close": 22400.0,
+      "ai_probability": 0.331331,
+      "rsi": 45.56,
+      "return_5d_pct": 6.16,
+      "volume_ratio": 1.17,
+      "avg_turnover_20d": 1945608175
+    },
+    {
+      "ticker": "001120.KS",
+      "name": "LX인터내셔널",
+      "close": 40700.0,
+      "ai_probability": 0.330579,
+      "rsi": 27.21,
+      "return_5d_pct": -1.21,
+      "volume_ratio": 0.44,
+      "avg_turnover_20d": 4379049198
+    },
+    {
+      "ticker": "021240.KS",
+      "name": "코웨이",
+      "close": 105100.0,
+      "ai_probability": 0.329365,
+      "rsi": 61.02,
+      "return_5d_pct": 1.25,
+      "volume_ratio": 0.67,
+      "avg_turnover_20d": 18780245710
+    },
+    {
+      "ticker": "112040.KQ",
+      "name": "위메이드",
+      "close": 13310.0,
+      "ai_probability": 0.327158,
+      "rsi": 22.12,
+      "return_5d_pct": -1.26,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 1644527808
+    },
+    {
+      "ticker": "030200.KS",
+      "name": "KT",
+      "close": 46700.0,
+      "ai_probability": 0.327136,
+      "rsi": 34.98,
+      "return_5d_pct": 2.19,
+      "volume_ratio": 1.09,
+      "avg_turnover_20d": 19282033345
+    },
+    {
+      "ticker": "000120.KS",
+      "name": "CJ대한통운",
+      "close": 67000.0,
+      "ai_probability": 0.314416,
+      "rsi": 38.89,
+      "return_5d_pct": 4.52,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 3061190330
+    },
+    {
+      "ticker": "089860.KS",
+      "name": "롯데렌탈",
+      "close": 51000.0,
+      "ai_probability": 0.31189,
+      "rsi": 50.38,
+      "return_5d_pct": 2.51,
+      "volume_ratio": 1.21,
+      "avg_turnover_20d": 5870534355
+    },
+    {
+      "ticker": "011780.KS",
+      "name": "금호석유화학",
+      "close": 106500.0,
+      "ai_probability": 0.308478,
+      "rsi": 36.45,
+      "return_5d_pct": 3.9,
+      "volume_ratio": 0.39,
+      "avg_turnover_20d": 6984752545
+    },
+    {
+      "ticker": "009240.KS",
+      "name": "한샘",
+      "close": 40200.0,
+      "ai_probability": 0.307958,
+      "rsi": 46.51,
+      "return_5d_pct": 7.06,
+      "volume_ratio": 0.73,
+      "avg_turnover_20d": 1581006690
+    },
+    {
+      "ticker": "017800.KS",
+      "name": "현대엘리베이터",
+      "close": 68500.0,
+      "ai_probability": 0.304405,
+      "rsi": 41.18,
+      "return_5d_pct": 2.85,
+      "volume_ratio": 3.01,
+      "avg_turnover_20d": 6928649555
+    },
+    {
+      "ticker": "071320.KS",
+      "name": "지역난방공사",
+      "close": 71200.0,
+      "ai_probability": 0.300996,
+      "rsi": 30.26,
+      "return_5d_pct": 0.99,
+      "volume_ratio": 0.84,
+      "avg_turnover_20d": 1011883040
+    },
+    {
+      "ticker": "105560.KS",
+      "name": "KB금융",
+      "close": 153400.0,
+      "ai_probability": 0.300145,
+      "rsi": 38.86,
+      "return_5d_pct": 4.21,
+      "volume_ratio": 0.89,
+      "avg_turnover_20d": 137779209115
+    },
+    {
+      "ticker": "030000.KS",
+      "name": "제일기획",
+      "close": 18780.0,
+      "ai_probability": 0.294438,
+      "rsi": 40.06,
+      "return_5d_pct": -2.03,
+      "volume_ratio": 1.1,
+      "avg_turnover_20d": 6925822486
+    },
+    {
+      "ticker": "215200.KQ",
+      "name": "메가스터디교육",
+      "close": 38150.0,
+      "ai_probability": 0.290929,
+      "rsi": 48.81,
+      "return_5d_pct": -1.8,
+      "volume_ratio": 0.62,
+      "avg_turnover_20d": 1486459228
+    },
+    {
+      "ticker": "006280.KS",
+      "name": "녹십자",
+      "close": 133900.0,
+      "ai_probability": 0.289576,
+      "rsi": 63.27,
+      "return_5d_pct": 3.32,
+      "volume_ratio": 1.46,
+      "avg_turnover_20d": 2671145575
+    },
+    {
+      "ticker": "086790.KS",
+      "name": "하나금융지주",
+      "close": 117700.0,
+      "ai_probability": 0.287125,
+      "rsi": 37.64,
+      "return_5d_pct": 4.72,
+      "volume_ratio": 0.59,
+      "avg_turnover_20d": 83652749445
+    },
+    {
+      "ticker": "271560.KS",
+      "name": "오리온",
+      "close": 115600.0,
+      "ai_probability": 0.286729,
+      "rsi": 77.58,
+      "return_5d_pct": 2.3,
+      "volume_ratio": 0.67,
+      "avg_turnover_20d": 10546613470
+    },
+    {
+      "ticker": "008770.KS",
+      "name": "호텔신라",
+      "close": 35800.0,
+      "ai_probability": 0.286122,
+      "rsi": 42.73,
+      "return_5d_pct": 2.87,
+      "volume_ratio": 0.76,
+      "avg_turnover_20d": 5313267050
+    },
+    {
+      "ticker": "462870.KS",
+      "name": "시프트업",
+      "close": 29700.0,
+      "ai_probability": 0.285999,
+      "rsi": 46.09,
+      "return_5d_pct": 0.85,
+      "volume_ratio": 1.19,
+      "avg_turnover_20d": 1095604290
+    },
+    {
+      "ticker": "051600.KS",
+      "name": "한전KPS",
+      "close": 41500.0,
+      "ai_probability": 0.275717,
+      "rsi": 38.89,
+      "return_5d_pct": 3.49,
+      "volume_ratio": 0.54,
+      "avg_turnover_20d": 3864621332
+    },
+    {
+      "ticker": "033780.KS",
+      "name": "KT&G",
+      "close": 192600.0,
+      "ai_probability": 0.27424,
+      "rsi": 66.97,
+      "return_5d_pct": 1.96,
+      "volume_ratio": 0.85,
+      "avg_turnover_20d": 47847385910
+    },
+    {
+      "ticker": "395400.KS",
+      "name": "SK리츠",
+      "close": 4900.0,
+      "ai_probability": 0.273265,
+      "rsi": 34.62,
+      "return_5d_pct": -8.41,
+      "volume_ratio": 2.06,
+      "avg_turnover_20d": 1109010104
+    },
+    {
+      "ticker": "034230.KS",
+      "name": "파라다이스",
+      "close": 9890.0,
+      "ai_probability": 0.273103,
+      "rsi": 60.0,
+      "return_5d_pct": 5.1,
+      "volume_ratio": 1.1,
+      "avg_turnover_20d": 2913452914
+    },
+    {
+      "ticker": "035420.KS",
+      "name": "NAVER",
+      "close": 175400.0,
+      "ai_probability": 0.272172,
+      "rsi": 46.77,
+      "return_5d_pct": 0.69,
+      "volume_ratio": 0.8,
+      "avg_turnover_20d": 108213253240
+    },
+    {
+      "ticker": "081660.KS",
+      "name": "미스토홀딩스",
+      "close": 37600.0,
+      "ai_probability": 0.262631,
+      "rsi": 46.74,
+      "return_5d_pct": 4.01,
+      "volume_ratio": 0.47,
+      "avg_turnover_20d": 4097865502
+    },
+    {
+      "ticker": "280360.KS",
+      "name": "롯데웰푸드",
+      "close": 118600.0,
+      "ai_probability": 0.260145,
+      "rsi": 49.54,
+      "return_5d_pct": 0.0,
+      "volume_ratio": 0.63,
+      "avg_turnover_20d": 2237871580
+    },
+    {
+      "ticker": "069620.KS",
+      "name": "대웅제약",
+      "close": 102200.0,
+      "ai_probability": 0.259801,
+      "rsi": 36.79,
+      "return_5d_pct": 1.59,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 2084846775
+    },
+    {
+      "ticker": "015760.KS",
+      "name": "한국전력",
+      "close": 29250.0,
+      "ai_probability": 0.254691,
+      "rsi": 50.81,
+      "return_5d_pct": 4.46,
+      "volume_ratio": 0.95,
+      "avg_turnover_20d": 29864522132
+    },
+    {
+      "ticker": "300720.KS",
+      "name": "한일시멘트",
+      "close": 16250.0,
+      "ai_probability": 0.252294,
+      "rsi": 39.55,
+      "return_5d_pct": -2.69,
+      "volume_ratio": 0.41,
+      "avg_turnover_20d": 1401626332
+    },
+    {
+      "ticker": "001800.KS",
+      "name": "오리온홀딩스",
+      "close": 23500.0,
+      "ai_probability": 0.248297,
+      "rsi": 61.97,
+      "return_5d_pct": 5.15,
+      "volume_ratio": 1.3,
+      "avg_turnover_20d": 1150202805
+    },
+    {
+      "ticker": "026960.KS",
+      "name": "동서",
+      "close": 28000.0,
+      "ai_probability": 0.24812,
+      "rsi": 57.28,
+      "return_5d_pct": 2.56,
+      "volume_ratio": 0.7,
+      "avg_turnover_20d": 2202564395
+    },
+    {
+      "ticker": "000080.KS",
+      "name": "하이트진로",
+      "close": 15990.0,
+      "ai_probability": 0.237912,
+      "rsi": 67.55,
+      "return_5d_pct": 0.88,
+      "volume_ratio": 1.11,
+      "avg_turnover_20d": 1866337466
+    },
+    {
+      "ticker": "192080.KS",
+      "name": "더블유게임즈",
+      "close": 54300.0,
+      "ai_probability": 0.230196,
+      "rsi": 34.38,
+      "return_5d_pct": 3.63,
+      "volume_ratio": 0.58,
+      "avg_turnover_20d": 2608863205
+    },
+    {
+      "ticker": "000815.KS",
+      "name": "삼성화재우",
+      "close": 391500.0,
+      "ai_probability": 0.227884,
+      "rsi": 49.68,
+      "return_5d_pct": 3.85,
+      "volume_ratio": 0.98,
+      "avg_turnover_20d": 3289554625
+    },
+    {
+      "ticker": "004370.KS",
+      "name": "농심",
+      "close": 396500.0,
+      "ai_probability": 0.219216,
+      "rsi": 46.62,
+      "return_5d_pct": 0.89,
+      "volume_ratio": 0.66,
+      "avg_turnover_20d": 9139905525
+    },
+    {
+      "ticker": "279570.KS",
+      "name": "케이뱅크",
+      "close": 5220.0,
+      "ai_probability": 0.215091,
+      "rsi": 48.65,
+      "return_5d_pct": 2.35,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 2289966942
+    },
+    {
+      "ticker": "007310.KS",
+      "name": "오뚜기",
+      "close": 315000.0,
+      "ai_probability": 0.214238,
+      "rsi": 51.92,
+      "return_5d_pct": 1.45,
+      "volume_ratio": 1.02,
+      "avg_turnover_20d": 1194733550
+    },
+    {
+      "ticker": "323410.KS",
+      "name": "카카오뱅크",
+      "close": 19770.0,
+      "ai_probability": 0.201943,
+      "rsi": 41.59,
+      "return_5d_pct": 0.76,
+      "volume_ratio": 0.78,
+      "avg_turnover_20d": 12421403748
+    },
+    {
+      "ticker": "251270.KS",
+      "name": "넷마블",
+      "close": 33700.0,
+      "ai_probability": 0.192372,
+      "rsi": 44.83,
+      "return_5d_pct": 0.45,
+      "volume_ratio": 0.6,
+      "avg_turnover_20d": 4824408372
+    },
+    {
+      "ticker": "030190.KS",
+      "name": "NICE평가정보",
+      "close": 17160.0,
+      "ai_probability": 0.18739,
+      "rsi": 56.86,
+      "return_5d_pct": 0.53,
+      "volume_ratio": 0.86,
+      "avg_turnover_20d": 1242444416
+    },
+    {
+      "ticker": "079160.KS",
+      "name": "CJ CGV",
+      "close": 5200.0,
+      "ai_probability": 0.165988,
+      "rsi": 65.99,
+      "return_5d_pct": 4.1,
+      "volume_ratio": 0.85,
+      "avg_turnover_20d": 1462647490
+    },
+    {
+      "ticker": "003690.KS",
+      "name": "코리안리",
+      "close": 13750.0,
+      "ai_probability": 0.165051,
+      "rsi": 33.93,
+      "return_5d_pct": 0.66,
+      "volume_ratio": 0.55,
+      "avg_turnover_20d": 2257800606
+    },
+    {
+      "ticker": "024110.KS",
+      "name": "기업은행",
+      "close": 19050.0,
+      "ai_probability": 0.164339,
+      "rsi": 36.7,
+      "return_5d_pct": -0.47,
+      "volume_ratio": 0.85,
+      "avg_turnover_20d": 15586060982
+    },
+    {
+      "ticker": "029780.KS",
+      "name": "삼성카드",
+      "close": 41500.0,
+      "ai_probability": 0.150744,
+      "rsi": 41.67,
+      "return_5d_pct": -0.12,
+      "volume_ratio": 0.91,
+      "avg_turnover_20d": 3415651698
+    },
+    {
+      "ticker": "035250.KS",
+      "name": "강원랜드",
+      "close": 13990.0,
+      "ai_probability": 0.149164,
+      "rsi": 36.24,
+      "return_5d_pct": 0.87,
+      "volume_ratio": 0.81,
+      "avg_turnover_20d": 3843725795
+    },
+    {
+      "ticker": "031210.KS",
+      "name": "서울보증보험",
+      "close": 43050.0,
+      "ai_probability": 0.148762,
+      "rsi": 51.22,
+      "return_5d_pct": 0.82,
+      "volume_ratio": 0.45,
+      "avg_turnover_20d": 1906633655
+    },
+    {
+      "ticker": "036460.KS",
+      "name": "한국가스공사",
+      "close": 37150.0,
+      "ai_probability": 0.104014,
+      "rsi": 62.5,
+      "return_5d_pct": 3.05,
+      "volume_ratio": 0.65,
+      "avg_turnover_20d": 4810896582
+    },
+    {
+      "ticker": "088980.KS",
+      "name": "맥쿼리인프라",
+      "close": 9600.0,
+      "ai_probability": 0.072371,
+      "rsi": 43.1,
+      "return_5d_pct": -0.21,
+      "volume_ratio": 1.21,
+      "avg_turnover_20d": 7381842384
+    }
+  ],
+  "note": "AI 모델 예측 점수입니다. 실제 상승 확률이나 투자 수익을 보장하지 않습니다."
+}
