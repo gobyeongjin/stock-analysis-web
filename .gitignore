@@ -24,3 +24,9 @@ lending_100.csv
 /trading/account_snapshots/
 .env
 .venv-trading/
+analysis/portfolio.db
+
+# Personal portfolio database
+analysis/portfolio.db-shm
+analysis/portfolio.db-wal
+analysis/portfolio.db-journal
