@@ -81,6 +81,42 @@ combined = (
     .drop_duplicates(["Ticker", "Date"], keep="last")
 )
 
+# ==========================================
+# OHLC 데이터 품질 검증 및 정제
+# ==========================================
+
+invalid_ohlc = (
+    (combined["High"] < combined["Low"])
+    | (combined["High"] < combined["Open"])
+    | (combined["High"] < combined["Close"])
+    | (combined["Low"] > combined["Open"])
+    | (combined["Low"] > combined["Close"])
+)
+
+invalid_count = int(invalid_ohlc.sum())
+
+print(f"비정상 OHLC 데이터: {invalid_count}행")
+
+if invalid_count:
+    print(
+        combined.loc[
+            invalid_ohlc,
+            ["Date", "Ticker", "Stock_Name",
+             "Open", "High", "Low", "Close"]
+        ].to_string(index=False)
+    )
+
+    combined = combined.loc[~invalid_ohlc].copy()
+
+print("정제 후 전체 데이터:", len(combined))
+print("정제 후 종목 수:", combined["Ticker"].nunique())
+
+if combined["Ticker"].nunique() != len(stocks):
+    raise RuntimeError(
+        "정제 후 종목 수가 500개가 아닙니다."
+    )
+
+
 combined.to_csv(
     OUTPUT,
     index=False,
