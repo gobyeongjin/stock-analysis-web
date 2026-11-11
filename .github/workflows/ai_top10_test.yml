@@ -2,6 +2,9 @@ name: AI TOP10 Test
 
 on:
   workflow_dispatch:
+  schedule:
+    # 한국시간 월~금 16:30 (UTC 07:30)
+    - cron: '30 7 * * 1-5'
   push:
     branches:
       - feature/multi-user-portfolio

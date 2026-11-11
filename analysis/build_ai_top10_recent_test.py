@@ -39,8 +39,9 @@ df = df.sort_values(
     ["Ticker", "Date"]
 ).reset_index(drop=True)
 
-# 기존 코드와 동일하게 당일 데이터 제외
-cutoff = pd.Timestamp.today().normalize() - pd.Timedelta(days=1)
+# 한국 시간 기준 당일 데이터까지 사용
+# 데이터 수집은 장 마감 이후 실행
+cutoff = pd.Timestamp.now(tz="Asia/Seoul").tz_localize(None).normalize()
 df = df.loc[df["Date"] <= cutoff].copy()
 
 if df.empty:
