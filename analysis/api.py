@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 
 from predict import predict_stock
+from ai_data_loader import load_ai_data
 
 import pandas as pd
 
@@ -226,16 +227,13 @@ from pathlib import Path
 
 @app.get("/api/ai/top10")
 def get_ai_top10():
-    path = Path(__file__).resolve().parent / "ai_top10.json"
-
-    if not path.exists():
+    try:
+        data = load_ai_data()
+    except Exception as exc:
         raise HTTPException(
             status_code=503,
-            detail="AI 추천 결과가 없습니다."
-        )
-
-    with path.open("r", encoding="utf-8") as f:
-        data = json.load(f)
+            detail="AI 추천 결과를 불러올 수 없습니다."
+        ) from exc
 
     return {
         "as_of": data["as_of"],
@@ -267,16 +265,13 @@ def search_ai_stock(q: str = ""):
     import json
     from pathlib import Path
 
-    path = Path(__file__).resolve().parent / "ai_top10.json"
-
-    if not path.exists():
+    try:
+        payload = load_ai_data()
+    except Exception as exc:
         raise HTTPException(
             status_code=503,
-            detail="AI 분석 데이터가 없습니다. TOP 10을 먼저 생성해 주세요."
-        )
-
-    with path.open("r", encoding="utf-8") as f:
-        payload = json.load(f)
+            detail="AI 분석 데이터를 불러올 수 없습니다."
+        ) from exc
 
     query = q.strip().lower()
 
