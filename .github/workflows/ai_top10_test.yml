@@ -2,6 +2,9 @@ name: AI TOP10 Test
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - feature/multi-user-portfolio
 
 permissions:
   contents: read
