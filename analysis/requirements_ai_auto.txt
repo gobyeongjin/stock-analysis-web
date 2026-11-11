@@ -1,0 +1,6 @@
+pandas==2.3.3
+numpy==2.5.3
+scikit-learn==1.9.1
+yfinance==1.7.0
+joblib==1.6.0
+tzdata==2026.5

@@ -37,3 +37,8 @@ analysis/multiuser_dev.db-*
 
 # Multi-user local secrets
 analysis/.env.multiuser.local
+
+# AI 자동 갱신용 대용량 파일
+analysis/stock_data_500_live*.csv
+analysis/model/random_forest_strategy_b_500.pkl
+analysis/stock_data_500_recent.csv
