@@ -1,0 +1,58 @@
+name: AI TOP10 Test
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 한국시간 월~금 16:30 (UTC 07:30)
+    - cron: '30 7 * * 1-5'
+  push:
+    branches:
+      - feature/multi-user-portfolio
+
+permissions:
+  contents: read
+
+jobs:
+  ai-top10:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: analysis/requirements_ai_auto.txt
+
+      - name: Install dependencies
+        run: pip install -r analysis/requirements_ai_auto.txt
+
+      - name: Download AI model
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p analysis/model
+          gh release download ai-model-v1 \
+            --repo "${{ github.repository }}" \
+            --pattern "random_forest_strategy_b_500.pkl" \
+            --dir analysis/model
+
+      - name: Download stock prices
+        run: python analysis/download_recent_stocks.py
+
+      - name: Generate AI TOP10
+        run: python analysis/build_ai_top10_recent_test.py
+
+      - name: Validate AI TOP10
+        run: python analysis/validate_ai_top10.py
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-top10-test
+          path: analysis/ai_top10_recent_test.json
+          if-no-files-found: error
