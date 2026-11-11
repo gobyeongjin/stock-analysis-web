@@ -1,6 +1,7 @@
-import os
-import json
 from pathlib import Path
+
+from ai_data_loader import load_ai_data
+from stock_data_loader import load_stock_data
 
 import pandas as pd
 from fastapi import APIRouter, HTTPException, Request
@@ -11,35 +12,15 @@ router = APIRouter()
 BASE_DIR = Path(__file__).resolve().parent
 TEMPLATES = Jinja2Templates(directory=str(BASE_DIR / "frontend"))
 
-AI_RESULT_PATH = BASE_DIR / "ai_top10.json"
-
-# 최신 주가 데이터 우선 사용
-DATA_CANDIDATES = [
-    *(
-        [BASE_DIR / "stock_data_deploy.csv"]
-        if os.getenv("RENDER")
-        else []
-    ),
-    BASE_DIR / "stock_data_500_live_20261110.csv",
-    BASE_DIR / "stock_data_500_live.csv",
-]
-
-
 @router.get("/stock/{ticker}/", include_in_schema=False)
 def stock_detail(request: Request, ticker: str):
-    data_path = next(
-        (p for p in DATA_CANDIDATES if p.exists()),
-        None
-    )
-
-    if data_path is None:
-        raise HTTPException(404, "주가 데이터 파일이 없습니다.")
-
-    df = pd.read_csv(
-        data_path,
-        dtype={"Ticker": str},
-        parse_dates=["Date"]
-    )
+    try:
+        df = load_stock_data()
+    except Exception as exc:
+        raise HTTPException(
+            status_code=503,
+            detail=f"주가 데이터 조회 실패: {exc}"
+        )
 
     stock = df.loc[df["Ticker"] == ticker].copy()
 
@@ -130,11 +111,9 @@ def stock_detail(request: Request, ticker: str):
 
     ai_info = None
 
-    if AI_RESULT_PATH.exists():
-        with AI_RESULT_PATH.open(encoding="utf-8") as f:
-            predictions = json.load(f)
-
-        ai_info = next(
+    try:
+        predictions = load_ai_data()
+        matched = next(
             (
                 x for x in predictions.get("all_stocks", [])
                 if x.get("ticker") == ticker
@@ -142,12 +121,19 @@ def stock_detail(request: Request, ticker: str):
             None
         )
 
-        if ai_info:
-            ai_info = dict(ai_info)
+        if matched:
+            ai_info = dict(matched)
             ai_info["as_of"] = predictions.get("as_of")
-            ai_info["score_pct"] = round(
-                ai_info["ai_probability"] * 100, 2
-            )
+            score = ai_info.get("ai_probability")
+
+            if score is None:
+                score = ai_info.get("ai_score")
+                ai_info["score_pct"] = round(float(score), 2) if score is not None else None
+            else:
+                ai_info["score_pct"] = round(float(score) * 100, 2)
+
+    except Exception as exc:
+        print(f"종목 상세 AI 데이터 조회 실패: {exc}")
 
     return TEMPLATES.TemplateResponse(
         request=request,

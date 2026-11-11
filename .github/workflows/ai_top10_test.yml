@@ -56,7 +56,11 @@ jobs:
           set -euo pipefail
 
           SOURCE="$GITHUB_WORKSPACE/analysis/ai_top10_recent_test.json"
+          CSV_SOURCE="$GITHUB_WORKSPACE/analysis/stock_data_500_recent.csv"
           REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          test -s "$SOURCE"
+          test -s "$CSV_SOURCE"
 
           mkdir -p /tmp/ai-data-publish
           cd /tmp/ai-data-publish
@@ -73,7 +77,8 @@ jobs:
           fi
 
           cp "$SOURCE" ai_top10.json
-          git add ai_top10.json
+          cp "$CSV_SOURCE" stock_data_500_recent.csv
+          git add ai_top10.json stock_data_500_recent.csv
 
           if git diff --cached --quiet; then
             echo "AI TOP10 데이터 변경 없음"
@@ -88,5 +93,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ai-top10-test
-          path: analysis/ai_top10_recent_test.json
+          path: |
+            analysis/ai_top10_recent_test.json
+            analysis/stock_data_500_recent.csv
           if-no-files-found: error
