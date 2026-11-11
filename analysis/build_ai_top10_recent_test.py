@@ -9,7 +9,7 @@ BASE = Path(__file__).resolve().parent
 
 DATA = BASE / "stock_data_500_recent.csv"
 MODEL = BASE / "model" / "random_forest_strategy_b_500.pkl"
-OUTPUT = BASE / "ai_top10_recent_test.json"
+OUTPUT = BASE / "ai_top10.json"
 
 FEATURES = [
     "MA20_Gap", "MA60_Gap", "MA20_MA60_Gap",

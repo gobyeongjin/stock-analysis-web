@@ -4,7 +4,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 BASE = Path(__file__).resolve().parent
-FILE = BASE / "ai_top10_recent_test.json"
+FILE = BASE / "ai_top10.json"
 
 data = json.loads(FILE.read_text(encoding="utf-8"))
 
