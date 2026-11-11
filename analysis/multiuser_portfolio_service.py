@@ -1,5 +1,5 @@
 from datetime import date
-from multiuser_db import get_connection, init_db
+from multiuser_db import get_connection, init_db, use_postgres
 
 
 def get_trades(user_id):
@@ -100,7 +100,12 @@ def add_trade(
 
     with get_connection() as conn:
         # 검증과 저장 사이 다른 요청이 끼어들지 않도록 잠금
-        conn.execute("BEGIN IMMEDIATE")
+        if use_postgres():
+            # Row lock serializes all trades for the same user until commit.
+            # Different users may trade concurrently.
+            conn.execute("SELECT id FROM users WHERE id = ? FOR UPDATE", (user_id,))
+        else:
+            conn.execute("BEGIN IMMEDIATE")
 
         rows = conn.execute("""
             SELECT id, ticker, stock_name, trade_type,

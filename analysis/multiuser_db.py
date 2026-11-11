@@ -1,12 +1,52 @@
 import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
+import os
+
+from multiuser_postgres import get_postgres_connection, init_postgres_db
 
 DB_PATH = Path(__file__).resolve().parent / "multiuser_dev.db"
 
 
+def use_postgres():
+    return bool(os.getenv("DATABASE_URL"))
+
+
+class PostgresCursorAdapter:
+    def __init__(self, cursor):
+        self.cursor = cursor
+
+    def fetchone(self):
+        return self.cursor.fetchone()
+
+    def fetchall(self):
+        return self.cursor.fetchall()
+
+    @property
+    def lastrowid(self):
+        row = self.cursor.fetchone()
+        return row["id"] if row else None
+
+
+class PostgresConnectionAdapter:
+    def __init__(self, conn):
+        self.conn = conn
+
+    def execute(self, sql, params=None):
+        query = sql.replace("?", "%s")
+        if query.lstrip().upper().startswith("INSERT INTO") and "RETURNING" not in query.upper():
+            query = query.rstrip().rstrip(";") + " RETURNING id"
+        return PostgresCursorAdapter(self.conn.execute(query, params))
+
+
+
 @contextmanager
 def get_connection():
+    if use_postgres():
+        with get_postgres_connection() as conn:
+            yield PostgresConnectionAdapter(conn)
+        return
+
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA foreign_keys = ON")
@@ -19,6 +59,9 @@ def get_connection():
 
 
 def init_db():
+    if use_postgres():
+        init_postgres_db()
+        return
     with get_connection() as conn:
         conn.execute("""
             CREATE TABLE IF NOT EXISTS users (
@@ -64,6 +107,8 @@ def migrate_ranking_columns():
     닉네임과 랭킹 공개 동의 컬럼을 추가한다.
     """
     init_db()
+    if use_postgres():
+        return  # PostgreSQL schema migration is handled by init_postgres_db.
 
     with get_connection() as conn:
         columns = {
@@ -91,6 +136,8 @@ def ensure_unique_nickname_index():
     고유 제약조건을 적용한다.
     """
     migrate_ranking_columns()
+    if use_postgres():
+        return  # PostgreSQL unique index is handled by init_postgres_db.
 
     with get_connection() as conn:
         duplicates = conn.execute("""

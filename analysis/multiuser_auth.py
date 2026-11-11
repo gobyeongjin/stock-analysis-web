@@ -1,4 +1,5 @@
 import sqlite3
+from psycopg import IntegrityError as PostgresIntegrityError
 
 from argon2 import PasswordHasher
 from argon2.exceptions import VerifyMismatchError, VerificationError
@@ -34,7 +35,7 @@ def register_user(email: str, password: str):
 
             return cursor.lastrowid
 
-    except sqlite3.IntegrityError:
+    except (sqlite3.IntegrityError, PostgresIntegrityError):
         raise ValueError("이미 가입된 이메일입니다.")
 
 

@@ -1,4 +1,5 @@
 import sqlite3
+from psycopg import IntegrityError as PostgresIntegrityError
 
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field, ConfigDict
@@ -80,7 +81,7 @@ def update_profile(payload: ProfileUpdate, request: Request):
                     user["id"]
                 )
             )
-        except sqlite3.IntegrityError:
+        except (sqlite3.IntegrityError, PostgresIntegrityError):
             raise HTTPException(
                 status_code=409,
                 detail="이미 사용 중인 닉네임입니다."
