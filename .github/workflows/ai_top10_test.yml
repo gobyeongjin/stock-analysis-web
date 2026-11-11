@@ -10,7 +10,7 @@ on:
       - feature/multi-user-portfolio
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   ai-top10:
@@ -49,6 +49,40 @@ jobs:
 
       - name: Validate AI TOP10
         run: python analysis/validate_ai_top10.py
+
+      - name: Publish AI TOP10 JSON
+        if: github.ref == 'refs/heads/main'
+        run: |
+          set -euo pipefail
+
+          SOURCE="$GITHUB_WORKSPACE/analysis/ai_top10_recent_test.json"
+          REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          mkdir -p /tmp/ai-data-publish
+          cd /tmp/ai-data-publish
+
+          git init
+          git remote add origin "$REPO_URL"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git fetch --depth=1 origin ai-data; then
+            git checkout -b ai-data FETCH_HEAD
+          else
+            git checkout --orphan ai-data
+          fi
+
+          cp "$SOURCE" ai_top10.json
+          git add ai_top10.json
+
+          if git diff --cached --quiet; then
+            echo "AI TOP10 데이터 변경 없음"
+          else
+            git commit -m "Update AI TOP10 data"
+            git push origin HEAD:ai-data
+          fi
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
