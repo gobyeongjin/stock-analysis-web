@@ -334,34 +334,40 @@ def search_ai_stock(q: str = ""):
     }
 
 
-# Portfolio API
-# 로컬에서는 사용, 공개 서버에서는 기본 비활성화
-ENABLE_PORTFOLIO = os.getenv(
-    "ENABLE_PORTFOLIO", "false"
+# ==========================================
+# Multi-user Portfolio & Leaderboard
+# ==========================================
+ENABLE_MULTIUSER = os.getenv(
+    "ENABLE_MULTIUSER", "false"
 ).lower() == "true"
 
-if ENABLE_PORTFOLIO:
-    from portfolio_api import router as portfolio_router
-    app.include_router(portfolio_router)
+if ENABLE_MULTIUSER:
+    from multiuser_db import ensure_unique_nickname_index
+    from multiuser_auth_api import router as auth_router
+    from multiuser_leaderboard_api import router as leaderboard_router
+    from multiuser_profile_api import router as profile_router
+    from multiuser_portfolio_api import router as my_portfolio_router
+    from multiuser_portfolio_live import router as my_portfolio_live_router
 
+    ensure_unique_nickname_index()
 
+    app.include_router(auth_router)
+    app.include_router(leaderboard_router)
+    app.include_router(profile_router)
+    app.include_router(my_portfolio_router)
+    app.include_router(my_portfolio_live_router)
 
-# ==========================================
-# My Portfolio 웹페이지
-# ==========================================
+    @app.get("/login", include_in_schema=False)
+    def login_page():
+        return FileResponse(
+            str(Path(__file__).resolve().parent / "frontend" / "login.html")
+        )
 
-if ENABLE_PORTFOLIO:
     @app.get("/portfolio", include_in_schema=False)
     def portfolio_page():
         return FileResponse(
             str(Path(__file__).resolve().parent / "frontend" / "portfolio.html")
         )
-
-    from portfolio_valuation import router as valuation_router
-    app.include_router(valuation_router)
-
-    from portfolio_live import router as live_router
-    app.include_router(live_router)
 
 
 # 종목 상세 차트 (FastAPI)
