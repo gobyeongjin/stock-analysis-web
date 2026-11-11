@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ name }} | Stock Terminal</title>
+<script src="https://unpkg.com/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+:root{color-scheme:dark;--bg:#0d1523;--panel:#172337;--line:#293b55;--text:#eaf0fa;--muted:#91a5c3;--up:#f16d7a;--down:#57a4ef}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,'Malgun Gothic',sans-serif}
+main{max-width:1450px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+a{color:#8bbaff;text-decoration:none}.brand{font-size:12px;letter-spacing:2px;color:var(--muted)}h1{margin:12px 0 6px;font-size:29px}.muted{color:var(--muted);font-size:13px}.price{font-size:32px;font-weight:700;text-align:right}.up{color:var(--up)}.down{color:var(--down)}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0}.metric,.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px}.metric{padding:18px}.metric small{display:block;color:var(--muted);margin-bottom:10px}.metric strong{font-size:22px}.panel{padding:18px;margin-bottom:14px}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}.panelhead h2{font-size:16px;margin:0}.chart{width:100%;height:440px}.smallchart{height:150px}.controls{display:flex;gap:7px}.controls button{background:#22324b;color:#eaf0fa;border:1px solid #3b4e6a;border-radius:6px;padding:7px 12px;cursor:pointer}.controls button.active{background:#31578c;border-color:#75a9ef}.legend{font-size:12px;color:var(--muted)}.foot{font-size:12px;color:var(--muted);line-height:1.7}
+@media(max-width:700px){main{padding:12px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.chart{height:320px}.smallchart{height:130px}.price{text-align:left}}
+</style>
+</head>
+<body>
+<div style="padding:12px 20px;display:flex;gap:10px;flex-wrap:wrap">
+    <button onclick="goBackToSearch()"
+        style="background:#31578c;color:white;border:0;border-radius:8px;padding:11px 18px;cursor:pointer">
+        ← 검색 화면으로
+    </button>
+    <a href="/ai-top10/"
+        style="background:#22324b;color:white;text-decoration:none;border-radius:8px;padding:11px 18px">
+        AI TOP 10
+    </a>
+</div>
+
+<script>
+function goBackToSearch() {
+    window.location.href = "http://127.0.0.1:8000/";
+}
+</script>
+
+<main>
+  <div class="top">
+    <div><div class="brand">STOCK ANALYSIS TERMINAL</div><h1>{{ name }} <span class="muted">{{ ticker }}</span></h1><a href="/ai-top10">← AI 추천 TOP 10</a> <span class="muted"> · 주가 기준 {{ as_of }}</span></div>
+    <div><div class="price">{{ "%.0f"|format(close) }}원</div><div class="muted">전일 대비 <span class="{% if change_pct > 0 %}up{% elif change_pct < 0 %}down{% endif %}">{% if change_pct is not none %}{{ change_pct }}%{% else %}-{% endif %}</span></div></div>
+  </div>
+  <section class="metrics">
+    <div class="metric"><small>AI 모델 점수</small><strong>{% if ai_info %}{{ ai_info.score_pct }}%{% else %}-{% endif %}</strong><div class="muted">{% if ai_info %}추천 기준 {{ ai_info.as_of }}{% else %}TOP 10 추천 기록 없음{% endif %}</div></div>
+    <div class="metric"><small>RSI (14)</small><strong>{% if latest_rsi is not none %}{{ "%.1f"|format(latest_rsi) }}{% else %}-{% endif %}</strong></div>
+    <div class="metric"><small>최근 5일 수익률</small><strong>{% if ai_info %}{{ ai_info.return_5d_pct }}%{% else %}-{% endif %}</strong><div class="muted">{% if ai_info %}추천 기준일 기준{% endif %}</div></div>
+    <div class="metric"><small>거래량 배율</small><strong>{% if ai_info %}{{ ai_info.volume_ratio }}배{% else %}-{% endif %}</strong><div class="muted">{% if ai_info %}추천 기준일 기준{% endif %}</div></div>
+  </section>
+  <section class="panel"><div class="panelhead"><h2>캔들 차트 · MA20 · MA60</h2><div class="controls"><button data-days="30">1개월</button><button data-days="60">3개월</button><button data-days="120" class="active">전체</button></div></div><div class="legend">빨강: 상승 캔들 · 파랑: 하락 캔들 · 노랑: MA20 · 보라: MA60</div><div id="priceChart" class="chart"></div></section>
+  <section class="panel"><div class="panelhead"><h2>거래량</h2></div><div id="volumeChart" class="smallchart"></div></section>
+  <section class="panel"><div class="panelhead"><h2>RSI (14)</h2><span class="legend">70 이상 과매수 · 30 이하 과매도 (관행적 기준)</span></div><div id="rsiChart" class="smallchart"></div></section>
+  <p class="foot">AI 점수는 5거래일 이내 +10% 도달 여부를 예측한 모델 출력이며, 검증된 실제 상승 확률이 아닙니다. 저장된 추천 TOP 10 외 종목에는 AI 점수를 표시하지 않습니다. 모든 차트는 로컬 CSV 기준이며 실시간 시세가 아닙니다. 차트 라이브러리 로딩에 인터넷 연결이 필요합니다.</p>
+</main>
+<script id="stock-chart-data" type="application/json">{{ chart_data|tojson }}</script>
+<script>
+const d=JSON.parse(document.getElementById('stock-chart-data').textContent);
+if(!window.LightweightCharts){document.getElementById('priceChart').textContent='차트 라이브러리를 불러오지 못했습니다. 인터넷 연결을 확인해 주세요.';}
+else {
+ const theme={layout:{background:{type:'solid',color:'#172337'},textColor:'#91a5c3'},grid:{vertLines:{color:'#24344b'},horzLines:{color:'#24344b'}},rightPriceScale:{borderColor:'#35465f'},timeScale:{borderColor:'#35465f'},crosshair:{mode:LightweightCharts.CrosshairMode.Normal}};
+ const make=(id)=>{const el=document.getElementById(id);const chart=LightweightCharts.createChart(el,{...theme,width:el.clientWidth,height:el.clientHeight,timeScale:{...theme.timeScale,timeVisible:false}});new ResizeObserver(()=>chart.applyOptions({width:el.clientWidth,height:el.clientHeight})).observe(el);return chart;};
+ const price=make('priceChart');const candle=price.addCandlestickSeries({upColor:'#f16d7a',downColor:'#57a4ef',borderUpColor:'#f16d7a',borderDownColor:'#57a4ef',wickUpColor:'#f16d7a',wickDownColor:'#57a4ef'});candle.setData(d.candles);
+ const m20=price.addLineSeries({color:'#f0c56d',lineWidth:2,priceLineVisible:false,lastValueVisible:false});m20.setData(d.ma20);
+ const m60=price.addLineSeries({color:'#a29aff',lineWidth:2,priceLineVisible:false,lastValueVisible:false});m60.setData(d.ma60);
+ const vol=make('volumeChart');const bars=vol.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});bars.setData(d.volume);vol.priceScale('').applyOptions({scaleMargins:{top:0.1,bottom:0}});
+ const rsiChart=make('rsiChart');const rsi=rsiChart.addLineSeries({color:'#f0c56d',lineWidth:2,priceLineVisible:false});rsi.setData(d.rsi);rsi.createPriceLine({price:70,color:'#f16d7a',lineWidth:1,lineStyle:LightweightCharts.LineStyle.Dashed,axisLabelVisible:true});rsi.createPriceLine({price:30,color:'#57a4ef',lineWidth:1,lineStyle:LightweightCharts.LineStyle.Dashed,axisLabelVisible:true});
+ const charts=[price,vol,rsiChart];charts.forEach(c=>c.timeScale().fitContent());
+ document.querySelectorAll('[data-days]').forEach(button=>button.addEventListener('click',()=>{const n=Number(button.dataset.days);const start=Math.max(0,d.candles.length-n);const from=d.candles[start]?.time;const to=d.candles[d.candles.length-1]?.time;if(from&&to)charts.forEach(c=>c.timeScale().setVisibleRange({from,to}));document.querySelectorAll('[data-days]').forEach(b=>b.classList.toggle('active',b===button));}));
+}
+</script>
+</body>
+</html>

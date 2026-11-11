@@ -7,6 +7,19 @@ from predict import predict_stock
 
 import pandas as pd
 
+
+# ==========================================
+# 로컬 / Render 데이터 경로
+# ==========================================
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+STOCK_CSV_PATH = os.path.join(
+    BASE_DIR,
+    "stock_data_deploy.csv"
+    if os.getenv("RENDER")
+    else "stock_data_500.csv"
+)
+
 # ==========================================
 # FastAPI 앱 생성
 # ==========================================
@@ -46,7 +59,7 @@ def get_stocks():
     try:
 
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-        CSV_PATH = os.path.join(BASE_DIR, "stock_data_500.csv")
+        CSV_PATH = STOCK_CSV_PATH
 
         data = pd.read_csv(CSV_PATH)
 
@@ -74,7 +87,7 @@ def get_stocks():
 @app.get("/api/stocks/ranking")
 def get_stock_ranking():
     try:
-        stocks = pd.read_csv("stock_data_500.csv")
+        stocks = pd.read_csv(STOCK_CSV_PATH)
 
         stocks = (
             stocks[["Stock_Name", "Ticker"]]
@@ -322,8 +335,14 @@ def search_ai_stock(q: str = ""):
 
 
 # Portfolio API
-from portfolio_api import router as portfolio_router
-app.include_router(portfolio_router)
+# 로컬에서는 사용, 공개 서버에서는 기본 비활성화
+ENABLE_PORTFOLIO = os.getenv(
+    "ENABLE_PORTFOLIO", "false"
+).lower() == "true"
+
+if ENABLE_PORTFOLIO:
+    from portfolio_api import router as portfolio_router
+    app.include_router(portfolio_router)
 
 
 
@@ -331,18 +350,20 @@ app.include_router(portfolio_router)
 # My Portfolio 웹페이지
 # ==========================================
 
-@app.get("/portfolio", include_in_schema=False)
-def portfolio_page():
-    return FileResponse(
-        str(Path(__file__).resolve().parent / "frontend" / "portfolio.html")
-    )
+if ENABLE_PORTFOLIO:
+    @app.get("/portfolio", include_in_schema=False)
+    def portfolio_page():
+        return FileResponse(
+            str(Path(__file__).resolve().parent / "frontend" / "portfolio.html")
+        )
+
+    from portfolio_valuation import router as valuation_router
+    app.include_router(valuation_router)
+
+    from portfolio_live import router as live_router
+    app.include_router(live_router)
 
 
-# Portfolio valuation API
-from portfolio_valuation import router as valuation_router
-app.include_router(valuation_router)
-
-
-# Portfolio live quotes
-from portfolio_live import router as live_router
-app.include_router(live_router)
+# 종목 상세 차트 (FastAPI)
+from stock_detail_api import router as stock_detail_router
+app.include_router(stock_detail_router)

@@ -1,3 +1,4 @@
+from pathlib import Path
 import pandas as pd
 import yfinance as yf
 import joblib
@@ -7,7 +8,7 @@ import joblib
 # 1. 모델 및 Feature
 # ==========================================
 
-MODEL_PATH = "model/random_forest.pkl"
+MODEL_PATH = str(Path(__file__).resolve().parent / "model" / "random_forest.pkl")
 
 FEATURES = [
     "MA20_Gap",

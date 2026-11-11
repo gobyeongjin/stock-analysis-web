@@ -966,7 +966,7 @@ async function analyzeStock() {
 
     // Django 트레이딩 상세 화면으로 이동
     window.location.href =
-        `http://127.0.0.1:8001/stock/${encodeURIComponent(stock.ticker)}/`;
+        `/stock/${encodeURIComponent(stock.ticker)}/`;
 }
 
 
@@ -1034,7 +1034,7 @@ async function loadRanking() {
             item.addEventListener("click", () => {
             // Django 트레이딩 상세 화면으로 이동
             window.location.href =
-                `http://127.0.0.1:8001/stock/${encodeURIComponent(stock.ticker)}/`;
+                `/stock/${encodeURIComponent(stock.ticker)}/`;
 });
 
             rankingList.appendChild(item);

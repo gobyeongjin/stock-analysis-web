@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI 종목 추천 TOP 10</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6fa;
+            margin: 0;
+            padding: 32px;
+            color: #172033;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+        h1 { margin-bottom: 8px; }
+        .subtitle { color: #64748b; }
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 24px;
+            margin-top: 24px;
+            box-shadow: 0 4px 16px #0000000a;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            white-space: nowrap;
+        }
+        th, td {
+            padding: 15px 12px;
+            text-align: right;
+            border-bottom: 1px solid #e8edf3;
+        }
+        th {
+            background: #f8fafc;
+            color: #64748b;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            text-align: left;
+        }
+        .score {
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .positive { color: #dc2626; }
+        .negative { color: #2563eb; }
+        .stock-link {
+            color: #172033;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .stock-link:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        .note {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>AI 종목 추천 TOP 10</h1>
+    <p class="subtitle" id="date">추천 데이터를 불러오는 중...</p>
+
+    <div class="card">
+        <table>
+            <thead>
+                <tr>
+                    <th>순위</th>
+                    <th>종목명</th>
+                    <th>종가</th>
+                    <th>AI 점수</th>
+                    <th>RSI</th>
+                    <th>5일 수익률</th>
+                    <th>거래량 배율</th>
+                </tr>
+            </thead>
+            <tbody id="stockTable"></tbody>
+        </table>
+        <p class="note" id="note"></p>
+    </div>
+</div>
+
+<script>
+async function loadTop10() {
+    const tbody = document.getElementById("stockTable");
+
+    try {
+        const response = await fetch("/api/ai/top10");
+        if (!response.ok) {
+            throw new Error("API 오류: " + response.status);
+        }
+
+        const data = await response.json();
+
+        document.getElementById("date").textContent =
+            `분석 기준일: ${data.as_of} | 모델: ${data.model}`;
+
+        document.getElementById("note").textContent = data.note;
+
+        tbody.replaceChildren();
+
+        data.stocks.forEach((stock, index) => {
+            const tr = document.createElement("tr");
+
+            const values = [
+                index + 1,
+                stock.name,
+                Number(stock.close).toLocaleString("ko-KR") + "원",
+                (stock.ai_probability * 100).toFixed(2) + "%",
+                Number(stock.rsi).toFixed(1),
+                Number(stock.return_5d_pct).toFixed(2) + "%",
+                Number(stock.volume_ratio).toFixed(2) + "배"
+            ];
+
+            values.forEach((value, column) => {
+                const td = document.createElement("td");
+
+                if (column === 1) {
+                    const link = document.createElement("a");
+                    link.className = "stock-link";
+                    link.textContent = value;
+                    link.href = "/?ticker=" + encodeURIComponent(stock.ticker);
+                    td.appendChild(link);
+                } else {
+                    td.textContent = value;
+                }
+
+                if (column === 3) td.className = "score";
+
+                if (column === 5) {
+                    td.className = stock.return_5d_pct >= 0
+                        ? "positive" : "negative";
+                }
+
+                tr.appendChild(td);
+            });
+
+            tbody.appendChild(tr);
+        });
+
+    } catch (error) {
+        document.getElementById("date").textContent =
+            "추천 데이터를 불러오지 못했습니다.";
+        tbody.textContent = error.message;
+    }
+}
+
+loadTop10();
+</script>
+</body>
+</html>
