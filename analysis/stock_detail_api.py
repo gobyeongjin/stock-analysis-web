@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.templating import Jinja2Templates
+from portfolio_live import get_prices
 
 router = APIRouter()
 
@@ -128,6 +129,33 @@ def stock_detail(request: Request, ticker: str):
         else None
     )
 
+    # 포트폴리오와 동일한 토스 최신 시세 조회
+    symbol = str(ticker).split(".")[0].zfill(6)
+
+    try:
+        quote = get_prices([symbol]).get(symbol)
+    except Exception as e:
+        print(f"최신 시세 조회 실패 ({symbol}): {e}")
+        quote = None
+
+    current_price = (
+        quote["price"]
+        if quote is not None
+        else number(latest["Close"])
+    )
+
+    price_timestamp = (
+        quote["timestamp"]
+        if quote is not None
+        else latest["Date"].strftime("%Y-%m-%d")
+    )
+
+    price_source = (
+        "토스 최신 시세"
+        if quote is not None
+        else "CSV 종가 (최신 시세 조회 불가)"
+    )
+
     ai_info = None
 
     if AI_RESULT_PATH.exists():
@@ -156,6 +184,9 @@ def stock_detail(request: Request, ticker: str):
             "ticker": ticker,
             "name": latest["Stock_Name"],
             "close": number(latest["Close"]),
+            "current_price": current_price,
+            "price_timestamp": price_timestamp,
+            "price_source": price_source,
             "as_of": latest["Date"].strftime("%Y-%m-%d"),
             "change_pct": round(change_pct, 2)
             if change_pct is not None else None,

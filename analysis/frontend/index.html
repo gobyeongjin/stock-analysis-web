@@ -739,6 +739,25 @@ a {
     </div>
 
 
+
+    <!-- Friends investment leaderboard -->
+    <div class="card" id="friendsLeaderboardSection"
+         style="margin-top:24px">
+        <h2>🏆 친구 투자 수익률 랭킹</h2>
+        <p class="ranking-description">
+            초기자본 2,000만 원 기준 · 공개 동의 회원만 표시
+        </p>
+
+        <div id="friendsLeaderboardBody">
+            랭킹 데이터를 불러올 준비 중입니다.
+        </div>
+
+        <p id="friendsLeaderboardNotice"
+           style="margin-top:14px;color:#93a8c8;font-size:13px">
+            로그인한 회원만 친구 랭킹을 볼 수 있습니다.
+        </p>
+    </div>
+
 </div>
 
 
@@ -1251,6 +1270,82 @@ async function init() {
 init();
 
 
+</script>
+
+
+<!-- Friends leaderboard API -->
+<script>
+async function loadFriendsLeaderboard() {
+    const body = document.getElementById("friendsLeaderboardBody");
+    const notice = document.getElementById("friendsLeaderboardNotice");
+
+    try {
+        const response = await fetch("/api/leaderboard", {
+            credentials: "same-origin",
+            cache: "no-store"
+        });
+
+        if (response.status === 401) {
+            body.replaceChildren();
+
+            const link = document.createElement("a");
+            link.href = "/login";
+            link.textContent = "로그인 후 친구 랭킹 확인하기";
+            link.style.color = "#93c5fd";
+            body.appendChild(link);
+
+            notice.textContent = "회원만 랭킹을 볼 수 있습니다.";
+            return;
+        }
+
+        if (!response.ok) {
+            throw new Error("API error: " + response.status);
+        }
+
+        const data = await response.json();
+        body.replaceChildren();
+
+        if (!data.ranking || data.ranking.length === 0) {
+            body.textContent = data.unavailable_count > 0
+                ? "주가 조회 문제로 표시 가능한 순위가 없습니다."
+                : "아직 랭킹 참여자가 없습니다.";
+        } else {
+            for (const member of data.ranking) {
+                const row = document.createElement("div");
+                row.style.cssText =
+                    "display:flex;justify-content:space-between;" +
+                    "gap:12px;padding:12px 0;border-bottom:1px solid #334155;";
+
+                const name = document.createElement("span");
+                name.textContent = member.rank + "위 · " + member.nickname;
+
+                const result = document.createElement("span");
+                const rate = Number(member.overall_return_pct);
+                result.textContent =
+                    (rate > 0 ? "+" : "") + rate.toFixed(2) + "%";
+                result.style.color = rate >= 0 ? "#f16d7a" : "#57a4ef";
+
+                row.append(name, result);
+                body.appendChild(row);
+            }
+        }
+
+        notice.textContent =
+            "참여자 " + data.participant_count + "명 · " +
+            "순위 표시 " + data.ranked_count + "명" +
+            (data.unavailable_count > 0
+                ? " · 주가 조회 불가 " + data.unavailable_count + "명"
+                : "");
+
+    } catch (error) {
+        console.error("Friends leaderboard:", error);
+        body.textContent = "랭킹을 불러오지 못했습니다.";
+        notice.textContent = "잠시 후 다시 시도해 주세요.";
+    }
+}
+
+loadFriendsLeaderboard();
+setInterval(loadFriendsLeaderboard, 60000);
 </script>
 
 </body>

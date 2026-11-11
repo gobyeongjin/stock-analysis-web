@@ -35,7 +35,7 @@ function goBackToSearch() {
 <main>
   <div class="top">
     <div><div class="brand">STOCK ANALYSIS TERMINAL</div><h1>{{ name }} <span class="muted">{{ ticker }}</span></h1><a href="/ai-top10">← AI 추천 TOP 10</a> <span class="muted"> · 주가 기준 {{ as_of }}</span></div>
-    <div><div class="price">{{ "%.0f"|format(close) }}원</div><div class="muted">전일 대비 <span class="{% if change_pct > 0 %}up{% elif change_pct < 0 %}down{% endif %}">{% if change_pct is not none %}{{ change_pct }}%{% else %}-{% endif %}</span></div></div>
+    <div><div class="price">{{ "%.0f"|format(current_price) }}원</div><div class="muted">{{ price_source }} · {{ price_timestamp }}</div></div>
   </div>
   <section class="metrics">
     <div class="metric"><small>AI 모델 점수</small><strong>{% if ai_info %}{{ ai_info.score_pct }}%{% else %}-{% endif %}</strong><div class="muted">{% if ai_info %}추천 기준 {{ ai_info.as_of }}{% else %}TOP 10 추천 기록 없음{% endif %}</div></div>

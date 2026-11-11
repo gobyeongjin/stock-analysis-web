@@ -138,6 +138,84 @@ th { color: #91a5c3; font-weight: 500; }
         최신 CSV 종가 기준 · 실시간 시세 아님
     </p>
 
+    <!-- Ranking profile settings -->
+    <div class="card" id="profileSettings">
+        <h2>랭킹 참여 설정</h2>
+        <p class="sub">
+            닉네임을 설정하고 친구 랭킹 공개 여부를 선택하세요.
+        </p>
+
+        <form id="profileForm">
+            <label class="field">
+                닉네임
+                <input
+                    id="profileNickname"
+                    type="text"
+                    maxlength="20"
+                    placeholder="닉네임 입력 (최대 20자)"
+                    required
+                >
+            </label>
+
+            <label class="field" style="margin-top:15px">
+                <input
+                    id="rankingOptIn"
+                    type="checkbox"
+                >
+                친구 투자 랭킹에 내 수익률 공개
+            </label>
+
+            <p class="sub">
+                공개 동의 시 닉네임, 총자산, 수익률이
+                다른 로그인 회원에게 표시됩니다.
+                언제든 공개를 해제할 수 있습니다.
+            </p>
+
+            <button id="saveProfileButton" type="submit">
+                설정 저장
+            </button>
+        </form>
+
+        <div
+            id="profileMessage"
+            class="message"
+            role="status"
+            aria-live="polite"
+        ></div>
+    </div>
+
+    <!-- Friends investment leaderboard -->
+    <div class="card" id="leaderboardSection">
+        <h2>친구 투자 수익률 랭킹</h2>
+        <p class="sub">
+            초기자본 2,000만 원 기준 · 공개 동의 회원만 표시
+        </p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>닉네임</th>
+                        <th>총자산</th>
+                        <th>전체 수익률</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody">
+                    <tr>
+                        <td colspan="4">
+                            랭킹 데이터를 불러올 준비 중입니다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="sub" id="leaderboardNotice">
+            랭킹에 참여하려면 닉네임 설정과 공개 동의가 필요합니다.
+        </p>
+    </div>
+
     <div class="card">
         <h2>거래 등록</h2>
         <form id="tradeForm">
@@ -166,6 +244,16 @@ th { color: #91a5c3; font-weight: 500; }
                 <label class="field">거래 수량
                     <input id="quantity" type="number" min="1" step="1" required>
                 </label>
+                <div class="field" style="grid-column:1/-1">
+                    <div id="quoteNotice" style="margin-bottom:8px">
+                        종목을 선택하면 최신 가격을 조회합니다.
+                    </div>
+                    <div id="tradeAmountPreview"
+                         style="padding:15px;border:1px solid #888;
+                                border-radius:10px">
+                        예상 거래금액: 0원
+                    </div>
+                </div>
                 <label class="field">수수료 (원)
                     <input id="fee" type="number" min="0" step="any" value="0">
                 </label>
@@ -245,8 +333,8 @@ async function fetchJSON(url, options) {
 
 async function loadPortfolio() {
     const [holdingsData, tradesData] = await Promise.all([
-        fetchJSON("/api/portfolio/live"),
-        fetchJSON("/api/portfolio/trades")
+        fetchJSON("/api/my-portfolio/live"),
+        fetchJSON("/api/my-portfolio/trades")
     ]);
 
     const holdings = holdingsData.holdings || [];
@@ -361,8 +449,15 @@ $("tradeForm").addEventListener("submit", async event => {
         tax: Number($("tax").value || 0)
     };
 
+    if (!trade.ticker) {
+        $("message").textContent =
+            "종목을 선택해 주세요. 검색 결과에서 종목을 클릭해야 합니다.";
+        button.disabled = false;
+        return;
+    }
+
     try {
-        await fetchJSON("/api/portfolio/trades", {
+        await fetchJSON("/api/my-portfolio/trades", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(trade)
@@ -383,6 +478,85 @@ loadPortfolio().catch(error => {
 });
 </script>
 
+
+<script id="portfolio-price-script">
+let selectedQuoteTicker = "";
+let quoteRequestId = 0;
+
+const won = value =>
+    Number(value || 0).toLocaleString("ko-KR") + "원";
+
+function updateTradeAmount() {
+    const price = Number(document.getElementById("price").value || 0);
+    const qty = Number(document.getElementById("quantity").value || 0);
+    const fee = Number(document.getElementById("fee").value || 0);
+    const tax = Number(document.getElementById("tax").value || 0);
+    const type = document.getElementById("tradeType").value;
+
+    const amount = price * qty;
+    const total = type === "BUY"
+        ? amount + fee + tax
+        : amount - fee - tax;
+
+    document.getElementById("tradeAmountPreview").textContent =
+        "거래금액: " + won(amount) +
+        " | " + (type === "BUY" ? "예상 총 지출: " : "예상 실수령: ") +
+        won(total);
+}
+
+["price", "quantity", "fee", "tax", "tradeType"].forEach(id => {
+    document.getElementById(id).addEventListener(
+        "input", updateTradeAmount
+    );
+});
+
+async function loadSelectedStockPrice(ticker) {
+    const requestId = ++quoteRequestId;
+    selectedQuoteTicker = ticker;
+
+    const notice = document.getElementById("quoteNotice");
+    const priceInput = document.getElementById("price");
+
+    priceInput.value = "";
+    updateTradeAmount();
+    notice.textContent = "가격 조회 중...";
+
+    try {
+        const response = await fetch(
+            "/api/stock/" + encodeURIComponent(ticker)
+        );
+
+        if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+        }
+
+        const data = await response.json();
+
+        if (requestId !== quoteRequestId ||
+            selectedQuoteTicker !== ticker) return;
+
+        const price = Number(data.current_price);
+
+        if (!Number.isFinite(price) || price <= 0) {
+            throw new Error("유효한 가격 정보가 없습니다.");
+        }
+
+        priceInput.value = price;
+        notice.textContent =
+            "조회 가격: " + won(price) +
+            " (API 제공 가격, 실시간 체결가 보장 안 됨)";
+
+        updateTradeAmount();
+
+    } catch (error) {
+        if (requestId !== quoteRequestId) return;
+
+        notice.textContent =
+            "가격 자동 조회 실패. 거래 가격을 직접 입력해 주세요. " +
+            error.message;
+    }
+}
+</script>
 <script id="portfolio-autocomplete-script">
 let portfolioStocks = [];
 
@@ -423,6 +597,12 @@ portfolioNameInput.addEventListener("input", () => {
 
     // 종목명이 바뀌면 이전에 선택한 코드를 초기화
     portfolioTickerInput.value = "";
+    selectedQuoteTicker = "";
+    quoteRequestId++;
+    document.getElementById("price").value = "";
+    document.getElementById("quoteNotice").textContent =
+        "종목을 선택하면 최신 가격을 조회합니다.";
+    updateTradeAmount();
     portfolioSuggestions.replaceChildren();
 
     if (!query) {
@@ -452,6 +632,7 @@ portfolioNameInput.addEventListener("input", () => {
             portfolioNameInput.value = stock.name;
             portfolioTickerInput.value = stock.ticker;
             hidePortfolioSuggestions();
+            loadSelectedStockPrice(stock.ticker);
         });
 
         portfolioSuggestions.appendChild(button);
@@ -481,6 +662,207 @@ setInterval(() => {
         loadPortfolio();
     }
 }, 60000);
+</script>
+
+
+<!-- Friends leaderboard -->
+<script>
+async function loadLeaderboard() {
+    const body = document.getElementById("leaderboardBody");
+    const notice = document.getElementById("leaderboardNotice");
+
+    try {
+        const response = await fetch("/api/leaderboard", {
+            credentials: "same-origin",
+            cache: "no-store"
+        });
+
+        if (response.status === 401) {
+            body.replaceChildren();
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.colSpan = 4;
+            td.textContent = "로그인 후 친구 랭킹을 확인할 수 있습니다.";
+            tr.appendChild(td);
+            body.appendChild(tr);
+            notice.textContent = "로그인이 필요합니다.";
+            return;
+        }
+
+        if (!response.ok) {
+            throw new Error("Leaderboard API error: " + response.status);
+        }
+
+        const data = await response.json();
+        const ranking = data.ranking || [];
+
+        body.replaceChildren();
+
+        if (ranking.length === 0) {
+            const tr = document.createElement("tr");
+            const td = document.createElement("td");
+            td.colSpan = 4;
+            td.textContent = data.unavailable_count > 0
+                ? "현재 주가를 조회할 수 없어 표시 가능한 순위가 없습니다."
+                : "아직 랭킹 참여자가 없습니다.";
+            tr.appendChild(td);
+            body.appendChild(tr);
+        }
+
+        for (const member of ranking) {
+            const tr = document.createElement("tr");
+
+            const values = [
+                member.rank + "위",
+                member.nickname,
+                Number(member.total_equity).toLocaleString("ko-KR") + "원",
+                (member.overall_return_pct > 0 ? "+" : "")
+                    + Number(member.overall_return_pct).toFixed(2) + "%"
+            ];
+
+            for (const value of values) {
+                const td = document.createElement("td");
+                td.textContent = value;
+                tr.appendChild(td);
+            }
+
+            const returnCell = tr.lastElementChild;
+            returnCell.style.color =
+                member.overall_return_pct >= 0
+                    ? "#f16d7a"
+                    : "#57a4ef";
+
+            body.appendChild(tr);
+        }
+
+        notice.textContent =
+            "참여자 " + data.participant_count + "명 · " +
+            "순위 표시 " + data.ranked_count + "명" +
+            (data.unavailable_count > 0
+                ? " · 주가 조회 불가 " + data.unavailable_count + "명"
+                : "");
+
+    } catch (error) {
+        console.error("Leaderboard load failed:", error);
+        notice.textContent = "랭킹을 불러오지 못했습니다.";
+    }
+}
+
+loadLeaderboard();
+
+setInterval(loadLeaderboard, 60000);
+</script>
+
+
+<!-- Ranking profile API integration -->
+<script>
+async function loadMyProfile() {
+    const nickname = document.getElementById("profileNickname");
+    const optIn = document.getElementById("rankingOptIn");
+    const message = document.getElementById("profileMessage");
+
+    try {
+        const response = await fetch("/api/my-profile", {
+            credentials: "same-origin",
+            cache: "no-store"
+        });
+
+        if (response.status === 401) {
+            message.textContent = "로그인 후 설정할 수 있습니다.";
+            return;
+        }
+
+        if (!response.ok) {
+            throw new Error("Profile load failed");
+        }
+
+        const data = await response.json();
+
+        nickname.value = data.nickname || "";
+        optIn.checked = data.ranking_opt_in === true;
+        message.textContent = "";
+
+    } catch (error) {
+        console.error(error);
+        message.textContent = "프로필을 불러오지 못했습니다.";
+    }
+}
+
+document.getElementById("profileForm").addEventListener(
+    "submit",
+    async function(event) {
+        event.preventDefault();
+
+        const nickname = document.getElementById(
+            "profileNickname"
+        ).value.trim();
+
+        const optIn = document.getElementById(
+            "rankingOptIn"
+        ).checked;
+
+        const message = document.getElementById(
+            "profileMessage"
+        );
+
+        const button = document.getElementById(
+            "saveProfileButton"
+        );
+
+        if (!nickname || nickname.length > 20) {
+            message.textContent = "닉네임은 1~20자로 입력하세요.";
+            return;
+        }
+
+        button.disabled = true;
+        message.textContent = "저장 중...";
+
+        try {
+            const response = await fetch("/api/my-profile", {
+                method: "PATCH",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nickname: nickname,
+                    ranking_opt_in: optIn
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                if (response.status === 409) {
+                    throw new Error("이미 사용 중인 닉네임입니다.");
+                }
+
+                if (response.status === 401) {
+                    throw new Error("로그인이 필요합니다.");
+                }
+
+                throw new Error(
+                    typeof data.detail === "string"
+                        ? data.detail
+                        : "프로필 저장에 실패했습니다."
+                );
+            }
+
+            message.textContent = data.message ||
+                "프로필 설정이 저장되었습니다.";
+
+            await loadLeaderboard();
+
+        } catch (error) {
+            console.error(error);
+            message.textContent = error.message;
+        } finally {
+            button.disabled = false;
+        }
+    }
+);
+
+loadMyProfile();
 </script>
 
 </body>
