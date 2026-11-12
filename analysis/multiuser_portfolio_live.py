@@ -4,7 +4,42 @@ from fastapi import APIRouter, Depends
 
 from multiuser_auth_api import get_current_user
 from multiuser_portfolio_service import get_holdings, get_cash_balance, INITIAL_CAPITAL
-from portfolio_live import get_prices
+import yfinance as yf
+
+def get_prices(symbols):
+    prices = {}
+
+    for ticker in symbols:
+        try:
+            data = yf.download(
+                ticker,
+                period="5d",
+                auto_adjust=False,
+                progress=False,
+                threads=False,
+            )
+
+            if data.empty:
+                continue
+
+            close = data["Close"]
+            if hasattr(close, "columns"):
+                close = close.iloc[:, 0]
+
+            close = close.dropna()
+            if close.empty:
+                continue
+
+            prices[ticker] = {
+                "price": float(close.iloc[-1]),
+                "timestamp": str(close.index[-1].date()),
+            }
+
+        except Exception as e:
+            print(f"Portfolio price error {ticker}: {e}")
+
+    return prices
+
 
 router = APIRouter(
     prefix="/api/my-portfolio",
@@ -18,7 +53,7 @@ def get_my_live_portfolio(user=Depends(get_current_user)):
     holdings = get_holdings(user["id"])
 
     symbols = list(dict.fromkeys(
-        str(stock["ticker"]).split(".")[0].zfill(6)
+        str(stock["ticker"]).strip().upper()
         for stock in holdings
     ))
 
@@ -30,7 +65,7 @@ def get_my_live_portfolio(user=Depends(get_current_user)):
     missing_count = 0
 
     for stock in holdings:
-        symbol = str(stock["ticker"]).split(".")[0].zfill(6)
+        symbol = str(stock["ticker"]).strip().upper()
         quote = prices.get(symbol)
 
         item = dict(stock)
