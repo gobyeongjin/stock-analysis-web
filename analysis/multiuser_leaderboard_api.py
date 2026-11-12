@@ -10,7 +10,7 @@ from multiuser_portfolio_service import (
     calculate_cash_balance,
     calculate_holdings,
 )
-from portfolio_live import get_prices
+from multiuser_portfolio_live import get_prices
 
 router = APIRouter(
     prefix="/api/leaderboard",
@@ -72,7 +72,7 @@ def get_leaderboard(user=Depends(get_current_user)):
         })
 
         for stock in holdings:
-            symbol = str(stock["ticker"]).split(".")[0].zfill(6)
+            symbol = str(stock["ticker"]).strip().upper()
             symbols.add(symbol)
 
     # 전체 회원의 종목 시세를 한 번에 조회
@@ -86,7 +86,7 @@ def get_leaderboard(user=Depends(get_current_user)):
         complete = True
 
         for stock in portfolio["holdings"]:
-            symbol = str(stock["ticker"]).split(".")[0].zfill(6)
+            symbol = str(stock["ticker"]).strip().upper()
             quote = prices.get(symbol)
 
             if quote is None:
