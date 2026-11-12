@@ -224,18 +224,50 @@ app.include_router(pages_router)
 import json
 from pathlib import Path
 
-@app.get("/api/ai/top10")
-def get_ai_top10():
-    path = Path(__file__).resolve().parent / "ai_top10.json"
 
-    if not path.exists():
+AI_DATA_URL = (
+    "https://raw.githubusercontent.com/"
+    "gobyeongjin/stock-analysis-web/"
+    "ai-data/ai_top10.json"
+)
+
+def load_latest_ai_data():
+    import urllib.request
+
+    local_path = Path(__file__).resolve().parent / "ai_top10.json"
+
+    try:
+        request = urllib.request.Request(
+            AI_DATA_URL,
+            headers={"User-Agent": "stock-analysis-web"}
+        )
+        with urllib.request.urlopen(request, timeout=5) as response:
+            payload = json.load(response)
+
+        if not isinstance(payload.get("top10"), list):
+            raise ValueError("잘못된 AI 데이터 형식")
+
+        if not isinstance(payload.get("all_stocks"), list):
+            raise ValueError("전체 종목 데이터가 없습니다.")
+
+        return payload
+
+    except Exception as exc:
+        print(f"[AI TOP10] GitHub 데이터 요청 실패: {exc}")
+
+        if local_path.exists():
+            with local_path.open("r", encoding="utf-8") as f:
+                return json.load(f)
+
         raise HTTPException(
             status_code=503,
-            detail="AI 추천 결과가 없습니다."
+            detail="AI 추천 데이터를 불러올 수 없습니다."
         )
 
-    with path.open("r", encoding="utf-8") as f:
-        data = json.load(f)
+
+@app.get("/api/ai/top10")
+def get_ai_top10():
+    data = load_latest_ai_data()
 
     return {
         "as_of": data["as_of"],
@@ -264,19 +296,7 @@ def ai_top10_page():
 
 @app.get("/api/ai/search")
 def search_ai_stock(q: str = ""):
-    import json
-    from pathlib import Path
-
-    path = Path(__file__).resolve().parent / "ai_top10.json"
-
-    if not path.exists():
-        raise HTTPException(
-            status_code=503,
-            detail="AI 분석 데이터가 없습니다. TOP 10을 먼저 생성해 주세요."
-        )
-
-    with path.open("r", encoding="utf-8") as f:
-        payload = json.load(f)
+    payload = load_latest_ai_data()
 
     query = q.strip().lower()
 
