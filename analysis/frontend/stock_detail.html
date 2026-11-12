@@ -35,7 +35,7 @@ function goBackToSearch() {
 <main>
   <div class="top">
     <div><div class="brand">STOCK ANALYSIS TERMINAL</div><h1>{{ name }} <span class="muted">{{ ticker }}</span></h1><a href="/ai-top10">← AI 추천 TOP 10</a> <span class="muted"> · 주가 기준 {{ as_of }}</span></div>
-    <div><div class="price">{{ "%.0f"|format(close) }}원</div><div class="muted">전일 대비 <span class="{% if change_pct > 0 %}up{% elif change_pct < 0 %}down{% endif %}">{% if change_pct is not none %}{{ change_pct }}%{% else %}-{% endif %}</span></div></div>
+    <div><div class="price" id="live-price">{{ "%.0f"|format(close) }}원</div><div class="muted">전일 대비 <span id="live-change" class="{% if change_pct > 0 %}up{% elif change_pct < 0 %}down{% endif %}">{% if change_pct is not none %}{{ change_pct }}%{% else %}-{% endif %}</span></div></div>
   </div>
   <section class="metrics">
     <div class="metric"><small>AI 모델 점수</small><strong>{% if ai_info %}{{ ai_info.score_pct }}%{% else %}-{% endif %}</strong><div class="muted">{% if ai_info %}추천 기준 {{ ai_info.as_of }}{% else %}TOP 10 추천 기록 없음{% endif %}</div></div>
@@ -64,5 +64,53 @@ else {
  document.querySelectorAll('[data-days]').forEach(button=>button.addEventListener('click',()=>{const n=Number(button.dataset.days);const start=Math.max(0,d.candles.length-n);const from=d.candles[start]?.time;const to=d.candles[d.candles.length-1]?.time;if(from&&to)charts.forEach(c=>c.timeScale().setVisibleRange({from,to}));document.querySelectorAll('[data-days]').forEach(b=>b.classList.toggle('active',b===button));}));
 }
 </script>
+<div id="live-status" style="text-align:center;color:#91a5c3;font-size:12px;padding:10px">최신 시세 조회 중...</div>
+
+<script>
+async function updateLivePrice() {
+    const priceEl = document.getElementById("live-price");
+    const changeEl = document.getElementById("live-change");
+    const statusEl = document.getElementById("live-status");
+
+    try {
+        const ticker = {{ ticker|tojson }};
+        const response = await fetch(
+            "/api/stock-price/" + encodeURIComponent(ticker),
+            {cache: "no-store"}
+        );
+
+        if (!response.ok) throw new Error("시세 조회 실패");
+
+        const data = await response.json();
+
+        priceEl.textContent =
+            Number(data.price).toLocaleString("ko-KR") + "원";
+
+        if (data.change_pct !== null) {
+            const change = Number(data.change_pct);
+            changeEl.textContent =
+                (change > 0 ? "+" : "") + change.toFixed(2) + "%";
+            changeEl.className =
+                change > 0 ? "up" : change < 0 ? "down" : "";
+        }
+
+        const quoteTime = new Date(data.quote_time);
+        statusEl.textContent =
+            "Yahoo Finance 시세 · " +
+            quoteTime.toLocaleString("ko-KR", {
+                timeZone: "Asia/Seoul"
+            }) +
+            " 기준 (시간외 시세 반영 여부 미확인)";
+
+    } catch (error) {
+        statusEl.textContent =
+            "최신 시세 조회 실패 · 저장된 종가 또는 마지막 조회 가격 표시";
+    }
+}
+
+updateLivePrice();
+setInterval(updateLivePrice, 30000);
+</script>
+
 </body>
 </html>

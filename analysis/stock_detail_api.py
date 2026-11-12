@@ -15,11 +15,7 @@ AI_RESULT_PATH = BASE_DIR / "ai_top10.json"
 
 # 최신 주가 데이터 우선 사용
 DATA_CANDIDATES = [
-    *(
-        [BASE_DIR / "stock_data_deploy.csv"]
-        if os.getenv("RENDER")
-        else []
-    ),
+    BASE_DIR / "stock_data_deploy.csv",
     BASE_DIR / "stock_data_500_live_20261110.csv",
     BASE_DIR / "stock_data_500_live.csv",
 ]
@@ -170,3 +166,84 @@ def stock_detail(request: Request, ticker: str):
             },
         },
     )
+
+
+# --- LIVE STOCK PRICE API ---
+import threading
+import time
+import yfinance as yf
+
+_price_cache = {}
+_price_lock = threading.Lock()
+PRICE_CACHE_SECONDS = 30
+
+
+@router.get("/api/stock-price/{ticker}")
+def get_live_stock_price(ticker: str):
+    if not (
+        ticker.endswith(".KS")
+        or ticker.endswith(".KQ")
+    ):
+        raise HTTPException(400, "지원하지 않는 종목 코드입니다.")
+
+    now = time.monotonic()
+
+    with _price_lock:
+        cached = _price_cache.get(ticker)
+        if cached and now - cached["cached_at"] < PRICE_CACHE_SECONDS:
+            return cached["data"]
+
+    try:
+        df = yf.Ticker(ticker).history(
+            period="2d",
+            interval="1m",
+            prepost=True,
+        )
+
+        if df.empty:
+            raise ValueError("시세 데이터가 없습니다.")
+
+        latest = df.iloc[-1]
+        latest_time = df.index[-1]
+
+        daily = yf.Ticker(ticker).history(
+            period="5d",
+            interval="1d",
+        )
+
+        previous = daily.loc[
+            daily.index.date < latest_time.date()
+        ]
+
+        prev_close = (
+            float(previous["Close"].iloc[-1])
+            if not previous.empty else None
+        )
+
+        current_price = float(latest["Close"])
+        change_pct = (
+            round((current_price / prev_close - 1) * 100, 2)
+            if prev_close and prev_close > 0 else None
+        )
+
+        result = {
+            "ticker": ticker,
+            "price": round(current_price),
+            "change_pct": change_pct,
+            "quote_time": latest_time.isoformat(),
+            "source": "Yahoo Finance",
+        }
+
+        with _price_lock:
+            _price_cache[ticker] = {
+                "cached_at": time.monotonic(),
+                "data": result,
+            }
+
+        return result
+
+    except Exception as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="현재 시세를 조회할 수 없습니다.",
+        ) from exc
