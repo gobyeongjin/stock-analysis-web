@@ -133,6 +133,11 @@ latest[FEATURES] = latest[FEATURES].replace(
     np.nan,
 )
 
+print("최신 거래일 종목 수:", len(latest))
+print("특징값별 결측치:")
+print(latest[FEATURES + ["Avg_Turnover_20D"]].isna().sum().to_string())
+print("거래대금 10억 이상 종목:", int((latest["Avg_Turnover_20D"] >= 1_000_000_000).sum()))
+
 valid = latest.dropna(
     subset=FEATURES + ["Avg_Turnover_20D"]
 ).copy()
