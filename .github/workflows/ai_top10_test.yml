@@ -89,6 +89,43 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
+      - name: Publish data to Render branch
+        if: github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          SOURCE="$GITHUB_WORKSPACE/analysis/ai_top10_recent_test.json"
+          CSV_SOURCE="$GITHUB_WORKSPACE/analysis/stock_data_500_recent.csv"
+          REPO_URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          test -s "$SOURCE"
+          test -s "$CSV_SOURCE"
+
+          mkdir -p /tmp/render-branch-publish
+          cd /tmp/render-branch-publish
+
+          git init
+          git remote add origin "$REPO_URL"
+          git fetch --depth=1 origin feature/postgresql-support
+          git checkout -b publish FETCH_HEAD
+
+          mkdir -p analysis
+          cp "$SOURCE" analysis/ai_top10.json
+          cp "$CSV_SOURCE" analysis/stock_data_deploy.csv
+
+          git add analysis/ai_top10.json analysis/stock_data_deploy.csv
+
+          if git diff --cached --quiet; then
+            echo "Render 배포 데이터 변경 없음"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update stock data for Render"
+            git push origin HEAD:feature/postgresql-support
+          fi
+
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
